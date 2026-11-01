@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Join</title>
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="./assets/icons/favicon-darkmode.svg"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Dancing+Script:wght@400..700&family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Pacifico&family=Raleway:ital,wght@0,100..900;1,100..900&family=Yanone+Kaffeesatz:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style/sidebar.css" />
+    <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="./style/standard.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTask.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskMobile.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskForm.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskFormMobile.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskPriority.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskPriorityMobile.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskAssigned.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskAssignedMobile.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskSubtasks.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskSubtasksMobile.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskUtils.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskUtilsMobile.css" />
+    <link rel="stylesheet" href="./style/summary.mobile.css" />
+
+    <!-- JS -->
+    <script src="script.js" defer></script>
+    <script src="./JS/templates/AddTaskTemplate.js" defer></script>
+    <script src="./JS/sidebar.js" defer></script>
+    <script src="./JS/header.js" defer></script>
+    <script
+      src="./JS/templates/taskDetailsandBoardTemplate.js"
+      defer
+    ></script>
+    <script src="./JS/boardandTask/taskDetail.js" defer></script>
+    <script src="./JS/boardandTask/board.core.js" defer></script>
+    <script src="./JS/addTask/addTaskAssigned.js" defer></script>
+    <script src="./JS/addTask/addTaskSubtasks.js" defer></script>
+    <script src="./JS/addTask/addTaskForm.js" defer></script>
+    <script src="./JS/addTask/addTask.js" defer></script>
+  </head>
+
+  <body class="bodyAddTask" onload="init()">
+    <div class="app">
+      <div id="sidebar-slot"></div>
+      <div id="header-slot"></div>
+
+      <main class="addTaskMain">
+        <div id="mainContent"></div>
+        <div id="app-canvas" class="canvas-area"></div>
+      </main>
+    </div>
+  </body>
+</html>

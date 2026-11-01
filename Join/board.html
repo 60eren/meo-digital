@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" ondragend="endTransformTask()">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board</title>
+    <link rel="icon" href="./assets/icons/favicon-lightmode.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
+    <link rel="icon" href="./assets/icons/favicon-darkmode.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+    <link rel="stylesheet" href="./style/standard.css" />
+    <link rel="stylesheet" href="./style/sidebar.css" />
+    <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="./style/board.css">
+    <link rel="stylesheet" href="./style/taskDetail.css">
+    <link rel="stylesheet" href="./style/boardMobile.css">
+
+    <link rel="stylesheet" href="./style/add-Task/addTask.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskForm.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskPriority.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskAssigned.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskSubtasks.css" />
+    <link rel="stylesheet" href="./style/add-Task/addTaskUtils.css" />
+
+    <link rel="stylesheet" href="./style/addTaskBoard.css">
+    <link rel="stylesheet" href="./style/editTaskBoard.css">
+</head>
+
+<body onload="boardInit()">
+    <div class="app">
+        <div id="sidebar-slot"></div>
+        <div id="header-slot"></div>
+        <main class="main">
+            <div id="app-canvas" class="canvas-area">
+                <section>
+                    <div class="addTaskContainer">
+                        <h1>Board</h1>
+                        <div class=" displayFLEX gap32px">
+                            <div class="searchBar whenMobile">
+                                <input id="searchInput" onkeyup="searchTask()" name="Search" placeholder="Find Task"
+                                    rows="1"></input>
+                                <img src="./assets/img/Search.svg" alt="Search">
+                            </div>
+                            <div onclick="selectEditOrAdd(0);opendialog('boardAddTask');init(); showExitButtonEditTask();clearForm()" class="ButtonBlueFilled boardAddTaskButton">Add
+                                Task <img src="./assets/img/add_white.svg" alt="+"></div>
+
+                            <div onclick="selectEditOrAdd(0);opendialog('boardAddTask');init(); showExitButtonEditTask();clearForm()" 
+                                class="ButtonBlueFilled boardAddTaskButtonMobile">
+                                <img src="./assets/img/add_white.svg" alt="+"></div>
+                        </div>
+                    </div>
+                    <div class="searchBarMobile">
+                        <div class="searchBar">
+                            <input id="searchInputMobile" onkeyup="searchTask()" name="Search" placeholder="Find Task"
+                                rows="1"></input>
+                            <img src="./assets/img/Search.svg" alt="Search">
+                        </div>
+                    </div>
+                </section>
+                <section class="tablecontainer">
+                    <table id="taskTableContent">
+
+                    </table>
+                </section>
+                <dialog id="allTaskDetails" class="allTaskDetails"
+                    onclick="closedialog('allTaskDetails'); storeSubtask()">
+
+                </dialog>
+                <dialog id="boardAddTask" onclick="closedialog('boardAddTask')">
+                    <main id ="boardAddTaskMain" onclick="event.stopPropagation()" class="addTaskMain">
+                    </main>
+                </dialog>
+                <dialog id="boardEditTask" onclick="closedialog('boardEditTask')">
+                    <main id="boardEditTaskMain" onclick="event.stopPropagation()" class="addTaskMain">
+                    </main>
+                </dialog>
+            </div>
+        </main>
+    </div>
+    <script src="./JS/sidebar.js"></script>
+    <script src="./JS/header.js"></script>
+    <script src="./JS/templates/taskDetailsandBoardTemplate.js"></script>
+    <script src="./JS/boardandTask/taskDetail.js"></script>
+    <script src="./JS/boardandTask/board.core.js"></script>
+    <script src="./JS/boardandTask/board.search.progress.js"></script>
+    <script src="./script.js"></script>
+    <script src="./JS/boardandTask/boardLoadingScreen.js"></script>
+    <script src="./JS/boardandTask/boardMobile.js"></script>
+    <script src="./JS/boardandTask/boardSaftyChecks.js"></script>
+    <script src="./JS/boardandTask/boardEditTask.js"></script>
+    <script src="./JS/boardandTask/board.card.ui.js"></script>
+
+    <script src="./JS/templates/AddTaskTemplate.js" defer></script>
+    <script src="./JS/addTask/addTaskAssigned.js" defer></script>
+    <script src="./JS/addTask/addTaskSubtasks.js" defer></script>
+    <script src="./JS/addTask/addTaskForm.js" defer></script>
+    <script src="./JS/addTask/addTask.js" defer></script>
+</body>
+</html>

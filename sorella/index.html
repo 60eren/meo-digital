@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Sorella Kosmetik</title>
+    <meta name="claude:viewport-fit-sides" content="cover" />
+    <meta
+      name="description"
+      content="Kosmetikstudio für Gesichtsbehandlungen, Wimpern, Maniküre und Massage."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Manrope:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="start">
+    <header class="site-header">
+      <div class="wrap nav">
+        <a
+          class="logo"
+          href="index.html"
+          aria-label="Sorella Kosmetik, zur Startseite"
+          ><b>Sorella</b><small>Kosmetik &amp; Hautpflege</small></a
+        >
+        <button
+          class="menu-btn"
+          type="button"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" data-nav="start">Start</a></li>
+          <li>
+            <a href="behandlungen.html" data-nav="behandlungen">Behandlungen</a>
+          </li>
+          <li><a href="ueber-uns.html" data-nav="ueber-uns">Über uns</a></li>
+          <li><a href="kontakt.html" data-nav="kontakt">Kontakt</a></li>
+          <li>
+            <a class="btn btn--small" href="kontakt.html">Termin buchen</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-text">
+            <span class="eyebrow rise">Kosmetikstudio in Dortmund</span>
+            <h1 class="rise" style="--d: 0.08s">
+              Haut, die sich <em>gut anfühlt.</em>
+            </h1>
+            <p class="lead rise" style="--d: 0.16s">
+              Gesichtsbehandlungen, Wimpern, Maniküre und Massagen mit Zeit für
+              Ihre Haut und ehrlicher Beratung. Ohne Verkaufsdruck, mit
+              Produkten, die wir selbst verwenden.
+            </p>
+            <div class="hero-actions rise" style="--d: 0.24s">
+              <a class="btn" href="kontakt.html"
+                >Termin buchen
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" /></svg
+              ></a>
+              <a class="btn btn--ghost" href="behandlungen.html"
+                >Behandlungen ansehen</a
+              >
+            </div>
+            <span
+              class="open-status rise"
+              style="--d: 0.32s"
+              data-open-status
+            ></span>
+          </div>
+          <div class="hero-media rise" style="--d: 0.12s">
+            <div class="ph" data-label="Foto: Behandlungsraum"></div>
+            <div class="hero-badge">
+              <strong>4,9 / 5</strong><span>aus 214 Google-Bewertungen</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <div class="values">
+            <div class="value">
+              <h3>Hautanalyse vor jeder Behandlung</h3>
+              <p>
+                Wir schauen genau hin, bevor wir behandeln, und erklären Ihnen,
+                was Ihre Haut braucht.
+              </p>
+            </div>
+            <div class="value">
+              <h3>Zertifizierte Kosmetikerinnen</h3>
+              <p>
+                Ausgebildet nach den Richtlinien des Bundesverbands, regelmäßig
+                fortgebildet.
+              </p>
+            </div>
+            <div class="value">
+              <h3>Hochwertige Pflege</h3>
+              <p>
+                Dermatologisch getestete Produkte, frei von Mikroplastik und
+                Mineralöl.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Beliebt bei unseren Kundinnen</span>
+            <h2>Drei Behandlungen, mit denen viele anfangen</h2>
+          </div>
+          <div class="featured">
+            <a class="feat" href="kontakt.html" data-book="klassik">
+              <div class="ph" data-label="Foto: Gesichtsbehandlung"></div>
+              <div class="feat-meta">
+                <h3>Klassische Gesichtsbehandlung</h3>
+                <span>ab 79 €</span>
+              </div>
+              <p>
+                Reinigung, Peeling, Ausreinigung und Maske. 75 Minuten nur für
+                Ihre Haut.
+              </p>
+            </a>
+            <a class="feat" href="kontakt.html" data-book="hydra">
+              <div class="ph ph--sage" data-label="Foto: Hydra-Facial"></div>
+              <div class="feat-meta">
+                <h3>Hydra-Facial</h3>
+                <span>ab 119 €</span>
+              </div>
+              <p>
+                Tiefenreinigung mit Feuchtigkeitsinfusion. Frischer Teint ohne
+                Ausfallzeit.
+              </p>
+            </a>
+            <a class="feat" href="kontakt.html" data-book="lash-lift">
+              <div class="ph ph--sand" data-label="Foto: Wimpernlifting"></div>
+              <div class="feat-meta">
+                <h3>Wimpernlifting</h3>
+                <span>ab 65 €</span>
+              </div>
+              <p>
+                Natürlicher Schwung inklusive Färben, der sechs bis acht Wochen
+                hält.
+              </p>
+            </a>
+          </div>
+          <p style="margin-top: 36px">
+            <a class="btn btn--ghost" href="behandlungen.html"
+              >Alle Behandlungen und Preise
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" /></svg
+            ></a>
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--tint">
+        <div class="wrap reviews">
+          <div class="section-head" style="margin-bottom: 0">
+            <span class="eyebrow">Das sagen unsere Kundinnen</span>
+            <h2>Echte Erfahrungen aus dem Studio</h2>
+            <div class="review-controls">
+              <button
+                class="arrow-btn"
+                type="button"
+                data-review-prev
+                aria-label="Vorherige Bewertung"
+              >
+                <svg viewBox="0 0 24 24">
+                  <path d="M19 12H5M11 6l-6 6 6 6" />
+                </svg>
+              </button>
+              <button
+                class="arrow-btn"
+                type="button"
+                data-review-next
+                aria-label="Nächste Bewertung"
+              >
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </button>
+              <div style="display: flex; gap: 8px" data-review-dots></div>
+            </div>
+          </div>
+          <div class="review-stage" data-reviews aria-live="polite">
+            <figure class="review" style="margin: 0">
+              <span class="stars" aria-label="5 von 5 Sternen">★★★★★</span>
+              <blockquote>
+                Ich war wegen meiner unreinen Haut skeptisch. Nach drei
+                Behandlungen und einem klaren Pflegeplan sieht meine Haut so gut
+                aus wie seit Jahren nicht.
+              </blockquote>
+              <cite>Laura K., Kundin seit 2024</cite>
+            </figure>
+            <figure class="review" style="margin: 0">
+              <span class="stars" aria-label="5 von 5 Sternen">★★★★★</span>
+              <blockquote>
+                Ruhige Atmosphäre, pünktlich und unglaublich gründlich. Man
+                merkt, dass hier niemand auf die Uhr schaut.
+              </blockquote>
+              <cite>Sabine M., Hydra-Facial</cite>
+            </figure>
+            <figure class="review" style="margin: 0">
+              <span class="stars" aria-label="5 von 5 Sternen">★★★★★</span>
+              <blockquote>
+                Das Wimpernlifting hält wirklich acht Wochen. Die Online-Buchung
+                ist super einfach, ich bekomme immer einen Termin nach der
+                Arbeit.
+              </blockquote>
+              <cite>Aylin D., Wimpernlifting</cite>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="wrap">
+          <h2>Ihr erster Termin in zwei Minuten gebucht.</h2>
+          <a class="btn" href="kontakt.html"
+            >Jetzt Termin wählen
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" /></svg
+          ></a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <a class="logo" href="index.html"
+              ><b>Sorella</b><small>Kosmetik &amp; Hautpflege</small></a
+            >
+            <p style="margin-top: 14px; max-width: 34ch">
+              Professionelle Kosmetik mit Zeit, Ruhe und ehrlicher Beratung.
+              Musterstraße 12, 44135 Dortmund.
+            </p>
+          </div>
+          <div>
+            <h4>Seiten</h4>
+            <ul>
+              <li><a href="index.html">Start</a></li>
+              <li><a href="behandlungen.html">Behandlungen &amp; Preise</a></li>
+              <li><a href="ueber-uns.html">Über uns</a></li>
+              <li><a href="kontakt.html">Termin &amp; Kontakt</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Kontakt</h4>
+            <ul>
+              <li>0231 123 456 78</li>
+              <li>hallo@sorella-kosmetik.de</li>
+              <li><span class="open-status" data-open-status></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span data-year></span> Sorella Kosmetik · Demo-Website</span>
+          <span
+            ><a href="#impressum">Impressum</a> ·
+            <a href="#datenschutz">Datenschutz</a></span
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

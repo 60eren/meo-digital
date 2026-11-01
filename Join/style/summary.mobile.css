@@ -1,0 +1,303 @@
+
+@media (max-width: 1024px) {
+  .main {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .canvas-area {
+    padding: 40px 24px 48px 24px;
+    overflow: visible;
+    box-sizing: border-box;
+  }
+
+  .summaryGreeting {
+    display: none;
+  }
+
+  .greeting-overlay {
+    position: fixed;
+    top: var(--header-h);
+    left: var(--sidebar-w);
+    width: calc(100vw - var(--sidebar-w));
+    height: calc(100vh - var(--header-h));
+    background: var(--GlobalBackgroundWhite);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+  }
+
+  .greeting-overlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .greeting-overlay .greetLine {
+    display: block;
+    font-size: 47px;
+    font-weight: 500;
+    line-height: 120%;
+    color: var(--GlobalDarkBlue);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .greeting-overlay .greetName {
+    display: block;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 120%;
+    color: var(--GlobalLightBlue);
+    text-align: center;
+  }
+
+  .summaryCard:is(:hover, :active, :focus-visible, .is-pressed) {
+    transform: translateY(-1px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.12);
+    background: var(--GlobalDarkblue);
+    color: #fff;
+  }
+
+  .summaryCard:is(:hover, :active, :focus-visible, .is-pressed) .summaryNumber,
+  .summaryCard:is(:hover, :active, :focus-visible, .is-pressed) .summaryLabel,
+  .summaryCard:is(:hover, :active, :focus-visible, .is-pressed) .urgentLabel,
+  .summaryCard:is(:hover, :active, :focus-visible, .is-pressed) .deadlineDate,
+  .summaryCard:is(:hover, :active, :focus-visible, .is-pressed) .deadlineLabel {
+    color: #fff;
+  }
+
+  .summaryCard:is(:hover, :active, :focus-visible, .is-pressed) .summaryIconCircle {
+    background: #fff;
+  }
+
+  .summaryCard--wide:is(:hover, :active, :focus-visible, .is-pressed) .summaryIconCircle img[src$="pen.svg"] {
+    content: url("../assets/icons/pen-hover.svg");
+  }
+
+  .summaryCard--wide:is(:hover, :active, :focus-visible, .is-pressed) .summaryIconCircle img[src$="check.svg"] {
+    content: url("../assets/icons/check-hover.svg");
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .canvas-area {
+    padding: 32px 16px 100px 16px;
+    overflow: visible;
+    box-sizing: border-box;
+  }
+
+
+  .summaryHeadline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 0;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 396px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .summaryHeadline h1 {
+    font-size: 47px;
+    line-height: 120%;
+    margin: 0 0 0 0;
+    width: 100%;
+    order: 1;
+  }
+
+  .summarySubheadline {
+    font-size: 20px;
+    line-height: 120%;
+    color: #2A3647;
+    order: 2;
+  }
+
+  .summaryDivider {
+    display: block;
+    width: 90px;
+    height: 3px;
+    background: #29ABE2;
+    margin: 0;
+    padding: 0;
+    order: 3;
+  }
+
+
+  .summaryGrid {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .summaryCards {
+    width: 100%;
+    max-width: 396px;
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    margin-bottom: 60px;
+    overflow: visible;
+  }
+
+
+  .summaryRow {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .summaryRow--3 {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+
+  .summaryCard {
+    border-radius: 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .summaryCard--wide {
+    width: auto;
+    min-width: 0;
+    height: 110px;
+    gap: 10px;
+    padding: 38px 19px;
+    flex: 1 1 0;
+  }
+
+  .summaryCard--full {
+    width: 100%;
+    max-width: 396px;
+    height: 110px;
+    padding: 28px 20px;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .summaryCard--square {
+    width: auto;
+    min-width: 0;
+    height: 116px;
+    padding: 25px 0;
+    flex: 1 1 0;
+  }
+
+
+  .summaryIconCircle {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+  }
+
+  .summaryIconCircle img {
+    width: 40px;
+    height: 40px;
+  }
+
+
+  .summaryNumber {
+    font-size: 47px;
+    font-weight: 600;
+    line-height: 120%;
+  }
+
+  .summaryLabel {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    color: #2A3647;
+  }
+
+  .summaryCardText {
+    gap: 10px;
+  }
+
+
+  .urgentLeft {
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .urgentBlock {
+    gap: 18px;
+  }
+
+  .urgentCircle {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+  }
+
+  .urgentCircle img {
+    width: 22.79px;
+    height: 16.74px;
+  }
+
+  .urgentText {
+    gap: 0;
+  }
+
+  .urgentLabel {
+    font-size: 16px;
+    line-height: 120%;
+    color: #2A3647;
+  }
+
+  .urgentDivider {
+    width: 2px;
+    height: 68px;
+    border-left: 2px solid #D1D1D1;
+    margin: 0 10px;
+  }
+
+  .deadlineText {
+    gap: 8px;
+  }
+
+  .deadlineDate {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 120%;
+    color: #2A3647;
+  }
+
+  .deadlineLabel {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    color: #2A3647;
+  }
+
+
+  .summarySquareInner {
+    gap: 13px;
+  }
+
+  .greeting-overlay {
+    top: 80px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 80px - 80px);
+  }
+}

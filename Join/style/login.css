@@ -1,0 +1,101 @@
+/* Logo Animation */
+
+.logoAnimation {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--GlobalBackgroundWhite);
+  animation: bgFade 900ms linear forwards;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.logoWrapper {
+  position: relative;
+  height: 330px;
+  animation: logoMove 900ms ease-in-out forwards;
+}
+
+.logoWrapper .logoDark,
+.logoWrapper .logoWhite {
+  height: 100%;
+}
+
+.logoWrapper .logoWhite {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+@keyframes bgFade {
+  to {
+    background-color: transparent;
+  }
+}
+
+@keyframes logoMove {
+  to {
+    height: 120px;
+    translate: max(calc(-50vw + 129px), -591px) calc(-50vh + 140px);
+  }
+}
+
+.logoAnimation.skipAnimation {
+  animation: none;
+  background-color: transparent;
+  position: absolute;
+  inset: unset;
+  top: 80px;
+  left: 80px;
+  display: block;
+  z-index: 1;
+}
+
+.logoAnimation.skipAnimation .logoWrapper {
+  animation: none;
+  height: 120px;
+  translate: none;
+}
+
+/* Login Page – Layout */
+
+h1 {
+  text-align: center;
+}
+
+.loginNav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding: 48px;
+  margin-top: 22px;
+  margin-right: 22px;
+}
+
+.loginNewUserWrapper {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  line-height: 120%;
+  gap: 16px;
+}
+
+.loginNewUserWrapper .ButtonBlueFilled {
+  padding: 16px;
+  text-decoration: none;
+}
+
+.loginButtonsWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+
+.loginCard .ButtonBlueFilled {
+  padding: 12px 24px;
+}

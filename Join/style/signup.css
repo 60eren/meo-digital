@@ -1,0 +1,105 @@
+/* Sign-up Page */
+
+.signupCardHeader h1 {
+  flex: 1;
+  text-align: center;
+}
+
+.contentWrapper .loginCard {
+  position: relative;
+  padding: 48px 88px;
+}
+
+.signupLogo {
+  position: absolute;
+  top: 80px;
+  left: 80px;
+  height: 120px;
+}
+
+.signupCardHeader {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.signupBackArrow {
+  position: absolute;
+  top: 52px;
+  left: 32px;
+  text-decoration: none;
+  transition: 100ms;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.signupBackArrow img {
+  height: 32px;
+}
+
+.signupBackArrow:hover {
+  transform: scale(1.1);
+ }
+
+
+.signupCheckboxWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Custom checkbox with Figma SVGs */
+.signupCheckbox {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.signupCheckboxBox {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background: url('../assets/icons/checkbox/checkbox-unchecked.svg') center / contain no-repeat;
+  transition: background-image 300ms ease-out;
+}
+
+.signupCheckboxWrapper:hover .signupCheckboxBox {
+  background-image: url('../assets/icons/checkbox/checkbox-unchecked-hover-disable.svg');
+}
+
+.signupCheckbox:checked + .signupCheckboxBox {
+  background-image: url('../assets/icons/checkbox/checkbox-checked.svg');
+}
+
+.signupCheckboxWrapper:hover .signupCheckbox:checked + .signupCheckboxBox {
+  background-image: url('../assets/icons/checkbox/checkbox-checked-hover.svg');
+}
+
+.signupCheckbox:focus-visible + .signupCheckboxBox {
+  outline: 3px solid #3c4043;
+  outline-offset: 3px;
+}
+
+.signupPrivacyLink {
+  color: var(--GlobalLightBlue);
+  text-decoration: none;
+  cursor: pointer;
+  transition: 100ms;
+}
+
+.signupPrivacyLink:hover {
+  font-weight: 700;
+}
+
+.signupButtonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.signupButtonWrapper .ButtonBlueFilled {
+  padding: 12px 24px;
+}

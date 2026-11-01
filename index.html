@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MEO Digital – Webdesign für kleine Unternehmen in [Stadt]</title>
+    <meta
+      name="description"
+      content="Moderne, sichere Websites mit KI-Chat-Assistent für Läden, Handwerker und kleine Betriebe in [Stadt]. Persönlich, schnell und zum Festpreis."
+    />
+    <meta name="theme-color" content="#fafaf8" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+    <!-- Aktiviert Scroll-Animationen nur, wenn JavaScript läuft -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
+    <!-- Strukturierte Daten für Google (lokales Unternehmen) – Platzhalter ersetzen -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "MEO Digital",
+        "founder": "Muhammed Eren Özkan",
+        "url": "https://meodigital.de",
+        "email": "info@meodigital.de",
+        "telephone": "[+49 ...]",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "[Straße Nr.]",
+          "postalCode": "[PLZ]",
+          "addressLocality": "[Stadt]",
+          "addressCountry": "DE"
+        },
+        "areaServed": "[Stadt] und Umgebung"
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+    <!-- ============ HEADER / NAVIGATION ============ -->
+    <header class="site-header">
+      <div class="scroll-progress" aria-hidden="true"></div>
+      <div class="container header-inner">
+        <a href="#" class="logo" title="MEO Digital – zur Startseite">
+          <img
+            src="img/logo/meo-logo.svg"
+            alt="MEO Digital"
+            width="88"
+            height="32"
+          />
+        </a>
+
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span class="visually-hidden">Menü öffnen</span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+
+        <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation">
+          <ul>
+            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#ueber-mich">Über mich</a></li>
+            <li><a href="#referenzen">Referenzen</a></li>
+            <li><a href="#preise">Preise</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#kontakt" class="btn btn-small">Erstgespräch</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ============ 1. HERO (mit animiertem Hintergrund) ============ -->
+      <section class="hero">
+        <!-- Bewegter Hintergrund: weiche Farbflächen + Netzwerk-Animation (script.js) -->
+        <div class="hero-bg" aria-hidden="true">
+          <span class="blob blob-1"></span>
+          <span class="blob blob-2"></span>
+          <span class="blob blob-3"></span>
+          <canvas id="hero-canvas"></canvas>
+          <div class="hero-grain"></div>
+        </div>
+
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <p class="pill reveal">
+              <span class="pill-dot"></span>Termine frei
+            </p>
+            <h1 class="reveal" style="--d: 0.08s">
+              Websites, die <span class="text-gradient">Kunden</span> in Ihren
+              Laden bringen.
+            </h1>
+            <p class="lead reveal" style="--d: 0.16s">
+              Modern gestaltet, sicher gebaut und auf Wunsch mit KI-Assistent –
+              persönlich umgesetzt zum Festpreis.
+            </p>
+            <div class="hero-actions reveal" style="--d: 0.24s">
+              <a href="#kontakt" class="btn">Kostenloses Erstgespräch</a>
+              <a href="#leistungen" class="btn btn-ghost">Leistungen ansehen</a>
+            </div>
+          </div>
+
+          <!-- Browser-Mockup. Später durch Screenshot deines besten Projekts ersetzen -->
+          <div class="hero-visual reveal" style="--d: 0.2s" aria-hidden="true">
+            <div class="browser">
+              <div class="browser-bar">
+                <i></i><i></i><i></i><span>meodigital.de</span>
+              </div>
+              <div class="browser-body">
+                <div class="wf-nav">
+                  <b></b><span></span><span></span><span></span>
+                </div>
+                <div class="wf-hero">
+                  <div class="wf-lines">
+                    <b></b><b></b><span></span><em></em>
+                  </div>
+                  <div class="wf-img"></div>
+                </div>
+                <div class="wf-cards">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="float-chip chip-1">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"
+                />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+              SSL-gesichert
+            </div>
+            <div class="float-chip chip-2">
+              <svg viewBox="0 0 24 24">
+                <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
+              </svg>
+              Lighthouse 98
+            </div>
+            <div class="float-chip chip-3 chip-chat">
+              <span class="chat-avatar">KI</span>
+              <span
+                ><small>Assistent</small>Wir haben heute bis 18 Uhr
+                geöffnet!</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 2. LAUFBAND ============ -->
+      <section class="marquee" aria-label="Ihre Vorteile">
+        <div class="marquee-track">
+          <ul>
+            <li>Festpreis ohne Überraschungen</li>
+            <li>KI-Chat-Assistent</li>
+            <li>Sicherheit als Basis</li>
+            <li>Optimiert für Smartphones</li>
+            <li>Ein persönlicher Ansprechpartner</li>
+            <li>Online in 2–3 Wochen</li>
+          </ul>
+          <ul aria-hidden="true">
+            <li>Festpreis ohne Überraschungen</li>
+            <li>KI-Chat-Assistent</li>
+            <li>Sicherheit als Basis</li>
+            <li>Optimiert für Smartphones</li>
+            <li>Ein persönlicher Ansprechpartner</li>
+            <li>Online in 2–3 Wochen</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ 3. PROBLEM ============ -->
+      <section class="section">
+        <div class="container narrow center">
+          <p class="eyebrow reveal">Warum eine Website?</p>
+          <h2 class="reveal" style="--d: 0.06s">
+            Ihre Kunden suchen Sie auf dem Handy.
+          </h2>
+          <p class="lead reveal" style="--d: 0.12s">
+            Die meisten suchen lokale Geschäfte mobil – Öffnungszeiten, Angebot,
+            Anfahrt. Finden sie keine gute Website, gehen sie zur Konkurrenz.
+          </p>
+          <div class="stats reveal" style="--d: 0.18s">
+            <div>
+              <strong>24/7</strong
+              ><span>erreichbar – auch wenn Ihr Laden geschlossen ist</span>
+            </div>
+            <div>
+              <strong>&lt; 3 s</strong
+              ><span>Ladezeit – sonst springen Besucher ab</span>
+            </div>
+            <div>
+              <strong>1</strong
+              ><span>fester Ansprechpartner von Anfang bis Ende</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 4. LEISTUNGEN – WAS ICH BAUE ============ -->
+      <section id="leistungen" class="section section-soft">
+        <div class="container">
+          <div class="section-head center">
+            <p class="eyebrow reveal">Leistungen</p>
+            <h2 class="reveal" style="--d: 0.06s">Was ich für Sie baue</h2>
+            <p class="reveal" style="--d: 0.12s">
+              Alles, was eine moderne Website heute braucht – aus einer Hand.
+            </p>
+          </div>
+
+          <div class="services">
+            <article class="service reveal">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="14" rx="2" />
+                  <path d="M8 21h8M12 18v3" />
+                  <path d="M7 9h6M7 12h10" />
+                </svg>
+              </div>
+              <h3>Individuelles Design</h3>
+              <p>
+                Kein Baukasten-Look: ein Design, das zu Ihrem Geschäft passt –
+                auf Handy, Tablet und Desktop.
+              </p>
+            </article>
+
+            <article class="service service-feature reveal" style="--d: 0.08s">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3z"
+                  />
+                  <path
+                    d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"
+                  />
+                </svg>
+              </div>
+              <h3>KI-Chat-Assistent</h3>
+              <p>
+                Beantwortet häufige Kundenfragen rund um die Uhr – zu
+                Öffnungszeiten, Leistungen und Preisen. Ohne Speicherung von
+                Chatverläufen.
+              </p>
+              <span class="tag">Neu</span>
+            </article>
+
+            <article class="service reveal" style="--d: 0.16s">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"
+                  />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+              </div>
+              <h3>Sicherheit als Basis</h3>
+              <p>
+                HTTPS, geschützte Formulare, Spamschutz, sichere Updates und
+                Backups – umgesetzt mit Cybersecurity-Know-how.
+              </p>
+            </article>
+
+            <article class="service reveal">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="M21 21l-4.5-4.5" />
+                </svg>
+              </div>
+              <h3>Bei Google gefunden</h3>
+              <p>
+                Saubere Technik, lokale Suchmaschinenoptimierung und Einrichtung
+                Ihres Google-Unternehmensprofils.
+              </p>
+            </article>
+
+            <article class="service reveal" style="--d: 0.08s">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
+                </svg>
+              </div>
+              <h3>Schnell &amp; mobil</h3>
+              <p>
+                Optimiert auf kurze Ladezeiten und Smartphones – denn dort
+                suchen Ihre Kunden.
+              </p>
+            </article>
+
+            <article class="service reveal" style="--d: 0.16s">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 20h4L19 9l-4-4L4 16v4z" />
+                  <path d="M13.5 6.5l4 4" />
+                </svg>
+              </div>
+              <h3>Selbst pflegen</h3>
+              <p>
+                Öffnungszeiten, Texte oder Bilder ändern Sie einfach selbst. Ich
+                zeige Ihnen, wie es geht.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== MEO – Über-mich-Abschnitt ===== -->
+      <!-- Komplett an die gewünschte Stelle kopieren (HTML + Style + Script). Alles ist auf .meo-about begrenzt. -->
+
+      <section class="meo-about" id="ueber-mich">
+        <div class="meo-bg" aria-hidden="true">
+          <div class="meo-grid-pattern"></div>
+          <div class="meo-orb meo-orb--1"></div>
+          <div class="meo-orb meo-orb--2"></div>
+        </div>
+
+        <div class="meo-container">
+          <header class="meo-head">
+            <span class="meo-eyebrow meo-reveal"
+              ><span class="meo-dot"></span>Über MEO</span
+            >
+            <h2 class="meo-reveal" style="--d: 0.1s">
+              Websites, die <span class="meo-gradient-text">überzeugen</span
+              ><br />und geschützt sind.
+            </h2>
+            <p class="meo-lead meo-reveal" style="--d: 0.2s">
+              MEO steht für <strong>Muhammed Eren Özkan</strong>. Ich entwickle
+              moderne Websites für Unternehmen, mit einem klaren Fokus auf
+              Qualität, Sicherheit und Verlässlichkeit.
+            </p>
+          </header>
+
+          <div class="meo-cards">
+            <article class="meo-card meo-reveal" style="--d: 0.1s">
+              <div class="meo-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+              <h3>Ein fester Ansprechpartner</h3>
+              <p>
+                Keine wechselnden Zuständigkeiten, keine Warteschleifen. Sie
+                sprechen von der ersten Idee bis zur Veröffentlichung immer mit
+                mir. Anfragen beantworte ich innerhalb von 24 Stunden.
+              </p>
+            </article>
+
+            <article
+              class="meo-card meo-card--highlight meo-reveal"
+              style="--d: 0.2s"
+            >
+              <div class="meo-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path class="meo-check" d="m9 12 2 2 4-4" />
+                </svg>
+              </div>
+              <h3>Sicherheit von Anfang an</h3>
+              <p>
+                Als Student der IT-Sicherheit an der Ruhr-Universität Bochum
+                weiß ich, wo Websites angreifbar sind. Dieses Wissen fließt in
+                jedes Projekt ein: von verschlüsselten Verbindungen bis zu
+                geschützten Formularen.
+              </p>
+            </article>
+
+            <article class="meo-card meo-reveal" style="--d: 0.3s">
+              <div class="meo-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="16" rx="2" />
+                  <path d="M7 9h10M7 13h6" />
+                </svg>
+              </div>
+              <h3>Klare Preise</h3>
+              <p>
+                Sie erhalten vor Projektbeginn ein verbindliches
+                Festpreisangebot. Keine versteckten Kosten, keine
+                Überraschungen.
+              </p>
+            </article>
+          </div>
+
+          <div class="meo-skills meo-reveal">
+            <h3>Kompetenzen</h3>
+            <ul>
+              <li style="--i: 0">HTML</li>
+              <li style="--i: 1">CSS</li>
+              <li style="--i: 2">JavaScript</li>
+              <li style="--i: 3">TypeScript</li>
+              <li style="--i: 4">Python</li>
+              <li style="--i: 5" class="meo-chip--accent">Web-Sicherheit</li>
+              <li style="--i: 6" class="meo-chip--accent">
+                Sichere Entwicklung
+              </li>
+            </ul>
+          </div>
+
+          <div class="meo-cta meo-reveal">
+            <a href="#kontakt" class="meo-btn">
+              <span>Kostenloses Erstgespräch vereinbaren</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 6. REFERENZEN ============ -->
+      <section id="referenzen" class="section section-soft">
+        <div class="container">
+          <div class="section-head center">
+            <p class="eyebrow reveal">Referenzen</p>
+            <h2 class="reveal" style="--d: 0.06s">Ausgewählte Projekte</h2>
+          </div>
+
+          <div class="projects">
+            <!-- Bild ersetzen: -->
+            <article class="project-card reveal">
+              <a href="referenzen/join.html" class="project-link">
+                <div class="project-img" aria-hidden="true">
+                  <img
+                    src="img/logo/joinIMG.png"
+                    alt="Kanban-Board der Web-App Join"
+                    width="1200"
+                    height="800"
+                  />
+                </div>
+                <div class="project-body">
+                  <p class="project-tag">Web-App · Eigenes Projekt</p>
+                  <h3>Join</h3>
+                  <p>
+                    Aufgabenverwaltung mit Kanban-Board, damit Teams
+                    strukturiert und einheitlich arbeiten.
+                  </p>
+                  <span class="link-arrow">Fallstudie ansehen</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- Bild ersetzen: <img src="img/sorella.webp" alt="Startseite der Demo-Website Sorella Kosmetik" width="1200" height="800"> -->
+            <article class="project-card reveal" style="--d: 0.08s">
+              <a href="referenzen/sorella.html" class="project-link">
+                <div class="project-img img-2" aria-hidden="true">
+                  <img
+                    src="../img/logo/sorellaIMG.png"
+                    alt="Startseite der Demo-Website Sorella Kosmetik auf Laptop und Smartphone"
+                    width="1200"
+                    height="800"
+                  />
+                </div>
+                <div class="project-body">
+                  <p class="project-tag">Kosmetikstudio · Konzeptprojekt</p>
+                  <h3>Sorella Kosmetik</h3>
+                  <p>
+                    Mehrseitige Website mit Online-Terminbuchung und Preisliste
+                    zum Filtern.
+                  </p>
+                  <span class="link-arrow">Fallstudie ansehen</span>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 7. PREISE ============ -->
+      <section id="preise" class="section">
+        <div class="container">
+          <div class="section-head center">
+            <p class="eyebrow reveal">Preise</p>
+            <h2 class="reveal" style="--d: 0.06s">Pakete zum Festpreis</h2>
+            <p class="reveal" style="--d: 0.12s">
+              Klar kalkuliert – Sie wissen vorher genau, was Sie bekommen.
+            </p>
+          </div>
+
+          <div class="pricing">
+            <article class="price-card reveal">
+              <h3>Start</h3>
+              <p class="price"><span>ab</span> 500&nbsp;€</p>
+              <p class="price-desc">Der perfekte Einstieg für kleine Läden.</p>
+              <ul class="check-list">
+                <li>One-Page-Website</li>
+                <li>Optimiert für Handy &amp; Tablet</li>
+                <li>Kontaktformular &amp; Karte</li>
+                <li>Sicherheits-Grundpaket</li>
+                <li>2 Korrekturschleifen</li>
+              </ul>
+              <a href="#kontakt" class="btn btn-ghost btn-block">Anfragen</a>
+            </article>
+
+            <article class="price-card featured reveal" style="--d: 0.08s">
+              <p class="badge">Beliebt</p>
+              <h3>Business</h3>
+              <p class="price"><span>ab</span> 1.200&nbsp;€</p>
+              <p class="price-desc">Für Betriebe, die mehr zeigen wollen.</p>
+              <ul class="check-list">
+                <li>Bis zu 6 Unterseiten</li>
+                <li>Inhalte selbst bearbeiten (CMS)</li>
+                <li>Google-Grundoptimierung</li>
+                <li>Optional: KI-Assistent</li>
+                <li>3 Korrekturschleifen</li>
+              </ul>
+              <a href="#kontakt" class="btn btn-block">Anfragen</a>
+            </article>
+
+            <article class="price-card reveal" style="--d: 0.16s">
+              <h3>Betreuung</h3>
+              <p class="price">
+                <span>ab</span> 29&nbsp;€ <small>/ Monat</small>
+              </p>
+              <p class="price-desc">Sorgenfrei – ich kümmere mich.</p>
+              <ul class="check-list">
+                <li>Hosting in Deutschland</li>
+                <li>Sicherheits-Updates</li>
+                <li>Tägliche Backups</li>
+                <li>Kleine Änderungen inklusive</li>
+                <li>Monatlich kündbar</li>
+              </ul>
+              <a href="#kontakt" class="btn btn-ghost btn-block">Anfragen</a>
+            </article>
+          </div>
+
+          <!-- Rechtlicher Hinweis: Als Kleinunternehmer diesen Satz verwenden, sonst „inkl. MwSt.“ angeben -->
+          <p class="footnote center">
+            Alle Preise sind Endpreise. Gemäß §&nbsp;19&nbsp;UStG wird keine
+            Umsatzsteuer berechnet.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ KUNDENSTIMMEN ============
+         Erst einbauen, wenn echte Bewertungen vorliegen. Niemals erfinden!
+    <section class="section section-soft">
+      <div class="container narrow center">
+        <blockquote class="testimonial">
+          <p>„Zitat des Kunden …“</p>
+          <footer>— Name, Firma</footer>
+        </blockquote>
+      </div>
+    </section>
+    -->
+
+      <!-- ============ 8. FAQ ============ -->
+      <section id="faq" class="section section-soft">
+        <div class="container narrow">
+          <div class="section-head center">
+            <p class="eyebrow reveal">FAQ</p>
+            <h2 class="reveal" style="--d: 0.06s">Häufige Fragen</h2>
+          </div>
+
+          <div class="faq reveal" style="--d: 0.1s">
+            <details>
+              <summary>Was kostet eine Website?</summary>
+              <p>
+                Eine One-Page-Website gibt es ab 500&nbsp;€, mehrseitige
+                Websites ab 1.200&nbsp;€. Nach dem Erstgespräch bekommen Sie ein
+                verbindliches Festpreis-Angebot.
+              </p>
+            </details>
+            <details>
+              <summary>Wie lange dauert es?</summary>
+              <p>
+                In der Regel 2–3 Wochen – abhängig davon, wie schnell Texte und
+                Fotos vorliegen.
+              </p>
+            </details>
+            <details>
+              <summary>Was bringt mir ein KI-Assistent?</summary>
+              <p>
+                Er beantwortet häufige Kundenfragen automatisch – auch nachts
+                und am Wochenende. Sie sparen Zeit am Telefon, und Ihre Kunden
+                bekommen sofort eine Antwort. Der Assistent antwortet auf Basis
+                Ihrer Informationen – Termine bucht er nicht selbst, kann aber
+                auf Ihr Buchungstool verlinken.
+              </p>
+            </details>
+            <details>
+              <summary>Wie sicher ist meine Website?</summary>
+              <p>
+                Jede Website bekommt HTTPS, geschützte Formulare und Spamschutz.
+                Mit dem Betreuungspaket kümmere ich mich zusätzlich um Updates
+                und Backups.
+              </p>
+            </details>
+            <details>
+              <summary>Kann ich Inhalte selbst ändern?</summary>
+              <p>
+                Ja, im Business-Paket. Öffnungszeiten, Texte oder Bilder ändern
+                Sie einfach selbst. Ich zeige Ihnen, wie es geht.
+              </p>
+            </details>
+            <details>
+              <summary>Was muss ich liefern?</summary>
+              <p>
+                Ihr Logo (falls vorhanden), Fotos und Infos zu Ihrem Angebot.
+                Bei Texten helfe ich gern.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 9. KONTAKT ============ -->
+      <section id="kontakt" class="section">
+        <div class="container contact">
+          <div class="contact-text">
+            <p class="eyebrow reveal">Kontakt</p>
+            <h2 class="reveal" style="--d: 0.06s">
+              Lassen Sie uns über Ihr Projekt sprechen.
+            </h2>
+            <p class="reveal" style="--d: 0.12s">
+              Das Erstgespräch ist kostenlos und unverbindlich. Ich antworte
+              innerhalb von 24 Stunden.
+            </p>
+            <ul class="contact-list reveal" style="--d: 0.18s">
+              <li>
+                <span>Telefon</span>
+                <a href="tel:+49XXXXXXXXX">+49 157 75003568</a>
+              </li>
+              <li>
+                <span>E-Mail</span>
+                <a href="mailto:info@meodigital.de">erenoezkan60@gmail.com</a>
+              </li>
+              <li><span>LinkedIN</span> Eren Özkan</li>
+            </ul>
+          </div>
+
+          <form
+            class="contact-form reveal"
+            style="--d: 0.1s"
+            action="kontakt.php"
+            method="post"
+          >
+            <div class="field">
+              <label for="name">Name *</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="email">E-Mail *</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="telefon">Telefon</label>
+              <input
+                id="telefon"
+                name="telefon"
+                type="tel"
+                autocomplete="tel"
+              />
+            </div>
+            <div class="field">
+              <label for="nachricht">Ihre Nachricht *</label>
+              <textarea
+                id="nachricht"
+                name="nachricht"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Honeypot gegen Spam-Bots: für Menschen unsichtbar -->
+            <div class="hp" aria-hidden="true">
+              <label for="website">Website</label>
+              <input
+                id="website"
+                name="website"
+                type="text"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
+            <p class="form-note">
+              Ihre Angaben werden nur zur Bearbeitung Ihrer Anfrage verwendet.
+              Mehr in der <a href="datenschutz.html">Datenschutzerklärung</a>.
+            </p>
+            <button type="submit" class="btn btn-block">Anfrage senden</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ============ ABLAUF (derzeit ausgeblendet – zum Einblenden die Kommentarzeichen entfernen) ============
+    <section id="ablauf" class="section section-soft">
+      <div class="container">
+        <div class="section-head center">
+          <p class="eyebrow">Ablauf</p>
+          <h2>In 4 Schritten zur neuen Website</h2>
+        </div>
+        <ol class="steps">
+          <li><h3>Erstgespräch</h3><p>Kostenlos und unverbindlich. Wir klären, was Sie brauchen.</p></li>
+          <li><h3>Entwurf</h3><p>Sie erhalten einen Designentwurf und ein Festpreis-Angebot.</p></li>
+          <li><h3>Umsetzung</h3><p>Ich baue Ihre Website. Sie geben Feedback, ich passe an.</p></li>
+          <li><h3>Online</h3><p>Ihre Website geht live. Ich bleibe Ihr Ansprechpartner.</p></li>
+        </ol>
+      </div>
+    </section>
+    --></main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="logo">
+          <img
+            src="img/logo/meo-logo.svg"
+            alt="MEO Digital"
+            width="88"
+            height="32"
+          />
+        </p>
+        <nav aria-label="Rechtliches">
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </nav>
+        <p class="copyright">
+          © <span id="year">2026</span> MEO Digital – Muhammed Eren Özkan
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

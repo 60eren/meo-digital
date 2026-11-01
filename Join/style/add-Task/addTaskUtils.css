@@ -1,0 +1,68 @@
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: -100px;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  background-color: rgba(42, 54, 71, 1);
+  color: white;
+
+  padding: 20px 28px;
+  border-radius: 12px;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  width: max-content;
+  max-width: 90%;
+
+  text-align: center;
+
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 9999;
+}
+
+/* Sichtbarer Zustand */
+.toast.show {
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.star {
+  margin: 0;
+  color: orange;
+}
+.descriptionImg {
+  position: relative;
+  bottom: 8px;
+  right: 31px;
+}
+
+.toastText {
+  margin-right: 18px;
+}
+
+textarea {
+  resize: none;
+}
+
+.requiredDate {
+  margin-top: 6px;
+}

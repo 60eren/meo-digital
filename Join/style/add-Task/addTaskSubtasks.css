@@ -1,0 +1,215 @@
+.subtaskInputContainer {
+  position: relative;
+  width: 440px;
+}
+.bottomInputContainer {
+  width: 100%;
+}
+
+.inputField.bottomInput {
+  overflow-y: hidden;
+  resize: none;
+  font-family: "Inter", sans-serif;
+  width: 440px;
+  height: 43px;
+  display: block;
+  box-sizing: border-box;
+  font-size: 20px;
+  outline: none;
+  padding: 8px 10px;
+  padding-right: 60px;
+  border-radius: 10px;
+  padding-top: 9px;
+  padding-left: 20px;
+  padding-right: 80px;
+  border: unset;
+  box-shadow: 0 0 0 1px rgba(209, 209, 209, 1);
+}
+
+.inputField.bottomInput::placeholder {
+  color: rgba(209, 209, 209, 1);
+}
+
+.inputField.bottomInput:focus {
+  box-shadow: 0 0 0 2px #88e9fa;
+  outline: none;
+}
+
+.subtaskIcon {
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.subTaskIconsContainer {
+  position: absolute;
+  right: 19px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.spacer {
+  width: 1px;
+  height: 23px;
+  background-color: rgba(209, 209, 209, 1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.subtaskInputContainer:focus-within .spacer {
+  opacity: 1;
+  pointer-events: auto;
+}
+.subtaskInputContainer:focus-within .subtaskIcon {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.subTaskContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 397px;
+}
+
+.subTaskItem {
+  list-style: none;
+  position: relative;
+  padding: 5px 5px 5px 30px;
+  border-radius: 10px;
+  margin-top: 8px;
+}
+
+.subTaskItem::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background-color: #a8a8a8;
+  border-radius: 50%;
+  transition: all 0.15s ease;
+}
+
+.subTaskItem.editing::before {
+  display: none;
+}
+
+.subTaskItem:not(.editing):hover {
+  background-color: rgba(240, 240, 240, 1);
+}
+
+.subTaskList {
+  padding-left: 0;
+  margin: 0;
+  padding-right: 10px;
+  list-style: none;
+  width: 444px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 200px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(116, 113, 113, 0.178) transparent;
+}
+
+.subTaskList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.subTaskList::-webkit-scrollbar-thumb {
+  background-color: rgba(120, 120, 120, 0.35);
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background-clip: content-box;
+}
+
+.subTaskList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.subTaskList::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(120, 120, 120, 0.55);
+}
+
+.subTaskItem.editing {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.Edit {
+  opacity: 1;
+}
+
+.subTaskActions {
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.subTaskEditInput {
+  overflow-y: hidden;
+  resize: none;
+  width: 100%;
+  height: 32px;
+  border: unset;
+  border-bottom: 1px solid rgba(41, 171, 226, 1);
+  outline: none;
+  padding-left: 20px;
+  font-size: 16px;
+  box-sizing: border-box;
+  resize: none;
+  flex: 1;
+  font-family: "Inter", sans-serif;
+  padding-top: 5px;
+
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  padding-right: 90px;
+}
+
+.checkEdit {
+  height: 13px;
+  object-fit: contain;
+}
+.subTaskEditIcons {
+  right: 81px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  top: 4px;
+}
+
+.subTaskEditContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 500px;
+  position: relative;
+  z-index: 2;
+}
+
+.SubTaskField {
+  color: black;
+}
+.subTaskText {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 295px;
+}
