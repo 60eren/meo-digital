@@ -1,0 +1,19 @@
+# Alles auf HTTPS umleiten
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Keine Ordnerlisten anzeigen
+Options -Indexes
+
+# Versteckte Dateien (.git, .gitignore, .DS_Store) sperren
+RedirectMatch 404 /\.(git|gitignore|DS_Store)
+
+# Sicherheits-Header
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
