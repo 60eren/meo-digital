@@ -2036,3 +2036,30 @@ body:has(.page) .site-header {
 .site-footer .logo img {
   height: 24px;
 }
+
+/* ---------- Sicherheitscheck ---------- */
+.check-offer {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.6rem 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--a1);
+  border-radius: var(--radius);
+}
+.check-offer h3 { margin: 0 0 0.4rem; }
+.check-offer p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+.check-offer-eyebrow {
+  font-size: 0.78rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.4rem !important;
+}
+.check-offer .btn { flex: none; }
+@media (max-width: 720px) {
+  .check-offer { flex-direction: column; align-items: flex-start; }
+}
