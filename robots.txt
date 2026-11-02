@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /Join/
+Disallow: /sorella/
+Disallow: /danke.html
+
+Sitemap: https://meoform.de/sitemap.xml
