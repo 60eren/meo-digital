@@ -386,6 +386,9 @@ a {
     var(--meo-accent-2) 90%,
     transparent 100%
   );
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
@@ -2050,8 +2053,14 @@ body:has(.page) .site-header {
   border-left: 4px solid var(--a1);
   border-radius: var(--radius);
 }
-.check-offer h3 { margin: 0 0 0.4rem; }
-.check-offer p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+.check-offer h3 {
+  margin: 0 0 0.4rem;
+}
+.check-offer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.97rem;
+}
 .check-offer-eyebrow {
   font-size: 0.78rem !important;
   font-weight: 600;
@@ -2059,7 +2068,12 @@ body:has(.page) .site-header {
   letter-spacing: 0.12em;
   margin-bottom: 0.4rem !important;
 }
-.check-offer .btn { flex: none; }
+.check-offer .btn {
+  flex: none;
+}
 @media (max-width: 720px) {
-  .check-offer { flex-direction: column; align-items: flex-start; }
+  .check-offer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
