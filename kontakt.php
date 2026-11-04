@@ -1,8 +1,6 @@
 <?php
 // =========================================================
 // Kontaktformular-Verarbeitung für All-Inkl (PHP mail())
-// Empfänger anpassen. Absender MUSS eine Adresse deiner Domain sein,
-// sonst landen Mails im Spam.
 // =========================================================
 
 $empfaenger = 'info@meoform.de';

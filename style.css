@@ -2087,3 +2087,173 @@ body:has(.page) .site-header {
 .price-card.premium {
   border-color: var(--border-strong);
 }
+
+/* ---------- Ablauf (Timeline) ---------- */
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  opacity: 1 !important;
+  transform: none !important;
+}
+.timeline::before,
+.timeline::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  border-radius: 2px;
+}
+.timeline::before { background: var(--border-strong); }
+.timeline::after {
+  background: var(--gradient);
+  transform-origin: left;
+  transition: transform 1.8s var(--ease) 0.3s;
+}
+.js .timeline::after { transform: scaleX(0); }
+.js .timeline.is-visible::after { transform: scaleX(1); }
+
+.t-step { position: relative; text-align: center; }
+.t-dot {
+  position: relative;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.25rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--on-ink);
+  border: 4px solid var(--bg-soft);
+  box-shadow: 0 0 0 1px var(--border-strong);
+  transition:
+    transform 0.6s var(--ease),
+    opacity 0.6s var(--ease);
+  transition-delay: calc(0.35s + var(--i) * 0.4s);
+}
+.t-dot svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.t-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--a1);
+  opacity: 0;
+}
+.js .timeline .t-dot { opacity: 0; transform: scale(0.5); }
+.js .timeline.is-visible .t-dot { opacity: 1; transform: scale(1); }
+.js .timeline.is-visible .t-dot::after {
+  animation: t-ring 1.2s var(--ease) forwards;
+  animation-delay: calc(0.6s + var(--i) * 0.4s);
+}
+@keyframes t-ring {
+  0% { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.6); }
+}
+
+.t-card {
+  height: calc(100% - 56px - 1.25rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.4rem;
+  transition:
+    transform 0.6s var(--ease),
+    opacity 0.6s var(--ease),
+    box-shadow 0.4s var(--ease),
+    border-color 0.4s;
+  transition-delay: calc(0.5s + var(--i) * 0.4s), calc(0.5s + var(--i) * 0.4s), 0s, 0s;
+}
+.js .timeline .t-card { opacity: 0; transform: translateY(24px); }
+.js .timeline.is-visible .t-card { opacity: 1; transform: none; }
+.timeline.is-visible .t-card:hover,
+.t-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: transparent;
+  transition-delay: 0s;
+}
+.t-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--a1);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+.t-card h3 { margin-bottom: 0.5rem; }
+.t-card p { color: var(--muted); font-size: 0.95rem; margin: 0 0 1rem; }
+.t-time {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--heading);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+}
+
+@media (max-width: 900px) {
+  .timeline { grid-template-columns: 1fr; gap: 1.25rem; }
+  .timeline::before,
+  .timeline::after {
+    top: 28px;
+    bottom: 28px;
+    left: 27px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+  .timeline::after { transform-origin: top; }
+  .js .timeline::after { transform: scaleY(0); }
+  .js .timeline.is-visible::after { transform: scaleY(1); }
+  .t-step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 1rem;
+    text-align: left;
+    align-items: start;
+  }
+  .t-dot { margin: 0; }
+  .t-card { height: auto; }
+}
+@media (max-width: 900px) {
+  /* Mobil: Linie als Verbindungsstück zwischen den Punkten, endet am letzten Schritt */
+  .timeline::before,
+  .timeline::after { display: none; }
+  .t-step { position: relative; }
+  .t-step:not(:last-child)::before,
+  .t-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 27px;
+    top: 56px;
+    bottom: calc(-1.25rem);
+    width: 2px;
+  }
+  .t-step:not(:last-child)::before { background: var(--border-strong); }
+  .t-step:not(:last-child)::after {
+    background: linear-gradient(var(--a1), var(--a2));
+    transform-origin: top;
+    transition: transform 0.6s var(--ease);
+    transition-delay: calc(0.5s + var(--i) * 0.4s);
+  }
+  .js .timeline .t-step:not(:last-child)::after { transform: scaleY(0); }
+  .js .timeline.is-visible .t-step:not(:last-child)::after { transform: scaleY(1); }
+}
