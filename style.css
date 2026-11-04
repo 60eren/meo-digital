@@ -2077,3 +2077,13 @@ body:has(.page) .site-header {
     align-items: flex-start;
   }
 }
+
+/* ---------- Premium-Paket ---------- */
+.badge-soft {
+  background: var(--bg-soft);
+  color: var(--heading);
+  border: 1px solid var(--border-strong);
+}
+.price-card.premium {
+  border-color: var(--border-strong);
+}
