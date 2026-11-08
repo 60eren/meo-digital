@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voltwerk – Elektrotechnik &amp; Solar | Konzeptdesign</title>
+<meta name="description" content="Konzeptdesign einer Handwerker-Website: Voltwerk, Elektrotechnik, Photovoltaik, Speicher und Wallboxen. Gestaltet von meoform.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#07080b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07080b;--bg-2:#0c0e13;--card:#0f1218;--card-2:#141821;--line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.14);
+  --text:#eef1f6;--soft:#a3abba;--muted:#6c7486;
+  --lime:#d4ff3a;--cyan:#38e1ff;--grad:linear-gradient(100deg,#d4ff3a 0%,#38e1ff 100%);
+  --head:"Space Grotesk",system-ui,sans-serif;--sans:"Inter",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+  --pad:clamp(16px,4vw,48px);--max:1280px;--r:22px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--lime);color:#000}
+h1,h2,h3{font-family:var(--head);font-weight:600;letter-spacing:-.035em;line-height:1;margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-2);background:rgba(255,255,255,.03);border-radius:999px;padding:7px 14px 7px 10px;font-size:.85rem;color:var(--soft)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(212,255,58,.6);animation:ping 1.8s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(212,255,58,0)}100%{box-shadow:0 0 0 0 rgba(212,255,58,0)}}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:15px 24px;font:600 .95rem var(--sans);border:1px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s,border-color .25s;white-space:nowrap}
+.btn svg{width:18px;height:18px;transition:transform .25s}
+.btn:hover svg{transform:translateX(3px)}
+.btn--lime{background:var(--lime);color:#0a0b0d;box-shadow:0 0 0 0 rgba(212,255,58,.0)}
+.btn--lime:hover{transform:translateY(-2px);box-shadow:0 14px 40px -10px rgba(212,255,58,.55)}
+.btn--ghost{border-color:var(--line-2);color:var(--text);background:rgba(255,255,255,.02)}
+.btn--ghost:hover{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.05)}
+.section{padding:130px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:56px}
+.head h2{font-size:clamp(2.4rem,5vw,4.2rem);max-width:13em}
+.head p{max-width:28em;color:var(--soft);margin:0}
+
+/* Hintergrund-Glows */
+.bg-glow{position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(600px 400px at 85% -5%,rgba(56,225,255,.13),transparent 70%),radial-gradient(700px 500px at 0% 10%,rgba(212,255,58,.08),transparent 70%)}
+.grid-bg{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 75%)}
+
+/* Header */
+.top{position:fixed;top:16px;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:0 16px}
+.bar{display:flex;align-items:center;gap:28px;width:min(1180px,100%);justify-content:space-between;background:rgba(15,18,24,.65);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid var(--line);border-radius:999px;padding:10px 10px 10px 22px;transition:background .3s,border-color .3s}
+.scrolled .bar{background:rgba(12,14,19,.85);border-color:var(--line-2)}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--head);font-weight:700;letter-spacing:.06em;font-size:1.05rem}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--lime);display:grid;place-items:center;color:#000}
+.logo i svg{width:16px;height:16px}
+.nav{display:flex;gap:4px}
+.nav a{padding:9px 14px;border-radius:999px;color:var(--soft);font-size:.92rem;font-weight:500;transition:color .2s,background .2s}
+.nav a:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.bar .btn{padding:11px 18px}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:transparent;cursor:pointer;position:relative}
+.burger span{position:absolute;left:13px;right:13px;height:1.5px;background:var(--text);transition:transform .3s,opacity .3s}
+.burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:25px}
+.nav-open .burger span:nth-child(1){transform:translateY(4px) rotate(45deg)}
+.nav-open .burger span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
+
+/* Hero */
+.hero{position:relative;padding:170px 0 90px;text-align:center}
+.hero h1{font-size:clamp(3rem,8.4vw,7.4rem);max-width:11em;margin:26px auto 24px}
+.hero p.lead{font-size:1.18rem;color:var(--soft);max-width:36em;margin:0 auto 34px}
+.hero .ctas{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.flow{position:relative;margin:70px auto 0;max-width:1100px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid var(--line);border-radius:28px;padding:22px;text-align:left;overflow:hidden}
+.flow::before{content:"";position:absolute;inset:-1px;border-radius:28px;padding:1px;background:linear-gradient(140deg,rgba(212,255,58,.5),transparent 30%,transparent 70%,rgba(56,225,255,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.flow-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding:4px 6px}
+.flow-top .live{display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--soft)}
+.flow svg.diagram{width:100%;height:auto;display:block}
+.node rect{fill:var(--card-2);stroke:var(--line-2)}
+.node text{font-family:var(--sans);fill:var(--soft);font-size:13px}
+.node .val{font-family:var(--head);fill:var(--text);font-size:22px;font-weight:600}
+.wire{fill:none;stroke:rgba(255,255,255,.08);stroke-width:2}
+.pulse{fill:none;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:6 14;animation:flow 1.2s linear infinite}
+.pulse.l{stroke:var(--lime)}.pulse.c{stroke:var(--cyan)}
+.pulse.slow{animation-duration:2s}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.kpi b{display:block;font-family:var(--head);font-size:1.6rem;font-weight:600;letter-spacing:-.02em}
+.kpi span{font-size:.82rem;color:var(--muted)}
+
+/* Laufband */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding:26px 0;margin-top:40px}
+.marquee .track{display:flex;gap:56px;width:max-content;animation:scroll 34s linear infinite}
+.marquee span{display:inline-flex;align-items:center;gap:56px;font-family:var(--head);font-size:1.9rem;font-weight:500;color:var(--soft);white-space:nowrap;letter-spacing:-.02em}
+.marquee span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--lime)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(220px,auto);gap:14px}
+.cell{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;overflow:hidden;isolation:isolate;display:flex;flex-direction:column}
+.cell::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(212,255,58,.12),transparent 45%);opacity:0;transition:opacity .4s}
+.cell:hover::before{opacity:1}
+.cell::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(212,255,58,.6),transparent 40%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;pointer-events:none}
+.cell:hover::after{opacity:1}
+.cell .ic{width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.05);border:1px solid var(--line-2);display:grid;place-items:center;color:var(--lime);margin-bottom:auto}
+.cell .ic svg{width:22px;height:22px}
+.cell h3{font-size:1.5rem;margin:26px 0 8px}
+.cell p{color:var(--soft);margin:0;font-size:.95rem}
+.c-pv{grid-column:span 4;grid-row:span 2;padding:36px}
+.c-pv h3{font-size:clamp(2rem,3.4vw,3rem);margin-top:0}
+.c-pv .art{position:relative;flex:1;min-height:240px;margin:20px -36px 24px}
+.c-2{grid-column:span 2}
+.c-3{grid-column:span 3}
+.c-np{background:linear-gradient(135deg,#1a2207,#0f1218 60%)}
+.c-np .num{font-family:var(--head);font-size:2rem;font-weight:600;margin-top:10px;color:var(--lime)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips span{font-size:.8rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line-2);color:var(--soft)}
+
+/* Rechner */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:34px}
+.ctrl{margin-bottom:30px}
+.ctrl label{display:flex;justify-content:space-between;align-items:baseline;font-weight:500;margin-bottom:14px}
+.ctrl label output{font-family:var(--head);font-size:1.6rem;font-weight:600;color:var(--lime)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--lime) var(--p,40%),rgba(255,255,255,.1) var(--p,40%));outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#fff;border:5px solid var(--lime);cursor:pointer;box-shadow:0 0 0 6px rgba(212,255,58,.15)}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:5px solid var(--lime);cursor:pointer}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:14px;padding:5px}
+.seg input{display:none}
+.seg label{display:block;text-align:center;padding:11px 8px;border-radius:10px;cursor:pointer;color:var(--soft);font-weight:500;font-size:.92rem;margin:0;transition:all .2s}
+.seg input:checked+label{background:var(--card-2);color:var(--text);box-shadow:inset 0 0 0 1px var(--line-2)}
+.switch{display:flex;align-items:center;justify-content:space-between;gap:16px;border:1px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer}
+.switch input{display:none}
+.switch i{width:48px;height:28px;border-radius:999px;background:rgba(255,255,255,.1);position:relative;transition:background .25s;flex:none}
+.switch i::after{content:"";position:absolute;left:4px;top:4px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .25s}
+.switch input:checked+i{background:var(--lime)}
+.switch input:checked+i::after{transform:translateX(20px);background:#0a0b0d}
+.result{position:relative;overflow:hidden;background:radial-gradient(500px 300px at 100% 0%,rgba(212,255,58,.14),transparent 70%),var(--card)}
+.big-num{font-family:var(--head);font-size:clamp(3.2rem,6vw,5.2rem);font-weight:600;letter-spacing:-.04em;line-height:1;margin:10px 0 6px}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}
+.res-grid div{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:16px}
+.res-grid b{display:block;font-family:var(--head);font-size:1.5rem;font-weight:600}
+.res-grid span{font-size:.82rem;color:var(--muted)}
+.meter{height:10px;border-radius:10px;background:rgba(255,255,255,.08);overflow:hidden;margin:8px 0 4px}
+.meter i{display:block;height:100%;width:0;background:var(--grad);border-radius:10px;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.fine{font-size:.78rem;color:var(--muted);margin:16px 0 0}
+
+/* Prozess */
+.timeline{position:relative;max-width:820px;margin:0 auto}
+.timeline .rail{position:absolute;left:23px;top:0;bottom:0;width:2px;background:var(--line)}
+.timeline .fill{position:absolute;left:23px;top:0;width:2px;height:0;background:var(--grad);box-shadow:0 0 16px rgba(212,255,58,.5)}
+.tl{position:relative;display:grid;grid-template-columns:48px 1fr;gap:28px;padding-bottom:56px}
+.tl:last-child{padding-bottom:0}
+.tl .n{width:48px;height:48px;border-radius:50%;background:var(--bg);border:1px solid var(--line-2);display:grid;place-items:center;font-family:var(--mono);font-size:.85rem;color:var(--soft);position:relative;z-index:1;transition:all .4s}
+.tl.on .n{border-color:var(--lime);color:#0a0b0d;background:var(--lime);box-shadow:0 0 24px rgba(212,255,58,.45)}
+.tl h3{font-size:1.7rem;margin:8px 0 8px}
+.tl p{color:var(--soft);margin:0;max-width:36em}
+
+/* Zahlen */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stat{border-top:1px solid var(--line-2);padding-top:22px}
+.stat b{display:block;font-family:var(--head);font-size:clamp(2.6rem,5vw,4.2rem);font-weight:600;letter-spacing:-.04em;line-height:1}
+.stat span{color:var(--soft);font-size:.95rem}
+
+/* FAQ */
+.faq-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+details:first-child{border-top:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;font-family:var(--head);font-size:1.25rem;font-weight:500;letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--lime);font-size:1.3rem;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--soft);margin:12px 0 0;max-width:40em}
+
+/* Kontakt */
+.contact{position:relative;border-radius:32px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(700px 400px at 0% 100%,rgba(212,255,58,.12),transparent 70%),radial-gradient(600px 400px at 100% 0%,rgba(56,225,255,.12),transparent 70%),var(--bg-2);display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:60px}
+.contact h2{font-size:clamp(2.6rem,5.4vw,4.6rem)}
+.contact .lines{display:grid;gap:14px;margin-top:34px}
+.contact .lines a,.contact .lines div{display:flex;align-items:center;gap:14px;color:var(--soft)}
+.contact .lines svg{width:20px;height:20px;color:var(--lime);flex:none}
+.contact .lines a:hover{color:var(--text)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}
+form .full{grid-column:1/-1}
+form input,form select,form textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line-2);border-radius:14px;padding:15px 16px;color:var(--text);font:inherit;outline:none;transition:border-color .2s,background .2s}
+form select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3abba' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px}
+form select option{background:#0f1218}
+form textarea{min-height:120px;resize:vertical}
+form input:focus,form select:focus,form textarea:focus{border-color:var(--lime);background:rgba(255,255,255,.06)}
+form ::placeholder{color:var(--muted)}
+.ok{display:none;color:var(--lime);font-size:.92rem}
+
+/* Footer */
+footer{padding:90px 0 30px;overflow:hidden}
+.outline{font-family:var(--head);font-weight:700;font-size:19vw;line-height:.85;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.14);white-space:nowrap;text-align:center;margin:0 -2vw;user-select:none}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid var(--line);padding-top:22px;margin-top:20px;font-size:.88rem;color:var(--muted)}
+.foot b{color:var(--text)}
+.foot a:hover{color:var(--text)}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(30px);filter:blur(6px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1),filter 1s}
+.rv.in{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none}.pulse,.marquee .track,.dot{animation:none}}
+
+@media (max-width:1000px){
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .c-pv,.c-3,.c-2{grid-column:span 2}
+  .c-pv{grid-row:span 1}
+  .calc,.faq-wrap,.contact{grid-template-columns:1fr}
+  .contact{padding:40px 24px}
+  .head{flex-direction:column;align-items:flex-start;gap:16px}
+  .stats{grid-template-columns:1fr 1fr;row-gap:30px}
+  .kpis{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .burger{display:block}
+  .nav{position:fixed;top:84px;left:16px;right:16px;flex-direction:column;background:rgba(12,14,19,.97);border:1px solid var(--line-2);border-radius:22px;padding:12px;opacity:0;pointer-events:none;transform:translateY(-10px);transition:all .3s}
+  .nav a{padding:14px 16px;font-size:1.05rem}
+  .nav-open .nav{opacity:1;pointer-events:auto;transform:none}
+  .bar>.btn{display:none}
+}
+@media (max-width:600px){
+  .section{padding:90px 0}
+  .bento{grid-template-columns:1fr}
+  .c-pv,.c-3,.c-2{grid-column:span 1}
+  form{grid-template-columns:1fr}
+  .panel{padding:24px}
+  .flow{padding:12px;border-radius:20px}
+  .res-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="bg-glow" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="bar">
+    <a href="#top" class="logo"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></i>VOLTWERK</a>
+    <nav class="nav" id="nav">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#rechner">Solar-Rechner</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a href="#kontakt" class="btn btn--lime">Beratung sichern<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button class="burger" aria-label="Menü" aria-controls="nav" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="tag rv"><span class="dot"></span>24/7 Elektro-Notdienst · Solar &amp; Speicher vom Meisterbetrieb</span>
+      <h1 class="rv">Energie, die für Sie <span class="grad">arbeitet.</span></h1>
+      <p class="lead rv">Photovoltaik, Stromspeicher, Wallbox und Elektroinstallation aus einer Hand. Geplant, installiert und gewartet von Voltwerk, Ihrem Elektro-Meisterbetrieb.</p>
+      <div class="ctas rv">
+        <a href="#rechner" class="btn btn--lime">Ersparnis berechnen<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#leistungen" class="btn btn--ghost">Leistungen ansehen</a>
+      </div>
+
+      <div class="flow rv" aria-label="Animierter Energiefluss eines Beispielhauses">
+        <div class="flow-top"><span class="live"><span class="dot"></span>Live-Energiefluss · Beispielhaus</span><span class="mono" id="clock">12:00</span></div>
+        <svg class="diagram" viewBox="0 0 1060 360" aria-hidden="true">
+          <defs><linearGradient id="pv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d3a5c"/><stop offset="1" stop-color="#0f2238"/></linearGradient></defs>
+          <!-- Leitungen -->
+          <path class="wire" d="M240 120 C 360 120, 400 180, 470 180"/>
+          <path class="wire" d="M590 180 C 680 180, 700 70, 800 70"/>
+          <path class="wire" d="M590 180 L 800 180"/>
+          <path class="wire" d="M590 180 C 680 180, 700 290, 800 290"/>
+          <path class="wire" d="M530 240 C 530 300, 400 300, 300 300"/>
+          <path class="pulse l" d="M240 120 C 360 120, 400 180, 470 180"/>
+          <path class="pulse l" d="M590 180 C 680 180, 700 70, 800 70"/>
+          <path class="pulse c" d="M590 180 L 800 180"/>
+          <path class="pulse l slow" d="M590 180 C 680 180, 700 290, 800 290"/>
+          <path class="pulse c slow" d="M530 240 C 530 300, 400 300, 300 300"/>
+          <!-- PV -->
+          <g class="node"><rect x="20" y="40" width="220" height="160" rx="18"/>
+            <g transform="translate(40 60)"><rect width="180" height="70" rx="6" fill="url(#pv)" stroke="#2c5a86"/><path d="M45 0v70M90 0v70M135 0v70M0 35h180" stroke="#2c5a86"/></g>
+            <text x="40" y="160">Photovoltaik</text><text class="val" x="40" y="186" id="v-pv">7,8 kW</text>
+            <circle cx="214" cy="160" r="12" fill="#d4ff3a" opacity=".9"/><circle cx="214" cy="160" r="20" fill="#d4ff3a" opacity=".15"/></g>
+          <!-- Wechselrichter -->
+          <g class="node"><rect x="470" y="120" width="120" height="120" rx="60" style="stroke:#d4ff3a"/>
+            <path d="M518 162l-10 18h12l-8 18 22-26h-12l8-10z" fill="#d4ff3a"/><text x="497" y="222" style="font-size:11px">Energiemanager</text></g>
+          <!-- Haus -->
+          <g class="node"><rect x="800" y="20" width="240" height="100" rx="18"/>
+            <path d="M826 72l22-20 22 20v26h-44z" fill="none" stroke="#a3abba" stroke-width="2"/><text x="890" y="58">Haushalt</text><text class="val" x="890" y="88" id="v-home">1,9 kW</text></g>
+          <!-- Speicher -->
+          <g class="node"><rect x="800" y="130" width="240" height="100" rx="18"/>
+            <rect x="826" y="160" width="26" height="44" rx="5" fill="none" stroke="#38e1ff" stroke-width="2"/><rect x="830" y="176" width="18" height="24" rx="2" fill="#38e1ff"/><text x="890" y="168">Speicher</text><text class="val" x="890" y="198" id="v-bat">78 %</text></g>
+          <!-- Wallbox -->
+          <g class="node"><rect x="800" y="240" width="240" height="100" rx="18"/>
+            <rect x="826" y="266" width="28" height="46" rx="7" fill="none" stroke="#a3abba" stroke-width="2"/><path d="M840 280l-5 9h6l-4 9 10-12h-6l3-6z" fill="#d4ff3a"/><text x="890" y="278">Wallbox · E-Auto</text><text class="val" x="890" y="308" id="v-car">3,7 kW</text></g>
+          <!-- Netz -->
+          <g class="node"><rect x="140" y="250" width="160" height="90" rx="18"/>
+            <path d="M166 318l14-44 14 44M170 304h20M173 292h14" fill="none" stroke="#a3abba" stroke-width="2"/><text x="210" y="284">Einspeisung</text><text class="val" x="210" y="314" id="v-grid">2,2 kW</text></g>
+        </svg>
+        <div class="kpis">
+          <div class="kpi"><b id="k-today">23,4 kWh</b><span>heute erzeugt</span></div>
+          <div class="kpi"><b>86 %</b><span>Autarkie heute</span></div>
+          <div class="kpi"><b>6,90 €</b><span>heute gespart</span></div>
+          <div class="kpi"><b>9,8 kg</b><span>CO₂ vermieden</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="track">
+    <span>Photovoltaik</span><span>Stromspeicher</span><span>Wallboxen</span><span>Smart Home</span><span>Elektroinstallation</span><span>E-Check</span><span>Zählerschrank</span><span>Notdienst 24/7</span>
+    <span>Photovoltaik</span><span>Stromspeicher</span><span>Wallboxen</span><span>Smart Home</span><span>Elektroinstallation</span><span>E-Check</span><span>Zählerschrank</span><span>Notdienst 24/7</span>
+  </div></div>
+
+  <section class="section" id="leistungen">
+    <div class="wrap">
+      <div class="head rv"><div><span class="mono">01 · Leistungen</span><h2 style="margin-top:14px">Alles rund um Strom. <span class="grad">Ein Partner.</span></h2></div><p>Von der Steckdose bis zur kompletten Solaranlage: Wir planen, installieren und betreuen, sauber dokumentiert und normgerecht.</p></div>
+      <div class="bento">
+        <article class="cell c-pv rv">
+          <span class="mono">Kernkompetenz</span>
+          <div class="art">
+            <svg viewBox="0 0 700 260" style="width:100%;height:100%;position:absolute;inset:0" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs><linearGradient id="pv2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f4470"/><stop offset="1" stop-color="#0c1c30"/></linearGradient><linearGradient id="sh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".18"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+              <g transform="translate(60 40) skewX(-18)">
+                <g id="row"><rect width="120" height="80" rx="4" fill="url(#pv2)" stroke="#2f6aa6"/><path d="M40 0v80M80 0v80M0 40h120" stroke="#2f6aa6"/></g>
+                <use href="#row" x="130"/><use href="#row" x="260"/><use href="#row" x="390"/>
+                <use href="#row" y="90"/><use href="#row" x="130" y="90"/><use href="#row" x="260" y="90"/><use href="#row" x="390" y="90"/>
+                <rect x="-60" y="-10" width="80" height="200" fill="url(#sh)"><animate attributeName="x" from="-120" to="560" dur="4s" repeatCount="indefinite"/></rect>
+              </g>
+            </svg>
+          </div>
+          <h3>Photovoltaik</h3>
+          <p>Maßgeschneiderte Solaranlagen für Einfamilienhaus und Gewerbe, inklusive Anmeldung beim Netzbetreiber und Monitoring per App.</p>
+          <div class="chips"><span>Planung</span><span>Montage</span><span>Netzanmeldung</span><span>Monitoring</span></div>
+        </article>
+        <article class="cell c-2 rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="4" width="10" height="17" rx="2"/><path d="M10 2h4M10 10h4M10 14h4"/></svg></span><h3>Stromspeicher</h3><p>Solarstrom auch abends nutzen und unabhängiger werden.</p></article>
+        <article class="cell c-2 rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="3" width="10" height="18" rx="3"/><path d="M15 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-2-2"/><path d="m10 8-2 4h4l-2 4"/></svg></span><h3>Wallbox</h3><p>Sicher und schnell laden, ideal kombiniert mit PV-Überschuss.</p></article>
+        <article class="cell c-2 rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11 12 3l9 8v10H3z"/><circle cx="12" cy="14" r="2"/><path d="M8.5 10.5a5 5 0 0 1 7 0"/></svg></span><h3>Smart Home</h3><p>Licht, Heizung und Rollläden intelligent steuern.</p></article>
+        <article class="cell c-2 rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></span><h3>Elektroinstallation</h3><p>Neubau, Sanierung, Zählerschrank und Unterverteilung.</p></article>
+        <article class="cell c-2 rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>E-Check</h3><p>Prüfung Ihrer Anlage für Sicherheit und Versicherungsschutz.</p></article>
+        <article class="cell c-3 c-np rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><h3>Notdienst 24/7</h3><p>Stromausfall, Kurzschluss, Brandgeruch? Wir sind rund um die Uhr erreichbar.</p><div class="num">0123 456 78 90</div></article>
+        <article class="cell c-3 rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></svg></span><h3>Wartung &amp; Monitoring</h3><p>Wir behalten Ihre Anlage im Blick und melden uns, bevor Ertrag verloren geht.</p><div class="chips"><span>Fernüberwachung</span><span>Jahreswartung</span><span>Reinigung</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="rechner" style="padding-top:0">
+    <div class="wrap">
+      <div class="head rv"><div><span class="mono">02 · Solar-Rechner</span><h2 style="margin-top:14px">Was bringt Ihnen <span class="grad">eine Solaranlage?</span></h2></div><p>Drei Angaben, eine erste Einschätzung. Für ein exaktes Angebot kommen wir gern bei Ihnen vorbei.</p></div>
+      <div class="calc">
+        <div class="panel rv">
+          <div class="ctrl"><label for="bill">Monatliche Stromrechnung <output id="o-bill">120 €</output></label><input type="range" id="bill" min="40" max="400" step="5" value="120"></div>
+          <div class="ctrl"><label>Ausrichtung des Daches</label>
+            <div class="seg"><input type="radio" name="dir" id="d1" value="1" checked><label for="d1">Süd</label><input type="radio" name="dir" id="d2" value="0.87"><label for="d2">Ost/West</label><input type="radio" name="dir" id="d3" value="0.65"><label for="d3">Nord</label></div>
+          </div>
+          <div class="ctrl" style="margin-bottom:0"><label class="switch" for="bat"><span><strong style="display:block;font-weight:500">Mit Stromspeicher</strong><span style="color:var(--muted);font-size:.88rem">Solarstrom auch abends nutzen</span></span><input type="checkbox" id="bat" checked><i></i></label></div>
+          <div style="margin-top:26px;border-top:1px solid var(--line);padding-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div><span class="mono">Ihr Verbrauch</span><div style="font-family:var(--head);font-size:1.7rem;font-weight:600;margin-top:6px" id="r-use">4.115 kWh</div><span style="color:var(--muted);font-size:.85rem">pro Jahr, geschätzt</span></div>
+            <div><span class="mono">Dachfläche</span><div style="font-family:var(--head);font-size:1.7rem;font-weight:600;margin-top:6px" id="r-area">ca. 25 m²</div><span style="color:var(--muted);font-size:.85rem">benötigt</span></div>
+          </div>
+        </div>
+        <div class="panel result rv">
+          <span class="mono">Ihre geschätzte Ersparnis pro Jahr</span>
+          <div class="big-num grad" id="r-save">1.240 €</div>
+          <span style="color:var(--soft)">über 20 Jahre ca. <strong id="r-20" style="color:var(--text)">24.800 €</strong></span>
+          <div class="res-grid">
+            <div><b id="r-kwp">8,5 kWp</b><span>Anlagengröße</span></div>
+            <div><b id="r-yield">8.075 kWh</b><span>Ertrag pro Jahr</span></div>
+            <div><b id="r-co2">3,1 t</b><span>CO₂ weniger pro Jahr</span></div>
+            <div><b id="r-aut">68 %</b><span>Autarkiegrad</span></div>
+          </div>
+          <div class="meter"><i id="r-meter"></i></div>
+          <a href="#kontakt" class="btn btn--lime" style="margin-top:20px">Exaktes Angebot anfragen<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <p class="fine">Unverbindliche Beispielrechnung mit vereinfachten Annahmen (Strompreis 0,35 €/kWh, Einspeisung 0,08 €/kWh, 950 kWh/kWp). Kein Angebot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ablauf" style="padding-top:0">
+    <div class="wrap">
+      <div class="head rv" style="justify-content:center;text-align:center;flex-direction:column;align-items:center"><span class="mono">03 · Ablauf</span><h2 style="margin-top:14px">In vier Schritten <span class="grad">zur eigenen Energie.</span></h2></div>
+      <div class="timeline" id="tl">
+        <div class="rail"></div><div class="fill" id="tlfill"></div>
+        <div class="tl"><span class="n">01</span><div><h3>Beratung vor Ort</h3><p>Wir sehen uns Dach, Zählerschrank und Verbrauch an und beantworten alle Fragen, kostenlos.</p></div></div>
+        <div class="tl"><span class="n">02</span><div><h3>Planung &amp; Angebot</h3><p>Sie erhalten eine Ertragssimulation, ein transparentes Festpreisangebot und einen klaren Zeitplan.</p></div></div>
+        <div class="tl"><span class="n">03</span><div><h3>Installation</h3><p>Unser Team montiert alles in der Regel in wenigen Tagen, sauber und normgerecht.</p></div></div>
+        <div class="tl"><span class="n">04</span><div><h3>Inbetriebnahme &amp; Service</h3><p>Anmeldung beim Netzbetreiber, Einweisung, App-Monitoring und Wartung über Jahre.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap stats">
+      <div class="stat rv"><b><span data-count="1200">1200</span><span class="grad">+</span></b><span>installierte Anlagen</span></div>
+      <div class="stat rv"><b><span data-count="25">25</span><span class="grad">J</span></b><span>Erfahrung im Elektrohandwerk</span></div>
+      <div class="stat rv"><b><span data-count="48">48</span><span class="grad">h</span></b><span>bis zum Beratungstermin</span></div>
+      <div class="stat rv"><b>24<span class="grad">/7</span></b><span>Elektro-Notdienst</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" style="padding-top:0">
+    <div class="wrap faq-wrap">
+      <div class="rv"><span class="mono">04 · FAQ</span><h2 style="font-size:clamp(2.4rem,5vw,4rem);margin-top:14px">Häufige <span class="grad">Fragen.</span></h2><p style="color:var(--soft);margin-top:18px">Noch etwas offen? Rufen Sie uns an, wir beraten gern.</p></div>
+      <div class="rv">
+        <details><summary>Lohnt sich Photovoltaik noch?</summary><p>In den meisten Fällen ja, vor allem wenn Sie einen großen Teil des Stroms selbst nutzen, etwa mit Speicher, Wärmepumpe oder E-Auto.</p></details>
+        <details><summary>Wie lange dauert die Installation?</summary><p>Die Montage auf dem Dach dauert meist ein bis drei Tage. Die Anmeldung beim Netzbetreiber übernehmen wir für Sie.</p></details>
+        <details><summary>Brauche ich einen Stromspeicher?</summary><p>Ein Speicher erhöht Ihren Eigenverbrauch deutlich. Ob er sich für Sie rechnet, ermitteln wir in der Beratung.</p></details>
+        <details><summary>Installieren Sie auch Wallboxen ohne Solaranlage?</summary><p>Ja, selbstverständlich. Auf Wunsch bereiten wir die Wallbox für eine spätere PV-Anlage vor.</p></details>
+        <details><summary>Was gehört zum Notdienst?</summary><p>Bei Stromausfall, Kurzschluss oder Gefahr durch defekte Leitungen sind wir rund um die Uhr erreichbar und schnell vor Ort.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="kontakt" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact rv">
+        <div>
+          <span class="mono">05 · Kontakt</span>
+          <h2 style="margin-top:14px">Bereit für <span class="grad">Ihre Energiewende?</span></h2>
+          <p style="color:var(--soft);margin-top:18px;max-width:30em">Sichern Sie sich Ihren kostenlosen Beratungstermin. Wir melden uns innerhalb von 24 Stunden.</p>
+          <div class="lines">
+            <a href="tel:+491234567890"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>0123 456 78 90</a>
+            <a href="mailto:hallo@voltwerk.de"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>hallo@voltwerk.de</a>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Industriestraße 8 · 12345 Musterstadt</div>
+          </div>
+        </div>
+        <form id="form">
+          <input placeholder="Name" required>
+          <input placeholder="Telefon" type="tel" required>
+          <input class="full" placeholder="E-Mail" type="email">
+          <select class="full" required><option value="">Woran sind Sie interessiert?</option><option>Photovoltaik</option><option>Stromspeicher</option><option>Wallbox</option><option>Smart Home</option><option>Elektroinstallation</option><option>E-Check</option></select>
+          <textarea class="full" placeholder="Ihre Nachricht (optional)"></textarea>
+          <button class="btn btn--lime full" type="submit" style="justify-content:center">Kostenlose Beratung anfragen<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="ok full" id="ok">Danke! Dies ist ein Konzeptdesign, die Anfrage wurde nicht versendet.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="outline" aria-hidden="true">VOLTWERK</div>
+  <div class="wrap foot">
+    <span>© 2026 Voltwerk · Fiktives Unternehmen</span>
+    <span>Konzeptdesign von <a href="../index.html"><b>meoform</b></a></span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fmt = (n, d = 0) => n.toLocaleString('de-DE', { minimumFractionDigits: d, maximumFractionDigits: d });
+
+  // Header & Menü
+  addEventListener('scroll', () => document.body.classList.toggle('scrolled', scrollY > 30), { passive: true });
+  const burger = $('.burger');
+  burger.addEventListener('click', () => { const o = document.body.classList.toggle('nav-open'); burger.setAttribute('aria-expanded', o); });
+  $$('.nav a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('nav-open')));
+
+  // Reveal
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+  $$('.rv').forEach((el, i) => { el.style.transitionDelay = (el.closest('.bento,.stats') ? (i % 4) * 70 : 0) + 'ms'; io.observe(el); });
+
+  // Glow folgt der Maus
+  $$('.cell').forEach(c => c.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); }));
+
+  // Live-Werte (Demo)
+  let t = 0, today = 23.4;
+  const tick = () => {
+    t += 1;
+    const pv = 7.8 + Math.sin(t / 3) * .35, home = 1.9 + Math.sin(t / 2.2) * .25, car = 3.7, bat = 78 + Math.floor(t / 4) % 6;
+    $('#v-pv').textContent = fmt(pv, 1) + ' kW'; $('#v-home').textContent = fmt(home, 1) + ' kW';
+    $('#v-bat').textContent = bat + ' %'; $('#v-grid').textContent = fmt(Math.max(0, pv - home - car), 1) + ' kW';
+    today += .01; $('#k-today').textContent = fmt(today, 1) + ' kWh';
+    const d = new Date(); $('#clock').textContent = d.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+  };
+  tick(); if (!reduce) setInterval(tick, 1500);
+
+  // Solar-Rechner
+  const bill = $('#bill'), bat = $('#bat');
+  function calc() {
+    const b = +bill.value, dir = +document.querySelector('input[name=dir]:checked').value, withBat = bat.checked;
+    bill.style.setProperty('--p', ((b - bill.min) / (bill.max - bill.min) * 100) + '%');
+    $('#o-bill').textContent = b + ' €';
+    const use = b * 12 / .35;
+    const kwp = Math.min(25, Math.max(3, Math.round(use / 950 * 1.2 * 2) / 2));
+    const yieldK = kwp * 950 * dir;
+    const self = Math.min(use * (withBat ? .75 : .35), yieldK * (withBat ? .7 : .32));
+    const save = self * .35 + (yieldK - self) * .08;
+    const aut = Math.min(.9, self / use);
+    $('#r-save').textContent = fmt(Math.round(save / 10) * 10) + ' €';
+    $('#r-20').textContent = fmt(Math.round(save * 20 / 100) * 100) + ' €';
+    $('#r-kwp').textContent = fmt(kwp, 1) + ' kWp';
+    $('#r-yield').textContent = fmt(Math.round(yieldK / 25) * 25) + ' kWh';
+    $('#r-co2').textContent = fmt(yieldK * .38 / 1000, 1) + ' t';
+    $('#r-aut').textContent = Math.round(aut * 100) + ' %';
+    $('#r-meter').style.width = Math.round(aut * 100) + '%';
+    $('#r-use').textContent = fmt(Math.round(use / 5) * 5) + ' kWh';
+    $('#r-area').textContent = 'ca. ' + Math.round(kwp * 5) + ' m²';
+  }
+  [bill, bat, ...$$('input[name=dir]')].forEach(el => el.addEventListener('input', calc)); calc();
+
+  // Timeline füllt sich
+  const tl = $('#tl'), fill = $('#tlfill'), items = $$('.tl');
+  function onScroll() {
+    const r = tl.getBoundingClientRect(), vh = innerHeight;
+    const p = Math.min(1, Math.max(0, (vh * .6 - r.top) / r.height));
+    fill.style.height = p * 100 + '%';
+    items.forEach(it => it.classList.toggle('on', it.getBoundingClientRect().top < vh * .6));
+  }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // Zähler
+  const cio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; cio.unobserve(e.target);
+    const el = e.target, end = +el.dataset.count, t0 = performance.now();
+    const step = n => { const p = Math.min(1, (n - t0) / 1600); el.textContent = fmt(Math.round(end * (1 - Math.pow(1 - p, 3)))); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }), { threshold: .6 });
+  $$('[data-count]').forEach(el => cio.observe(el));
+
+  // Formular (Demo)
+  $('#form').addEventListener('submit', e => { e.preventDefault(); $('#ok').style.display = 'block'; });
+})();
+</script>
+</body>
+</html>

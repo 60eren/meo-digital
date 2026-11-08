@@ -9,7 +9,7 @@
       content="Moderne, sichere und schnelle Websites für Unternehmen – individuell gestaltet, persönlich betreut und zum fairen Festpreis."
     />
     <meta name="theme-color" content="#fafaf8" />
-    <link rel="stylesheet" href="style.css?v=4" />
+    <link rel="stylesheet" href="style.css?v=5" />
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="icon" href="img/favicon-48.png" sizes="48x48" type="image/png" />
@@ -436,9 +436,48 @@
             <h2 class="reveal" style="--d: 0.06s">Ausgewählte Projekte</h2>
           </div>
 
+          <div
+            class="project-filter reveal"
+            role="group"
+            aria-label="Referenzen nach Kategorie filtern"
+          >
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="alle"
+              aria-pressed="true"
+            >
+              Alle
+            </button>
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="web-app"
+              aria-pressed="false"
+            >
+              Web-App
+            </button>
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="beauty"
+              aria-pressed="false"
+            >
+              Beauty
+            </button>
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="handwerk"
+              aria-pressed="false"
+            >
+              Handwerk
+            </button>
+          </div>
+
           <div class="projects">
             <!-- Bild ersetzen: -->
-            <article class="project-card reveal">
+            <article class="project-card reveal" data-category="web-app">
               <a href="referenzen/join.html" class="project-link">
                 <div class="project-img" aria-hidden="true">
                   <img
@@ -460,7 +499,11 @@
               </a>
             </article>
 
-            <article class="project-card reveal" style="--d: 0.08s">
+            <article
+              class="project-card reveal"
+              data-category="beauty"
+              style="--d: 0.08s"
+            >
               <a href="referenzen/sorella.html" class="project-link">
                 <div class="project-img img-2" aria-hidden="true">
                   <img
@@ -481,7 +524,67 @@
                 </div>
               </a>
             </article>
+
+            <article
+              class="project-card reveal"
+              data-category="handwerk"
+              style="--d: 0.16s"
+            >
+              <a href="referenzen/lindner-holzwerk.html" class="project-link">
+                <div class="project-img" aria-hidden="true">
+                  <img
+                    src="img/logo/holzwerkIMG.jpg"
+                    alt="Startseite der Demo-Website Lindner Holzwerk mit Holzmaserung und großer Serifen-Überschrift"
+                    width="1200"
+                    height="800"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="project-body">
+                  <p class="project-tag">Handwerk · Eigenprojekt</p>
+                  <h3>Lindner Holzwerk</h3>
+                  <p>
+                    Editorial-Website für eine Schreinerei mit Holzmaserung aus
+                    dem Browser, Projekt-Galerie und Stapel-Effekten.
+                  </p>
+                  <span class="link-arrow">Fallstudie ansehen</span>
+                </div>
+              </a>
+            </article>
+
+            <article
+              class="project-card reveal"
+              data-category="handwerk"
+              style="--d: 0.24s"
+            >
+              <a href="referenzen/voltwerk.html" class="project-link">
+                <div class="project-img img-2" aria-hidden="true">
+                  <img
+                    src="img/logo/voltwerkIMG.png"
+                    alt="Startseite der Demo-Website Voltwerk mit dunklem Design und Energiefluss-Grafik"
+                    width="1200"
+                    height="800"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="project-body">
+                  <p class="project-tag">Handwerk · Eigenprojekt</p>
+                  <h3>Voltwerk Elektro &amp; Solar</h3>
+                  <p>
+                    Website für einen Elektro-Betrieb mit Live-Energiefluss und
+                    interaktivem Solar-Rechner für mehr Anfragen.
+                  </p>
+                  <span class="link-arrow">Fallstudie ansehen</span>
+                </div>
+              </a>
+            </article>
           </div>
+
+          <p class="projects-note reveal">
+            Projekte mit dem Hinweis „Eigenprojekt“ oder „Konzeptprojekt“ sind
+            eigene Arbeiten von Meoform für fiktive Unternehmen, keine
+            Kundenaufträge.
+          </p>
         </div>
       </section>
 
@@ -856,6 +959,6 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
   </body>
 </html>

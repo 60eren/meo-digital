@@ -211,3 +211,19 @@ if (year) year.textContent = new Date().getFullYear();
     });
   });
 })();
+
+/* ---------- Referenzen nach Kategorie filtern ---------- */
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card[data-category]");
+filterButtons.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    const filter = btn.dataset.filter;
+    filterButtons.forEach((b) =>
+      b.setAttribute("aria-pressed", String(b === btn)),
+    );
+    projectCards.forEach((card) => {
+      card.hidden = filter !== "alle" && card.dataset.category !== filter;
+      card.classList.add("is-visible");
+    });
+  }),
+);

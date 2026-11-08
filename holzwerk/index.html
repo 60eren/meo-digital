@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lindner Holzwerk – Schreinerei &amp; Innenausbau | Konzeptdesign</title>
+<meta name="description" content="Konzeptdesign einer Handwerker-Website: Lindner Holzwerk, Schreinerei und Innenausbau. Gestaltet von meoform.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f2ede4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f2ede4;--paper-2:#e9e2d5;--ink:#1b1916;--ink-soft:#4a453e;--muted:#8a8278;
+  --oak:#b5824c;--forest:#2e3a2f;--line:rgba(27,25,22,.14);
+  --serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif;
+  --pad:clamp(16px,4vw,56px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--oak);color:#fff}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:.95;letter-spacing:-.02em;margin:0}
+em{font-style:italic}
+.label{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.wrap{padding:0 var(--pad)}
+/* Körnung über allem */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* Cursor */
+.cursor{position:fixed;left:0;top:0;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--ink);pointer-events:none;z-index:300;transition:width .3s,height .3s,margin .3s,background .3s;mix-blend-mode:difference;display:none}
+.cursor.big{width:64px;height:64px;margin:-32px 0 0 -32px;background:#fff}
+@media (pointer:fine){.cursor{display:block}}
+
+/* Header */
+.top{position:fixed;inset:0 0 auto;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:22px var(--pad);mix-blend-mode:difference;color:#fff}
+.brand{font-family:var(--serif);font-size:1.7rem;letter-spacing:-.01em}
+.brand sup{font-family:var(--sans);font-size:.55rem;letter-spacing:.15em;vertical-align:top;margin-left:4px}
+.menu-btn{background:none;border:0;color:inherit;font:500 .85rem var(--sans);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:12px;padding:8px 0}
+.menu-btn i{display:block;width:28px;height:8px;border-top:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transition:transform .4s}
+.menu-open .menu-btn i{transform:scaleY(.15)}
+.overlay{position:fixed;inset:0;z-index:90;background:var(--forest);color:var(--paper);display:grid;grid-template-columns:1.3fr 1fr;gap:40px;padding:120px var(--pad) 48px;clip-path:inset(0 0 100% 0);transition:clip-path .8s cubic-bezier(.77,0,.18,1)}
+.menu-open .overlay{clip-path:inset(0 0 0 0)}
+.overlay nav{display:flex;flex-direction:column;justify-content:flex-end}
+.overlay nav a{font-family:var(--serif);font-size:clamp(3rem,8vw,7rem);line-height:1;display:flex;align-items:baseline;gap:18px;opacity:0;transform:translateY(40px);transition:opacity .6s,transform .6s,color .3s}
+.overlay nav a small{font-family:var(--sans);font-size:.8rem;letter-spacing:.1em;color:#a7b2a3}
+.overlay nav a:hover{color:var(--oak)}
+.menu-open .overlay nav a{opacity:1;transform:none}
+.menu-open .overlay nav a:nth-child(2){transition-delay:.06s}.menu-open .overlay nav a:nth-child(3){transition-delay:.12s}.menu-open .overlay nav a:nth-child(4){transition-delay:.18s}.menu-open .overlay nav a:nth-child(5){transition-delay:.24s}
+.overlay aside{align-self:end;display:grid;gap:26px;color:#c9d1c6}
+.overlay aside strong{display:block;color:var(--paper);font-weight:500}
+
+/* Holz-Flächen */
+.wood{position:relative;overflow:hidden;background:var(--oak)}
+.wood svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+
+/* Hero */
+.hero{min-height:100svh;display:grid;grid-template-columns:1.15fr .85fr;gap:var(--pad);padding:140px var(--pad) 48px;align-items:end;position:relative}
+.hero h1{font-size:clamp(4.2rem,13vw,12.5rem);margin-top:6vh}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line span{display:inline-block;transform:translateY(105%);animation:up 1.2s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 .line:nth-child(2) span{animation-delay:.12s}
+@keyframes up{to{transform:none}}
+.hero-meta{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px;max-width:640px}
+.hero-meta p{margin:0;color:var(--ink-soft)}
+.hero-art{position:relative;height:min(78vh,760px);border-radius:999px 999px 6px 6px}
+.badge{position:absolute;left:-60px;bottom:60px;width:150px;height:150px;border-radius:50%;background:var(--paper);display:grid;place-items:center;z-index:2;box-shadow:0 20px 40px -20px rgba(0,0,0,.35)}
+.badge svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 18s linear infinite}
+.badge b{font-family:var(--serif);font-size:2.4rem;font-weight:400}
+@keyframes spin{to{transform:rotate(360deg)}}
+.scroll-hint{position:absolute;left:var(--pad);bottom:24px;display:flex;align-items:center;gap:12px}
+.scroll-hint i{width:1px;height:44px;background:var(--ink);transform-origin:top;animation:hint 2s ease-in-out infinite}
+@keyframes hint{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* Statement */
+.statement{padding:22vh var(--pad);max-width:1500px}
+.statement p{font-family:var(--serif);font-size:clamp(2.2rem,5.4vw,5rem);line-height:1.05;letter-spacing:-.015em;margin:0}
+.statement .w{opacity:.14;transition:opacity .2s}
+.statement .w.on{opacity:1}
+.statement .w.oak{color:var(--oak);font-style:italic}
+
+/* Leistungen – Stapel */
+.services{padding:0 var(--pad) 10vh}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:40px;border-top:1px solid var(--line);padding-top:22px;margin-bottom:60px}
+.sec-head h2{font-size:clamp(3rem,7vw,6.5rem)}
+.sec-head p{max-width:24em;color:var(--ink-soft);margin:0}
+.stack{display:grid;gap:28px}
+.card{position:sticky;top:calc(90px + var(--i) * 26px);display:grid;grid-template-columns:1fr 1.1fr;min-height:68vh;background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:0 -30px 60px -40px rgba(0,0,0,.25)}
+.card .txt{padding:clamp(28px,4vw,60px);display:flex;flex-direction:column}
+.card .num{font-family:var(--serif);font-size:1.4rem;color:var(--muted)}
+.card h3{font-size:clamp(2.6rem,5vw,4.6rem);margin:auto 0 18px}
+.card p{color:var(--ink-soft);max-width:30em;margin:0 0 24px}
+.card ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.card li{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.85rem}
+.card:nth-child(2){background:var(--paper-2)}
+.card:nth-child(3){background:var(--forest);color:var(--paper)}
+.card:nth-child(3) p{color:#c9d1c6}.card:nth-child(3) .num{color:#a7b2a3}.card:nth-child(3) li{border-color:rgba(255,255,255,.25)}
+.card:nth-child(4){background:var(--ink);color:var(--paper)}
+.card:nth-child(4) p{color:#b9b2a7}.card:nth-child(4) li{border-color:rgba(255,255,255,.2)}
+
+/* Projekte – horizontal */
+.projects{position:relative;height:420vh;background:var(--ink);color:var(--paper)}
+.projects .pin{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.projects .head{display:flex;justify-content:space-between;align-items:end;padding:0 var(--pad);margin-bottom:40px}
+.projects h2{font-size:clamp(3rem,7vw,6.5rem)}
+.projects .count{font-family:var(--serif);font-size:1.6rem;color:#8a8278}
+.track{display:flex;gap:28px;padding:0 var(--pad);will-change:transform}
+.proj{flex:none;width:min(62vw,820px)}
+.proj .wood{height:min(56vh,560px);border-radius:4px}
+.proj:nth-child(even) .wood{height:min(46vh,460px);margin-top:10vh}
+.proj .cap{display:flex;justify-content:space-between;gap:20px;margin-top:16px;border-top:1px solid rgba(255,255,255,.15);padding-top:14px}
+.proj .cap h3{font-size:1.9rem}
+.proj .cap span{color:#8a8278;font-size:.9rem;white-space:nowrap}
+.progress{position:absolute;left:var(--pad);right:var(--pad);bottom:40px;height:1px;background:rgba(255,255,255,.15)}
+.progress i{display:block;height:100%;width:0;background:var(--oak)}
+
+/* Materialien */
+.materials{padding:18vh var(--pad)}
+.swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.sw{cursor:default}
+.sw .wood{aspect-ratio:3/4;border-radius:4px;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.sw:hover .wood{transform:scale(.97)}
+.sw h3{font-size:2.2rem;margin-top:16px}
+.sw p{margin:4px 0 0;color:var(--muted);font-size:.92rem}
+
+/* Prozess */
+.process{padding:0 var(--pad) 18vh}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.step{padding:28px 24px 0 0;border-right:1px solid var(--line);margin-right:24px}
+.step:last-child{border-right:0}
+.step b{font-family:var(--serif);font-weight:400;font-size:4.6rem;line-height:1;color:var(--oak)}
+.step h3{font-size:2rem;margin:20px 0 10px}
+.step p{color:var(--ink-soft);margin:0;font-size:.97rem}
+
+/* Zitat */
+.quote{background:var(--forest);color:var(--paper);padding:20vh var(--pad);text-align:center}
+.quote blockquote{margin:0 auto;max-width:1100px;font-family:var(--serif);font-size:clamp(2.2rem,4.6vw,4.4rem);line-height:1.08}
+.quote cite{display:block;margin-top:34px;font-style:normal;color:#a7b2a3;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase}
+
+/* Kontakt */
+.contact{padding:18vh var(--pad) 10vh;display:grid;grid-template-columns:1.2fr 1fr;gap:var(--pad);align-items:start}
+.contact h2{font-size:clamp(3.4rem,8.5vw,8.5rem)}
+.contact h2 em{color:var(--oak)}
+.contact .info{display:grid;gap:22px;margin-top:48px;grid-template-columns:1fr 1fr}
+.contact .info a:hover{color:var(--oak)}
+form{display:grid;gap:30px;padding-top:12px}
+.field{position:relative}
+.field input,.field textarea,.field select{width:100%;background:transparent;border:0;border-bottom:1px solid var(--ink);padding:14px 0;font:inherit;font-size:1.15rem;color:var(--ink);border-radius:0;outline:none}
+.field textarea{min-height:110px;resize:vertical}
+.field label{position:absolute;left:0;top:14px;color:var(--muted);pointer-events:none;transition:all .3s}
+.field input:focus+label,.field input:not(:placeholder-shown)+label,.field textarea:focus+label,.field textarea:not(:placeholder-shown)+label{top:-10px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips input{display:none}
+.chips label{border:1px solid var(--ink);border-radius:999px;padding:9px 18px;cursor:pointer;transition:all .25s;font-size:.95rem}
+.chips input:checked+label{background:var(--ink);color:var(--paper)}
+.send{justify-self:start;display:inline-flex;align-items:center;gap:16px;background:var(--ink);color:var(--paper);border:0;border-radius:999px;padding:20px 34px;font:500 1rem var(--sans);cursor:pointer;transition:background .3s,gap .3s}
+.send:hover{background:var(--oak);gap:24px}
+.send svg{width:20px;height:20px}
+.ok{display:none;color:var(--forest);font-weight:500}
+
+/* Footer */
+footer{padding:0 var(--pad) 28px;overflow:hidden}
+.giant{font-family:var(--serif);font-size:23vw;line-height:.8;letter-spacing:-.04em;white-space:nowrap;margin:0 -0.04em;color:var(--ink)}
+.giant em{color:var(--oak)}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid var(--line);padding-top:20px;margin-top:20px;font-size:.88rem;color:var(--muted)}
+.foot a:hover{color:var(--ink)}
+.credit{display:inline-flex;align-items:center;gap:8px}
+.credit b{color:var(--ink);font-weight:600}
+
+.hero-art.wood{overflow:visible;background:none}
+.hero-art > svg{border-radius:999px 999px 6px 6px;overflow:hidden}
+.hero{padding-bottom:96px}
+.lineart{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.lineart *{fill:none;stroke:rgba(255,255,255,.7);stroke-width:2;vector-effect:non-scaling-stroke}
+.proj .wood::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.25));pointer-events:none}
+/* Reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1.1s cubic-bezier(.2,.8,.2,1),transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.hero h1 .line span{animation:none;transform:none}.badge svg{animation:none}}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;padding-top:110px}
+  .hero-art{height:56vh;order:-1;margin-top:10px}
+  .badge{left:auto;right:16px;bottom:-40px;width:120px;height:120px}
+  .hero h1{margin-top:20px}
+  .card{grid-template-columns:1fr;min-height:auto}
+  .card .wood{height:220px;order:-1}
+  .card h3{margin-top:28px}
+  .swatches{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr 1fr;row-gap:30px}
+  .step:nth-child(2){border-right:0}
+  .contact{grid-template-columns:1fr}
+  .overlay{grid-template-columns:1fr}
+  .overlay aside{display:none}
+  .sec-head{flex-direction:column;align-items:flex-start}
+  .proj{width:78vw}
+}
+@media (max-width:600px){
+  .hero-meta{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .step{border-right:0;margin-right:0;border-bottom:1px solid var(--line);padding-bottom:24px}
+  .contact .info{grid-template-columns:1fr}
+  .scroll-hint{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Holz-Filter: echte Maserung, im Browser erzeugt -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="oak" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.0035 0.11" numOctaves="5" seed="4"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues="0.50 0.78 0.60 0.84 0.66"/><feFuncG type="table" tableValues="0.32 0.55 0.40 0.60 0.45"/><feFuncB type="table" tableValues="0.17 0.33 0.22 0.38 0.26"/></feComponentTransfer></filter>
+  <filter id="walnut" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.003 0.09" numOctaves="5" seed="11"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues="0.20 0.42 0.27 0.48 0.32"/><feFuncG type="table" tableValues="0.12 0.27 0.17 0.31 0.20"/><feFuncB type="table" tableValues="0.08 0.18 0.11 0.21 0.13"/></feComponentTransfer></filter>
+  <filter id="ash" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.004 0.13" numOctaves="4" seed="21"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues="0.80 0.93 0.85 0.95"/><feFuncG type="table" tableValues="0.70 0.85 0.76 0.88"/><feFuncB type="table" tableValues="0.56 0.72 0.62 0.76"/></feComponentTransfer></filter>
+  <filter id="smoked" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.003 0.1" numOctaves="5" seed="31"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues="0.30 0.52 0.38 0.58"/><feFuncG type="table" tableValues="0.22 0.40 0.28 0.45"/><feFuncB type="table" tableValues="0.15 0.29 0.20 0.33"/></feComponentTransfer></filter>
+  <filter id="maple" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.005 0.15" numOctaves="4" seed="41"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues="0.86 0.96 0.90 0.98"/><feFuncG type="table" tableValues="0.74 0.86 0.79 0.89"/><feFuncB type="table" tableValues="0.55 0.68 0.60 0.71"/></feComponentTransfer></filter>
+</svg>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<header class="top">
+  <a href="#top" class="brand">Lindner<sup>HOLZWERK</sup></a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="overlay"><span class="t">Menü</span><i></i></button>
+</header>
+
+<div class="overlay" id="overlay">
+  <nav>
+    <a href="#leistungen"><small>01</small>Leistungen</a>
+    <a href="#projekte"><small>02</small>Projekte</a>
+    <a href="#material"><small>03</small>Material</a>
+    <a href="#prozess"><small>04</small>Prozess</a>
+    <a href="#kontakt"><small>05</small>Kontakt</a>
+  </nav>
+  <aside>
+    <div><span class="label" style="color:#a7b2a3">Werkstatt</span><strong>Am Sägewerk 12<br>12345 Musterstadt</strong></div>
+    <div><span class="label" style="color:#a7b2a3">Telefon</span><strong>0123 456 78 90</strong></div>
+    <div><span class="label" style="color:#a7b2a3">Öffnungszeiten</span><strong>Mo–Fr 7–17 Uhr</strong></div>
+  </aside>
+</div>
+
+<main id="top">
+
+  <section class="hero">
+    <div>
+      <span class="label">Schreinerei &amp; Innenausbau · Meisterbetrieb</span>
+      <h1><span class="line"><span>Holz,</span></span><span class="line"><span>das <em>bleibt.</em></span></span></h1>
+      <div class="hero-meta">
+        <p>Küchen, Möbel und Innenausbau nach Maß. Entworfen, gefertigt und montiert in unserer eigenen Werkstatt.</p>
+        <p>Aus massivem Holz, mit ehrlichem Handwerk, für Generationen gebaut.</p>
+      </div>
+    </div>
+    <div class="hero-art wood rv" data-parallax="-0.08">
+      <svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#oak)"/></svg>
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 150 150"><defs><path id="c" d="M75 75m-56 0a56 56 0 1 1 112 0a56 56 0 1 1-112 0"/></defs><text font-family="Inter Tight" font-size="11.5" letter-spacing="3.2" fill="#1b1916"><textPath href="#c">MEISTERBETRIEB · SEIT 1987 · HANDGEFERTIGT ·</textPath></text></svg>
+        <b>L</b>
+      </div>
+    </div>
+    <div class="scroll-hint label"><i></i>Scrollen</div>
+  </section>
+
+  <section class="statement">
+    <p id="statement">Wir glauben an Möbel, die nicht nach drei Umzügen auseinanderfallen. An Küchen, in denen gelebt wird. An Holz, das mit jedem Jahr schöner wird. Und an Handwerk, das man sieht und fühlt.</p>
+  </section>
+
+  <section class="services" id="leistungen">
+    <div class="sec-head rv"><h2>Was wir <em>bauen</em></h2><p>Vom ersten Entwurf bis zur letzten Schraube: alles aus einer Hand, alles aus unserer Werkstatt.</p></div>
+    <div class="stack">
+      <article class="card" style="--i:0">
+        <div class="txt"><span class="num">01</span><h3>Küchen nach Maß</h3><p>Massivholzküchen, die perfekt in Ihren Raum passen, mit durchdachtem Stauraum und Oberflächen, die Spuren des Alltags gelassen nehmen.</p><ul><li>Massivholz</li><li>Furnier</li><li>Arbeitsplatten</li><li>Einbaugeräte</li></ul></div>
+        <div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#oak)"/></svg></div>
+      </article>
+      <article class="card" style="--i:1">
+        <div class="txt"><span class="num">02</span><h3>Möbel &amp; Einbauten</h3><p>Schränke unter der Dachschräge, Regalwände, Esstische: Möbel, die es so nur einmal gibt, weil sie für Sie gebaut werden.</p><ul><li>Einbauschränke</li><li>Tische</li><li>Regale</li><li>Sideboards</li></ul></div>
+        <div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#walnut)"/></svg></div>
+      </article>
+      <article class="card" style="--i:2">
+        <div class="txt"><span class="num">03</span><h3>Treppen &amp; Türen</h3><p>Treppen, die man gern betritt, und Türen, die satt ins Schloss fallen. Präzise gefertigt und sicher montiert.</p><ul><li>Holztreppen</li><li>Innentüren</li><li>Haustüren</li><li>Geländer</li></ul></div>
+        <div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#ash)"/></svg></div>
+      </article>
+      <article class="card" style="--i:3">
+        <div class="txt"><span class="num">04</span><h3>Innenausbau</h3><p>Wand- und Deckenverkleidungen, Dielenböden und komplette Raumkonzepte, für Wohnräume, Praxen und Gastronomie.</p><ul><li>Dielenböden</li><li>Verkleidungen</li><li>Ladenbau</li><li>Akustikpaneele</li></ul></div>
+        <div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#smoked)"/></svg></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="projects" id="projekte">
+    <div class="pin">
+      <div class="head"><h2>Ausgewählte <em>Projekte</em></h2><span class="count"><span id="pc">01</span> / 05</span></div>
+      <div class="track" id="track">
+        <figure class="proj"><div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#oak)"/></svg><svg class="lineart" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet"><rect x="120" y="80" width="560" height="110"/><path d="M260 80v110M400 80v110M540 80v110"/><path d="M100 300h600"/><rect x="120" y="300" width="560" height="140"/><path d="M260 300v140M400 300v140M540 300v140M330 300v140"/><path d="M180 360h40M300 360h20M470 360h40M600 360h40"/><path d="M420 300v-50h60v50M450 250v-20"/></svg></div><figcaption class="cap"><h3>Wohnküche, Eiche massiv</h3><span>Musterstadt · 2025</span></figcaption></figure>
+        <figure class="proj"><div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#walnut)"/></svg><svg class="lineart" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet"><rect x="140" y="60" width="520" height="390"/><path d="M140 160h520M140 260h520M140 360h520M400 60v390"/><path d="M160 160v-70M178 160v-80M196 160v-60M214 160v-75M232 160v-70M430 260v-75M448 260v-65M466 260v-80M484 260v-70M502 260v-60M520 260v-78M170 360v-70M190 360v-60M210 360v-78M560 160v-70M580 160v-80M600 160v-65"/><path d="M600 320l40-56"/></svg></div><figcaption class="cap"><h3>Bibliothek, Nussbaum</h3><span>Altbau · 2025</span></figcaption></figure>
+        <figure class="proj"><div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#ash)"/></svg><svg class="lineart" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet"><path d="M120 450h90v-55h90v-55h90v-55h90v-55h90v-55h90v-55h40"/><path d="M120 450 680 125"/><path d="M200 80v370M700 80v40"/></svg></div><figcaption class="cap"><h3>Faltwerktreppe, Esche</h3><span>Neubau · 2024</span></figcaption></figure>
+        <figure class="proj"><div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#smoked)"/></svg><svg class="lineart" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet"><path d="M100 300h600M120 300v140M680 300v140M100 320h600"/><path d="M220 380h60M250 380v70M210 450h80M520 380h60M550 380v70M510 450h80"/><path d="M140 80h520M140 150h520M140 220h520"/><circle cx="180" cy="130" r="14"/><circle cx="215" cy="130" r="14"/><circle cx="250" cy="130" r="14"/><circle cx="450" cy="200" r="14"/><circle cx="485" cy="200" r="14"/><circle cx="520" cy="200" r="14"/><circle cx="555" cy="200" r="14"/><path d="M330 100v-0M330 150v-60h20v60M380 150v-50h20v50"/></svg></div><figcaption class="cap"><h3>Weinbar, Räuchereiche</h3><span>Gastronomie · 2024</span></figcaption></figure>
+        <figure class="proj"><div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#maple)"/></svg><svg class="lineart" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet"><rect x="150" y="300" width="330" height="110"/><path d="M150 260v190M480 330v120M150 330h330"/><path d="M180 330c0-25 50-25 50 0"/><rect x="540" y="90" width="150" height="170"/><path d="M615 90v170M540 175h150"/><path d="M560 450v-120h110v120M560 390h110"/></svg></div><figcaption class="cap"><h3>Kinderzimmer, Ahorn</h3><span>Einfamilienhaus · 2023</span></figcaption></figure>
+      </div>
+      <div class="progress"><i id="pbar"></i></div>
+    </div>
+  </section>
+
+  <section class="materials" id="material">
+    <div class="sec-head rv"><h2>Unser <em>Material</em></h2><p>Wir verarbeiten heimische und europäische Hölzer aus nachhaltiger Forstwirtschaft, jede Sorte mit eigenem Charakter.</p></div>
+    <div class="swatches">
+      <div class="sw rv"><div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#oak)"/></svg></div><h3>Eiche</h3><p>Robust, warm, zeitlos</p></div>
+      <div class="sw rv"><div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#walnut)"/></svg></div><h3>Nussbaum</h3><p>Edel, dunkel, lebendig</p></div>
+      <div class="sw rv"><div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#ash)"/></svg></div><h3>Esche</h3><p>Hell, elastisch, klar</p></div>
+      <div class="sw rv"><div class="wood"><svg preserveAspectRatio="none"><rect width="100%" height="100%" filter="url(#smoked)"/></svg></div><h3>Räuchereiche</h3><p>Tief, markant, modern</p></div>
+    </div>
+  </section>
+
+  <section class="process" id="prozess">
+    <div class="sec-head rv"><h2>Vom Entwurf zum <em>Unikat</em></h2><p>Vier Schritte, ein Ansprechpartner, und am Ende ein Möbel, das bleibt.</p></div>
+    <div class="steps">
+      <div class="step rv"><b>01</b><h3>Gespräch</h3><p>Wir hören zu, messen auf und verstehen, wie Sie leben und arbeiten.</p></div>
+      <div class="step rv"><b>02</b><h3>Entwurf</h3><p>Sie erhalten Skizzen, 3D-Ansichten und Materialmuster zum Anfassen.</p></div>
+      <div class="step rv"><b>03</b><h3>Fertigung</h3><p>In unserer Werkstatt entsteht Ihr Stück, mit Präzision und Zeit.</p></div>
+      <div class="step rv"><b>04</b><h3>Montage</h3><p>Wir bauen sauber ein und gehen erst, wenn alles perfekt sitzt.</p></div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <blockquote class="rv">„Ein gutes Möbel erkennt man nicht am ersten Tag, sondern nach zwanzig Jahren.“</blockquote>
+    <cite class="rv">Thomas Lindner · Schreinermeister</cite>
+  </section>
+
+  <section class="contact" id="kontakt">
+    <div>
+      <span class="label">Kontakt</span>
+      <h2 class="rv">Lassen Sie uns etwas <em>bauen.</em></h2>
+      <div class="info">
+        <div><span class="label">Werkstatt</span><p style="margin:6px 0 0">Am Sägewerk 12<br>12345 Musterstadt</p></div>
+        <div><span class="label">Direkt</span><p style="margin:6px 0 0"><a href="tel:+491234567890">0123 456 78 90</a><br><a href="mailto:hallo@lindner-holzwerk.de">hallo@lindner-holzwerk.de</a></p></div>
+      </div>
+    </div>
+    <form id="form" class="rv">
+      <div>
+        <span class="label">Ich interessiere mich für</span>
+        <div class="chips" style="margin-top:14px">
+          <input type="checkbox" id="c1" name="i" value="Küche"><label for="c1">Küche</label>
+          <input type="checkbox" id="c2" name="i" value="Möbel"><label for="c2">Möbel</label>
+          <input type="checkbox" id="c3" name="i" value="Treppe"><label for="c3">Treppe</label>
+          <input type="checkbox" id="c4" name="i" value="Türen"><label for="c4">Türen</label>
+          <input type="checkbox" id="c5" name="i" value="Innenausbau"><label for="c5">Innenausbau</label>
+        </div>
+      </div>
+      <div class="field"><input id="n" placeholder=" " required><label for="n">Ihr Name</label></div>
+      <div class="field"><input id="e" type="email" placeholder=" " required><label for="e">E-Mail oder Telefon</label></div>
+      <div class="field"><textarea id="m" placeholder=" "></textarea><label for="m">Erzählen Sie uns von Ihrem Projekt</label></div>
+      <button class="send" type="submit">Anfrage senden <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="ok" id="ok">Danke! Dies ist ein Konzeptdesign, die Anfrage wurde nicht versendet.</p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="giant" aria-hidden="true">Lindner<em>.</em></div>
+  <div class="foot">
+    <span>© 2026 Lindner Holzwerk · Fiktives Unternehmen</span>
+    <span class="credit">Konzeptdesign von <a href="../index.html"><b>meoform</b></a></span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Menü
+  const btn = $('.menu-btn');
+  btn.addEventListener('click', () => {
+    const o = document.body.classList.toggle('menu-open');
+    btn.setAttribute('aria-expanded', o); btn.querySelector('.t').textContent = o ? 'Schließen' : 'Menü';
+  });
+  $$('.overlay a').forEach(a => a.addEventListener('click', () => { document.body.classList.remove('menu-open'); btn.querySelector('.t').textContent = 'Menü'; }));
+
+  // Reveal
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+  $$('.rv').forEach(el => io.observe(el));
+
+  // Statement Wort für Wort
+  const st = $('#statement');
+  const oakWords = ['nicht', 'gelebt', 'schöner', 'fühlt.'];
+  st.innerHTML = st.textContent.split(' ').map(w => `<span class="w${oakWords.includes(w) ? ' oak' : ''}">${w}</span>`).join(' ');
+  const words = [...st.querySelectorAll('.w')];
+
+  // Projekte horizontal
+  const proj = $('#projekte'), track = $('#track'), pbar = $('#pbar'), pc = $('#pc');
+  const art = $('[data-parallax]');
+
+  function onScroll() {
+    const vh = innerHeight;
+    // Statement
+    const r = st.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (vh * .85 - r.top) / (r.height + vh * .3)));
+    const n = Math.round(p * words.length);
+    words.forEach((w, i) => w.classList.toggle('on', i < n || reduce));
+    // Horizontal
+    const pr = proj.getBoundingClientRect();
+    const total = proj.offsetHeight - vh;
+    const prog = Math.min(1, Math.max(0, -pr.top / total));
+    const max = track.scrollWidth - innerWidth;
+    track.style.transform = `translateX(${-prog * max}px)`;
+    pbar.style.width = prog * 100 + '%';
+    pc.textContent = String(Math.min(5, Math.floor(prog * 4.999) + 1)).padStart(2, '0');
+    // Parallax
+    if (art && !reduce) art.style.transform = `translateY(${scrollY * parseFloat(art.dataset.parallax)}px)`;
+  }
+  addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll); onScroll();
+
+  // Cursor
+  const cur = $('.cursor');
+  if (matchMedia('(pointer:fine)').matches) {
+    let x = innerWidth / 2, y = innerHeight / 2, cx = x, cy = y;
+    addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; });
+    (function loop() { cx += (x - cx) * .2; cy += (y - cy) * .2; cur.style.transform = `translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); })();
+    $$('a,button,label,.proj').forEach(el => { el.addEventListener('mouseenter', () => cur.classList.add('big')); el.addEventListener('mouseleave', () => cur.classList.remove('big')); });
+  }
+
+  // Formular (Demo)
+  $('#form').addEventListener('submit', e => { e.preventDefault(); $('#ok').style.display = 'block'; });
+})();
+</script>
+</body>
+</html>
