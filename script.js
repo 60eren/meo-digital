@@ -1000,3 +1000,99 @@ if (document.body.classList.contains("home")) {
     });
   }
 }
+
+/* ---------- Automatisierung: Modul-Wähler (ohne innerHTML) ---------- */
+const modBtns = [...document.querySelectorAll(".mods-btn")];
+if (modBtns.length) {
+  const modText = document.getElementById("mods-text");
+  const modPanel = document.getElementById("mods-panel");
+  const modIcons = [...document.querySelectorAll(".mods-icon")];
+  const DURATION = 6000;
+  let modIndex = 0;
+  let autoplay = !reduceMotion;
+  let inView = false;
+  let modTimer = null;
+
+  function showMod(i, animate = true) {
+    modIndex = i;
+    const btn = modBtns[i];
+    modBtns.forEach((b) => {
+      const on = b === btn;
+      b.setAttribute("aria-selected", String(on));
+      b.classList.remove("is-playing");
+    });
+    modPanel.setAttribute("aria-labelledby", btn.id);
+    const list = btn.closest(".mods-list");
+    if (list && list.scrollWidth > list.clientWidth + 4) {
+      list.scrollTo({
+        left: btn.parentElement.offsetLeft - 20,
+        behavior: reduceMotion ? "auto" : "smooth",
+      });
+    }
+    const apply = () => {
+      document.getElementById("mods-n").textContent = String(i + 1).padStart(
+        2,
+        "0",
+      );
+      document.getElementById("mods-tier").textContent = btn.dataset.tier;
+      document.getElementById("mods-title").textContent = btn.dataset.title;
+      document.getElementById("mods-desc").textContent = btn.dataset.desc;
+      document.getElementById("mods-example").textContent = btn.dataset.example;
+      modIcons.forEach((ic) =>
+        ic.classList.toggle("is-on", ic.dataset.icon === btn.dataset.icon),
+      );
+      modText.classList.remove("is-out");
+    };
+    if (animate && !reduceMotion) {
+      modText.classList.add("is-out");
+      setTimeout(apply, 280);
+    } else apply();
+    schedule();
+  }
+
+  function schedule() {
+    clearTimeout(modTimer);
+    const btn = modBtns[modIndex];
+    btn.classList.remove("is-playing");
+    if (!autoplay || !inView) return;
+    btn.style.setProperty("--dur", `${DURATION}ms`);
+    void btn.offsetWidth;
+    btn.classList.add("is-playing");
+    modTimer = setTimeout(
+      () => showMod((modIndex + 1) % modBtns.length),
+      DURATION,
+    );
+  }
+
+  modBtns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      autoplay = false;
+      showMod(i);
+    });
+    btn.addEventListener("keydown", (e) => {
+      if (
+        e.key !== "ArrowDown" &&
+        e.key !== "ArrowUp" &&
+        e.key !== "ArrowRight" &&
+        e.key !== "ArrowLeft"
+      )
+        return;
+      e.preventDefault();
+      const dir = e.key === "ArrowDown" || e.key === "ArrowRight" ? 1 : -1;
+      const next = (i + dir + modBtns.length) % modBtns.length;
+      autoplay = false;
+      showMod(next);
+      modBtns[next].focus();
+    });
+  });
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(
+      ([entry]) => {
+        inView = entry.isIntersecting;
+        schedule();
+      },
+      { threshold: 0.4 },
+    ).observe(modPanel);
+  }
+}
