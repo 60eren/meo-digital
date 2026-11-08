@@ -199,6 +199,38 @@ footer{padding:90px 0 30px;overflow:hidden}
 .rv.in{opacity:1;transform:none;filter:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none}.pulse,.marquee .track,.dot{animation:none}}
 
+
+/* Karriere / Kurzbewerbung */
+.jobs{display:grid;grid-template-columns:1.05fr 1fr;gap:14px}
+.jobs-info{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:38px;display:flex;flex-direction:column}
+.jobs-info h2{font-size:clamp(2.3rem,4.6vw,3.8rem);margin:14px 0 18px}
+.jobs-info p{color:var(--soft);margin:0 0 26px;max-width:32em}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto}
+.perk{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-weight:500;font-size:.93rem}
+.perk svg{width:20px;height:20px;color:var(--lime);flex:none}
+.apply{position:relative;overflow:hidden;background:radial-gradient(500px 320px at 100% 0%,rgba(212,255,58,.16),transparent 70%),var(--card);border:1px solid rgba(212,255,58,.35);border-radius:var(--r);padding:38px}
+.apply .timer{display:inline-flex;align-items:center;gap:10px;background:rgba(212,255,58,.12);color:var(--lime);border:1px solid rgba(212,255,58,.3);border-radius:999px;padding:7px 14px;font-family:var(--mono);font-size:.8rem;letter-spacing:.04em}
+.apply h3{font-size:clamp(1.8rem,3vw,2.4rem);margin:18px 0 6px}
+.apply .sub{color:var(--soft);margin:0 0 26px}
+.apply form{grid-template-columns:1fr}
+.apply .role{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.apply .role input{display:none}
+.apply .role label{display:flex;flex-direction:column;gap:2px;border:1px solid var(--line-2);border-radius:14px;padding:14px 16px;cursor:pointer;transition:all .2s;background:rgba(255,255,255,.03)}
+.apply .role label b{font-family:var(--head);font-size:1.15rem;font-weight:600;color:var(--text)}
+.apply .role label span{font-size:.82rem;color:var(--muted)}
+.apply .role input:checked+label{border-color:var(--lime);background:rgba(212,255,58,.08);box-shadow:0 0 0 3px rgba(212,255,58,.12)}
+.no-cv{display:flex;align-items:center;gap:10px;color:var(--soft);font-size:.92rem;margin-top:4px}
+.no-cv svg{width:18px;height:18px;color:var(--lime);flex:none}
+.apply-done{display:none;text-align:center;padding:30px 0 10px}
+.apply-done .check{width:68px;height:68px;border-radius:50%;background:var(--lime);color:#0a0b0d;display:grid;place-items:center;margin:0 auto 18px}
+.apply-done .check svg{width:32px;height:32px}
+.apply-done h3{margin:0 0 8px}
+.apply-done p{color:var(--soft);margin:0}
+.apply.sent form{display:none}
+.apply.sent .apply-done{display:block}
+@media (max-width:1000px){.jobs{grid-template-columns:1fr}}
+@media (max-width:600px){.jobs-info,.apply{padding:26px}.perks{grid-template-columns:1fr}}
+
 @media (max-width:1000px){
   .bento{grid-template-columns:repeat(2,1fr)}
   .c-pv,.c-3,.c-2{grid-column:span 2}
@@ -237,6 +269,7 @@ footer{padding:90px 0 30px;overflow:hidden}
       <a href="#leistungen">Leistungen</a>
       <a href="#rechner">Solar-Rechner</a>
       <a href="#ablauf">Ablauf</a>
+      <a href="#karriere">Karriere</a>
       <a href="#faq">FAQ</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
@@ -249,7 +282,7 @@ footer{padding:90px 0 30px;overflow:hidden}
   <section class="hero">
     <div class="grid-bg" aria-hidden="true"></div>
     <div class="wrap">
-      <span class="tag rv"><span class="dot"></span>24/7 Elektro-Notdienst · Solar &amp; Speicher vom Meisterbetrieb</span>
+      <a href="#karriere" class="tag rv"><span class="dot"></span>Wir stellen ein: Azubis &amp; Elektriker · Bewerbung in 60 Sekunden</a>
       <h1 class="rv">Energie, die für Sie <span class="grad">arbeitet.</span></h1>
       <p class="lead rv">Photovoltaik, Stromspeicher, Wallbox und Elektroinstallation aus einer Hand. Geplant, installiert und gewartet von Voltwerk, Ihrem Elektro-Meisterbetrieb.</p>
       <div class="ctas rv">
@@ -395,14 +428,54 @@ footer{padding:90px 0 30px;overflow:hidden}
     </div>
   </section>
 
+  <section class="section" id="karriere" style="padding-top:0">
+    <div class="wrap">
+      <div class="jobs">
+        <div class="jobs-info rv">
+          <span class="mono">04 · Karriere</span>
+          <h2>Wir stellen ein. <span class="grad">Azubis &amp; Elektriker.</span></h2>
+          <p>Du willst mit Solar, Speichern und E-Mobilität arbeiten statt nur Steckdosen zu setzen? Dann komm ins Team. Ob Ausbildung zum Elektroniker oder als Geselle: Bei uns arbeitest du an der Technik, die gerade jeder braucht.</p>
+          <div class="perks">
+            <div class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6.5A7 7 0 1 0 18 17.5"/><path d="M4 10h10M4 14h10"/></svg>Übertarifliche Bezahlung</div>
+            <div class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14l-1.5-6h-11z"/><circle cx="8" cy="18" r="2"/><circle cx="16" cy="18" r="2"/><path d="M8 11l1.5-4h5L16 11"/></svg>E-Dienstwagen für Gesellen</div>
+            <div class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0 5 5L22 14l-3 3-2.4-2.4a4 4 0 0 0-5-5L4 17.3a2 2 0 0 0 2.8 2.8L14.5 12"/></svg>Top-Werkzeug &amp; Kleidung</div>
+            <div class="perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>Weiterbildung bis zum Meister</div>
+          </div>
+        </div>
+
+        <div class="apply rv" id="apply">
+          <span class="timer"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>Bewerbung in 60 Sekunden</span>
+          <h3>Kurzbewerbung</h3>
+          <p class="sub">Drei Angaben, fertig. Wir rufen dich innerhalb von 48 Stunden zurück.</p>
+          <form id="apply-form">
+            <input name="name" placeholder="Dein Name" autocomplete="name" required>
+            <input name="phone" type="tel" placeholder="Deine Handynummer" autocomplete="tel" required>
+            <div class="role" role="radiogroup" aria-label="Ich bewerbe mich als">
+              <input type="radio" name="role" id="r-azubi" value="Azubi" required><label for="r-azubi"><b>Azubi</b><span>Ausbildung zum Elektroniker</span></label>
+              <input type="radio" name="role" id="r-geselle" value="Geselle"><label for="r-geselle"><b>Geselle</b><span>Elektriker mit Abschluss</span></label>
+            </div>
+            <button class="btn btn--lime" type="submit" style="justify-content:center">Jetzt bewerben<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <div class="no-cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Kein Lebenslauf nötig. Kein Anschreiben.</div>
+          </form>
+          <div class="apply-done" role="status" aria-live="polite">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <h3>Danke, <span id="apply-name">du</span>!</h3>
+            <p>Wir melden uns innerhalb von 48 Stunden bei dir.<br><span style="color:var(--muted);font-size:.85rem">(Konzeptdesign: Die Bewerbung wurde nicht versendet.)</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="faq" style="padding-top:0">
     <div class="wrap faq-wrap">
-      <div class="rv"><span class="mono">04 · FAQ</span><h2 style="font-size:clamp(2.4rem,5vw,4rem);margin-top:14px">Häufige <span class="grad">Fragen.</span></h2><p style="color:var(--soft);margin-top:18px">Noch etwas offen? Rufen Sie uns an, wir beraten gern.</p></div>
+      <div class="rv"><span class="mono">05 · FAQ</span><h2 style="font-size:clamp(2.4rem,5vw,4rem);margin-top:14px">Häufige <span class="grad">Fragen.</span></h2><p style="color:var(--soft);margin-top:18px">Noch etwas offen? Rufen Sie uns an, wir beraten gern.</p></div>
       <div class="rv">
         <details><summary>Lohnt sich Photovoltaik noch?</summary><p>In den meisten Fällen ja, vor allem wenn Sie einen großen Teil des Stroms selbst nutzen, etwa mit Speicher, Wärmepumpe oder E-Auto.</p></details>
         <details><summary>Wie lange dauert die Installation?</summary><p>Die Montage auf dem Dach dauert meist ein bis drei Tage. Die Anmeldung beim Netzbetreiber übernehmen wir für Sie.</p></details>
         <details><summary>Brauche ich einen Stromspeicher?</summary><p>Ein Speicher erhöht Ihren Eigenverbrauch deutlich. Ob er sich für Sie rechnet, ermitteln wir in der Beratung.</p></details>
         <details><summary>Installieren Sie auch Wallboxen ohne Solaranlage?</summary><p>Ja, selbstverständlich. Auf Wunsch bereiten wir die Wallbox für eine spätere PV-Anlage vor.</p></details>
+        <details><summary>Brauche ich für die Bewerbung einen Lebenslauf?</summary><p>Nein. Name, Telefonnummer und ob Azubi oder Geselle reichen. Alles Weitere klären wir in einem kurzen Telefonat.</p></details>
         <details><summary>Was gehört zum Notdienst?</summary><p>Bei Stromausfall, Kurzschluss oder Gefahr durch defekte Leitungen sind wir rund um die Uhr erreichbar und schnell vor Ort.</p></details>
       </div>
     </div>
@@ -412,7 +485,7 @@ footer{padding:90px 0 30px;overflow:hidden}
     <div class="wrap">
       <div class="contact rv">
         <div>
-          <span class="mono">05 · Kontakt</span>
+          <span class="mono">06 · Kontakt</span>
           <h2 style="margin-top:14px">Bereit für <span class="grad">Ihre Energiewende?</span></h2>
           <p style="color:var(--soft);margin-top:18px;max-width:30em">Sichern Sie sich Ihren kostenlosen Beratungstermin. Wir melden uns innerhalb von 24 Stunden.</p>
           <div class="lines">
@@ -516,6 +589,15 @@ footer{padding:90px 0 30px;overflow:hidden}
     requestAnimationFrame(step);
   }), { threshold: .6 });
   $$('[data-count]').forEach(el => cio.observe(el));
+
+
+  // Kurzbewerbung (Demo)
+  $('#apply-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const n = e.target.elements.namedItem('name').value.trim().split(' ')[0];
+    if (n) $('#apply-name').textContent = n;
+    $('#apply').classList.add('sent');
+  });
 
   // Formular (Demo)
   $('#form').addEventListener('submit', e => { e.preventDefault(); $('#ok').style.display = 'block'; });
