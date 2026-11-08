@@ -9,7 +9,7 @@
       content="Moderne, sichere und schnelle Websites für Unternehmen – individuell gestaltet, persönlich betreut und zum fairen Festpreis."
     />
     <meta name="theme-color" content="#fafaf8" />
-    <link rel="stylesheet" href="style.css?v=5" />
+    <link rel="stylesheet" href="style.css?v=6" />
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="icon" href="img/favicon-48.png" sizes="48x48" type="image/png" />
@@ -49,7 +49,7 @@
       }
     </script>
   </head>
-  <body>
+  <body class="home">
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
     <!-- ============ HEADER / NAVIGATION ============ -->
@@ -76,7 +76,8 @@
 
         <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation">
           <ul>
-            <li><a href="#leistungen">Leistungen</a></li>
+            <li><a href="#leistungen">Websites</a></li>
+            <li><a href="#automatisierung">Automatisierung</a></li>
             <li><a href="#ueber-mich">Über Meoform</a></li>
             <li><a href="#referenzen">Referenzen</a></li>
             <li><a href="#preise">Preise</a></li>
@@ -102,7 +103,8 @@
         <div class="container hero-inner">
           <div class="hero-text">
             <p class="pill reveal">
-              <span class="pill-dot"></span>Sichtbar · Professionell · Sicher
+              <span class="pill-dot"></span>Websites · KI-Automatisierung ·
+              Sicher
             </p>
             <h1 class="reveal" style="--d: 0.08s">
               Ihre Website.<br />
@@ -111,60 +113,66 @@
             </h1>
             <p class="lead reveal" style="--d: 0.16s">
               Moderne Websites, die gut aussehen, sicher funktionieren und
-              Kunden überzeugen.
+              Kunden überzeugen. Dazu KI-Automatisierung, die Ihrem Team
+              Büroarbeit abnimmt.
             </p>
             <div class="hero-actions reveal" style="--d: 0.24s">
               <a href="#kontakt" class="btn">Kostenloses Erstgespräch</a>
-              <a href="#leistungen" class="btn btn-ghost">Leistungen ansehen</a>
+              <a href="#demo" class="btn btn-ghost">Live-Demo ansehen</a>
             </div>
           </div>
 
           <!-- Browser-Mockup -->
           <div class="hero-visual reveal" style="--d: 0.2s" aria-hidden="true">
-            <div class="browser">
-              <div class="browser-bar">
-                <i></i><i></i><i></i><span>meoform.de</span>
-              </div>
-              <div class="browser-body">
-                <div class="wf-nav">
-                  <b></b><span></span><span></span><span></span>
+            <div class="hero-tilt">
+              <div class="browser">
+                <div class="browser-bar">
+                  <i></i><i></i><i></i><span>meoform.de</span>
                 </div>
-                <div class="wf-hero">
-                  <div class="wf-lines">
-                    <b></b><b></b><span></span><em></em>
+                <div class="browser-body">
+                  <div class="wf-nav">
+                    <b></b><span></span><span></span><span></span>
                   </div>
-                  <div class="wf-img"></div>
-                </div>
-                <div class="wf-cards">
-                  <span></span><span></span><span></span>
+                  <div class="wf-hero">
+                    <div class="wf-lines">
+                      <b></b><b></b><span></span><em></em>
+                    </div>
+                    <div class="wf-img"></div>
+                  </div>
+                  <div class="wf-cards">
+                    <span></span><span></span><span></span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="float-chip chip-1">
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"
-                />
-                <path d="M9 12l2 2 4-4" />
-              </svg>
-              SSL-gesichert
-            </div>
-            <div class="float-chip chip-2">
-              <svg viewBox="0 0 24 24">
-                <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
-              </svg>
-              Lighthouse 98
-            </div>
-            <div class="float-chip chip-3 chip-chat">
-              <span class="chat-avatar">KI</span>
-              <span
-                ><small>Assistent</small>Wir haben heute bis 18 Uhr
-                geöffnet!</span
-              >
+              <div class="float-chip chip-1">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"
+                  />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+                SSL-gesichert
+              </div>
+              <div class="float-chip chip-2">
+                <svg viewBox="0 0 24 24">
+                  <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
+                </svg>
+                Lighthouse 98
+              </div>
+              <div class="float-chip chip-3 chip-chat">
+                <span class="chat-avatar">KI</span>
+                <span
+                  ><small>Assistent</small>Wir haben heute bis 18 Uhr
+                  geöffnet!</span
+                >
+              </div>
             </div>
           </div>
         </div>
+        <a href="#leistungen" class="scroll-cue" aria-label="Weiter nach unten">
+          <span></span>
+        </a>
       </section>
 
       <!-- ============ 2. LAUFBAND ============ -->
@@ -173,6 +181,7 @@
           <ul>
             <li>Festpreis ohne Überraschungen</li>
             <li>KI-Chat-Assistent</li>
+            <li>KI-Automatisierung für Firmen</li>
             <li>Sicherheit als Basis</li>
             <li>Optimiert für Smartphones</li>
             <li>Ein persönlicher Ansprechpartner</li>
@@ -181,10 +190,29 @@
           <ul aria-hidden="true">
             <li>Festpreis ohne Überraschungen</li>
             <li>KI-Chat-Assistent</li>
+            <li>KI-Automatisierung für Firmen</li>
             <li>Sicherheit als Basis</li>
             <li>Optimiert für Smartphones</li>
             <li>Ein persönlicher Ansprechpartner</li>
             <li>Online in 2–3 Wochen</li>
+          </ul>
+        </div>
+        <div class="marquee-track marquee-track--rev" aria-hidden="true">
+          <ul>
+            <li>Anfragen &amp; Posteingang</li>
+            <li>Termine &amp; Erinnerungen</li>
+            <li>Rechnungen &amp; Belege</li>
+            <li>Excel &amp; Berichte</li>
+            <li>Chatbot &amp; WhatsApp</li>
+            <li>Telefon-Assistent</li>
+          </ul>
+          <ul>
+            <li>Anfragen &amp; Posteingang</li>
+            <li>Termine &amp; Erinnerungen</li>
+            <li>Rechnungen &amp; Belege</li>
+            <li>Excel &amp; Berichte</li>
+            <li>Chatbot &amp; WhatsApp</li>
+            <li>Telefon-Assistent</li>
           </ul>
         </div>
       </section>
@@ -196,7 +224,7 @@
           <h2 class="reveal" style="--d: 0.06s">
             Ihre Kunden suchen Sie auf dem Handy.
           </h2>
-          <p class="lead reveal" style="--d: 0.12s">
+          <p class="lead reveal scrub-text" style="--d: 0.12s">
             Die meisten suchen lokale Geschäfte mobil – Öffnungszeiten, Angebot,
             Anfahrt. Finden sie keine gute Website, gehen sie zur Konkurrenz.
           </p>
@@ -221,7 +249,7 @@
       <section id="leistungen" class="section section-soft">
         <div class="container">
           <div class="section-head center">
-            <p class="eyebrow reveal">Leistungen</p>
+            <p class="eyebrow reveal">Websites</p>
             <h2 class="reveal" style="--d: 0.06s">
               Alles für Ihren digitalen Auftritt
             </h2>
@@ -324,6 +352,339 @@
             </article>
           </div>
         </div>
+      </section>
+
+      <!-- ============ 5. KI-AUTOMATISIERUNG ============ -->
+      <section id="automatisierung" class="section">
+        <div class="container">
+          <div class="section-head center">
+            <p class="eyebrow reveal">Automatisierung</p>
+            <h2 class="reveal" style="--d: 0.06s">
+              KI-Automatisierung für Ihre Firma
+            </h2>
+            <p class="reveal" style="--d: 0.12s">
+              Weniger Büroarbeit, schnellere Antworten: Die KI erledigt
+              wiederkehrende Aufgaben vor, Sie behalten die Kontrolle. Starten
+              Sie mit einem Modul und bauen Sie Schritt für Schritt aus.
+            </p>
+          </div>
+
+          <div class="auto-group reveal">
+            <p class="eyebrow">Einstieg</p>
+            <p>Schnell spürbare Entlastung im Alltag</p>
+          </div>
+          <div class="services">
+            <article class="service reveal">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 13h4l2 3h4l2-3h4" />
+                  <path d="M5.5 5h13L20 13v6H4v-6z" />
+                </svg>
+              </div>
+              <h3>
+                <span class="auto-num">01</span>Anfragen &amp; Posteingang
+              </h3>
+              <p>
+                Die KI sortiert E-Mails und Formular-Anfragen, fasst sie
+                zusammen, schreibt Antwortentwürfe und trägt neue Kunden ein.
+              </p>
+            </article>
+            <article class="service reveal" style="--d: 0.08s">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="5" width="18" height="16" rx="2" />
+                  <path d="M8 3v4M16 3v4M3 10h18" />
+                  <path d="M9 15l2 2 4-4" />
+                </svg>
+              </div>
+              <h3>
+                <span class="auto-num">02</span>Termine &amp; Erinnerungen
+              </h3>
+              <p>
+                Online-Buchung rund um die Uhr, automatische Erinnerung am
+                Vortag und freundliches Nachfassen nach dem Termin.
+              </p>
+            </article>
+            <article class="service reveal" style="--d: 0.16s">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6 3h12v18l-3-2-3 2-3-2-3 2z" />
+                  <path d="M9 8h6M9 12h6" />
+                </svg>
+              </div>
+              <h3><span class="auto-num">03</span>Rechnungen &amp; Belege</h3>
+              <p>
+                Belege werden ausgelesen und erfasst, offene Posten überwacht.
+                Sie sehen sofort, was noch bezahlt werden muss.
+              </p>
+            </article>
+          </div>
+
+          <div class="auto-group reveal">
+            <p class="eyebrow">Aufbau</p>
+            <p>Mehr Zeit für das, was Geld bringt</p>
+          </div>
+          <div class="services">
+            <article class="service reveal">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 20h18" />
+                  <path d="M6 20v-7M11 20V5M16 20v-10" />
+                </svg>
+              </div>
+              <h3><span class="auto-num">04</span>Excel &amp; Berichte</h3>
+              <p>
+                Zahlen aus verschiedenen Quellen landen automatisch in Ihrer
+                Tabelle, Wochen- und Monatsberichte erstellen sich von selbst.
+              </p>
+            </article>
+            <article class="service reveal" style="--d: 0.08s">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"
+                  />
+                </svg>
+              </div>
+              <h3>
+                <span class="auto-num">05</span>Bewertungen &amp; Social Media
+              </h3>
+              <p>
+                Bewertungsanfragen nach dem Auftrag, Antwortvorschläge auf
+                Rezensionen und vorbereitete Beiträge für Ihre Kanäle.
+              </p>
+            </article>
+            <article class="service reveal" style="--d: 0.16s">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <rect x="9" y="3" width="6" height="11" rx="3" />
+                  <path d="M5 11a7 7 0 0 0 14 0M12 18v3" />
+                </svg>
+              </div>
+              <h3><span class="auto-num">06</span>Angebote vorbereiten</h3>
+              <p>
+                Aus Ihren Notizen oder einer Sprachnachricht von der Baustelle
+                entsteht ein Angebotsentwurf, den Sie nur noch prüfen.
+              </p>
+            </article>
+          </div>
+
+          <div class="auto-group reveal">
+            <p class="eyebrow">Premium</p>
+            <p>Für Ihre Kunden rund um die Uhr erreichbar</p>
+          </div>
+          <div class="services">
+            <article class="service service-feature reveal">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"
+                  />
+                  <path d="M8.5 12h.01M12 12h.01M15.5 12h.01" />
+                </svg>
+              </div>
+              <h3>
+                <span class="auto-num">07</span>Chatbot für Website &amp;
+                WhatsApp
+              </h3>
+              <p>
+                Beantwortet Kundenfragen sofort, nimmt Anfragen auf und bucht
+                auf Wunsch Termine. Auf Ihrer Website und per WhatsApp.
+              </p>
+              <span class="tag">Premium</span>
+            </article>
+            <article class="service service-feature reveal" style="--d: 0.08s">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"
+                  />
+                </svg>
+              </div>
+              <h3><span class="auto-num">08</span>Telefon-Assistent</h3>
+              <p>
+                Nimmt Anrufe an, wenn niemand Zeit hat, notiert das Anliegen und
+                schickt Ihnen eine Zusammenfassung mit Rückrufbitte.
+              </p>
+              <span class="tag">Premium</span>
+            </article>
+            <article class="service reveal" style="--d: 0.16s">
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></svg>
+              </div>
+              <h3>Ihr Ablauf fehlt?</h3>
+              <p>
+                Jede Firma arbeitet anders. Im Erstgespräch finden wir heraus,
+                wo bei Ihnen am meisten Zeit verloren geht.
+              </p>
+              <p class="auto-link">
+                <a href="#kontakt" class="link-arrow"
+                  >Erstgespräch vereinbaren</a
+                >
+              </p>
+            </article>
+          </div>
+
+          <ul class="auto-trust reveal">
+            <li>
+              <strong>EU-Server</strong>Ihre Daten werden auf Servern in der EU
+              verarbeitet.
+            </li>
+            <li>
+              <strong>Vertrag zur Auftragsverarbeitung</strong>Für jedes Projekt
+              erhalten Sie einen AVV nach DSGVO.
+            </li>
+            <li>
+              <strong>Mensch entscheidet, KI bereitet vor</strong>Antworten und
+              Buchungen gehen erst nach Ihrer Freigabe raus.
+            </li>
+            <li>
+              <strong>Als KI gekennzeichnet</strong>Chatbots geben sich
+              gegenüber Ihren Kunden klar als KI zu erkennen.
+            </li>
+          </ul>
+
+          <div class="hero-actions auto-actions reveal">
+            <a href="#demo" class="btn">Live-Demo ansehen</a>
+            <a href="#kontakt" class="btn btn-ghost"
+              >Kostenloses Erstgespräch</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ LIVE-DEMO: KI-POSTEINGANG (läuft beim Scrollen ab) ============ -->
+      <section
+        id="demo"
+        class="demo-scroll"
+        aria-label="Live-Demo: KI im Posteingang"
+      >
+        <div class="demo-sticky">
+          <div class="container demo-stage">
+            <div class="demo-story">
+              <p class="eyebrow">Live-Demo</p>
+              <h2>So arbeitet die KI in Ihrem Posteingang</h2>
+              <p class="demo-now" id="demo-now" aria-live="polite">
+                Nachrichten kommen an
+              </p>
+              <ol class="demo-steps" id="demo-steps">
+                <li>
+                  <span class="demo-step-num">01</span>
+                  <div>
+                    <strong>Nachrichten kommen an</strong>
+                    <p>E-Mails und Formular-Anfragen landen im Posteingang.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="demo-step-num">02</span>
+                  <div>
+                    <strong>Die KI liest mit</strong>
+                    <p>Name, Telefon, Ort und Wunsch werden erkannt.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="demo-step-num">03</span>
+                  <div>
+                    <strong>Einordnen &amp; zusammenfassen</strong>
+                    <p>
+                      Kategorie, Priorität und das Wichtigste in einem Satz.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span class="demo-step-num">04</span>
+                  <div>
+                    <strong>Antwort vorbereiten</strong>
+                    <p>Ein Entwurf in Ihrem Ton, fertig zum Prüfen.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="demo-step-num">05</span>
+                  <div>
+                    <strong>Sie geben frei, der Rest läuft</strong>
+                    <p>
+                      Kunde anlegen, Termin vorschlagen, Posteingang sortieren.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+              <div class="demo-progress" aria-hidden="true">
+                <i id="demo-bar"></i>
+              </div>
+              <p class="demo-hint" id="demo-hint">
+                Jetzt selbst ausprobieren: Klicken Sie auf eine Nachricht.
+              </p>
+            </div>
+
+            <div class="demo-app">
+              <div class="demo-chrome">
+                <i></i><i></i><i></i>
+                <span>Posteingang · Malerbetrieb Schneider</span>
+                <span class="demo-label">Beispieldaten</span>
+              </div>
+              <div class="demo-body">
+                <ul
+                  class="demo-list"
+                  id="demo-list"
+                  aria-label="Beispiel-Nachrichten"
+                ></ul>
+
+                <div class="demo-panel" id="demo-panel">
+                  <div class="demo-content" id="demo-content">
+                    <div class="demo-block" id="demo-b-orig">
+                      <p class="demo-title">Originalnachricht</p>
+                      <p class="demo-meta" id="demo-meta"></p>
+                      <p class="demo-subject" id="demo-subject"></p>
+                      <div class="demo-textwrap">
+                        <p class="demo-text" id="demo-text"></p>
+                        <span
+                          class="demo-scan"
+                          id="demo-scan"
+                          aria-hidden="true"
+                        ></span>
+                      </div>
+                    </div>
+
+                    <div class="demo-block" id="demo-b-ai">
+                      <p class="demo-title">KI-Analyse</p>
+                      <div class="demo-chips" id="demo-chips"></div>
+                      <p class="demo-summary" id="demo-summary"></p>
+                      <dl class="demo-data" id="demo-data"></dl>
+                    </div>
+
+                    <div class="demo-block" id="demo-b-draft">
+                      <p class="demo-title">Antwortentwurf</p>
+                      <p class="demo-draft" id="demo-draft"></p>
+                      <div class="demo-send">
+                        <button
+                          type="button"
+                          class="btn btn-small"
+                          id="demo-send"
+                        >
+                          Freigeben &amp; senden
+                        </button>
+                        <span
+                          class="demo-status"
+                          id="demo-status"
+                          role="status"
+                        ></span>
+                      </div>
+                    </div>
+
+                    <div class="demo-block" id="demo-b-done">
+                      <p class="demo-title">Automatisch erledigt</p>
+                      <ul class="check-list demo-done" id="demo-done"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="demo-foot">
+          Alle Namen, Nachrichten und Daten in dieser Demo sind frei erfunden.
+          Es werden keine Daten gesendet oder gespeichert.
+        </p>
       </section>
 
       <!-- ===== MEO – Über-mich-Abschnitt ===== -->
@@ -672,6 +1033,20 @@
             <a href="#kontakt" class="btn">Check anfragen</a>
           </div>
 
+          <div class="check-offer reveal">
+            <div>
+              <p class="check-offer-eyebrow">Neu: Für Firmen</p>
+              <h3>KI-Automatisierung – individuelles Angebot</h3>
+              <p>
+                Jede Firma arbeitet anders. Nach dem kostenlosen Erstgespräch
+                erhalten Sie einen Festpreis für die Einrichtung Ihrer Module.
+                Laufende Kosten, zum Beispiel für KI-Dienste, sehen Sie vorab
+                transparent im Angebot.
+              </p>
+            </div>
+            <a href="#kontakt" class="btn">Automatisierung anfragen</a>
+          </div>
+
           <p class="footnote center">
             Alle Preise sind Endpreise. Gemäß §&nbsp;19&nbsp;UStG wird keine
             Umsatzsteuer berechnet.
@@ -696,10 +1071,11 @@
           <div class="section-head center">
             <p class="eyebrow reveal">Ablauf</p>
             <h2 class="reveal" style="--d: 0.06s">
-              In 4 Schritten zur neuen Website
+              In 4 Schritten zum Ergebnis
             </h2>
             <p class="reveal" style="--d: 0.12s">
-              Klar, planbar und persönlich – von der ersten Idee bis zum Launch.
+              Klar, planbar und persönlich – ob neue Website oder
+              Automatisierung.
             </p>
           </div>
 
@@ -716,8 +1092,8 @@
                 <span class="t-num">Schritt 01</span>
                 <h3>Erstgespräch</h3>
                 <p>
-                  Kostenlos und unverbindlich. Ihre Ziele, Inhalte und Wünsche
-                  werden besprochen – telefonisch oder per Video.
+                  Kostenlos und unverbindlich. Wir besprechen Ihre Ziele,
+                  Abläufe und Wünsche – telefonisch oder per Video.
                 </p>
                 <span class="t-time">Tag 1</span>
               </div>
@@ -733,8 +1109,9 @@
                 <span class="t-num">Schritt 02</span>
                 <h3>Konzept &amp; Angebot</h3>
                 <p>
-                  Sie erhalten ein Designkonzept und ein verbindliches
-                  Festpreis-Angebot. Erst dann geht es los.
+                  Sie erhalten ein Designkonzept oder einen Automatisierungsplan
+                  und ein verbindliches Festpreis-Angebot. Erst dann geht es
+                  los.
                 </p>
                 <span class="t-time">ca. 3–5 Tage</span>
               </div>
@@ -751,8 +1128,9 @@
                 <span class="t-num">Schritt 03</span>
                 <h3>Umsetzung</h3>
                 <p>
-                  Ihre Website entsteht. Sie geben Feedback, Anpassungen sind
-                  inklusive – bis alles passt.
+                  Ihre Website entsteht oder Ihre Automatisierung wird
+                  eingerichtet und mit echten Beispielen getestet. Sie geben
+                  Feedback, bis alles passt.
                 </p>
                 <span class="t-time">ca. 1–2 Wochen</span>
               </div>
@@ -771,8 +1149,9 @@
                 <span class="t-num">Schritt 04</span>
                 <h3>Launch &amp; Betreuung</h3>
                 <p>
-                  Ihre Website geht online. Auf Wunsch kümmert sich Meoform um
-                  Hosting, Updates und Sicherheit.
+                  Ihre Website geht online oder die Automatisierung startet. Auf
+                  Wunsch kümmert sich Meoform um Hosting, Updates, Sicherheit
+                  und Anpassungen.
                 </p>
                 <span class="t-time">nach 2–3 Wochen</span>
               </div>
@@ -794,7 +1173,7 @@
               <summary>Was kostet eine Website?</summary>
               <p>
                 Eine One-Page-Website gibt es ab 500&nbsp;€, mehrseitige
-                Websites ab 1.2s00&nbsp;€, individuelle Projekte für Marken ab
+                Websites ab 1.200&nbsp;€, individuelle Projekte für Marken ab
                 2.500&nbsp;€. Nach dem Erstgespräch bekommen Sie ein
                 verbindliches Festpreis-Angebot.
               </p>
@@ -812,8 +1191,30 @@
                 Er beantwortet häufige Kundenfragen automatisch – auch nachts
                 und am Wochenende. Sie sparen Zeit am Telefon, und Ihre Kunden
                 bekommen sofort eine Antwort. Der Assistent antwortet auf Basis
-                Ihrer Informationen – Termine bucht er nicht selbst, kann aber
-                auf Ihr Buchungstool verlinken.
+                Ihrer Informationen. Termine buchen kann er mit Modul 02
+                (Termine &amp; Erinnerungen), per WhatsApp erreichbar ist er mit
+                Modul 07 (Chatbot für Website &amp; WhatsApp).
+              </p>
+            </details>
+            <details>
+              <summary>Was kann automatisiert werden?</summary>
+              <p>
+                Alles, was regelmäßig gleich abläuft: Anfragen und E-Mails
+                sortieren und beantworten, Termine und Erinnerungen, Rechnungen
+                und Belege erfassen, Berichte in Excel, Bewertungen und Social
+                Media, Angebote vorbereiten bis hin zu Chatbot und
+                Telefon-Assistent. Im Erstgespräch finden wir heraus, wo bei
+                Ihnen am meisten Zeit verloren geht.
+              </p>
+            </details>
+            <details>
+              <summary>Sind meine Kundendaten bei KI sicher?</summary>
+              <p>
+                Ja. Die Verarbeitung läuft auf Servern in der EU, Sie erhalten
+                einen Vertrag zur Auftragsverarbeitung (AVV) und es werden nur
+                die Daten verarbeitet, die wirklich nötig sind. Wichtige
+                Schritte wie das Versenden einer Antwort geben Sie selbst frei:
+                Die KI bereitet vor, der Mensch entscheidet.
               </p>
             </details>
             <details>
@@ -852,8 +1253,9 @@
               Lassen Sie uns über Ihr Projekt sprechen.
             </h2>
             <p class="reveal" style="--d: 0.12s">
-              Das Erstgespräch ist kostenlos und unverbindlich. Ich antworte
-              innerhalb von 24 Stunden.
+              Ob neue Website oder KI-Automatisierung: Das Erstgespräch ist
+              kostenlos und unverbindlich. Ich antworte innerhalb von 24
+              Stunden.
             </p>
             <ul class="contact-list reveal" style="--d: 0.18s">
               <li>
@@ -937,6 +1339,7 @@
 
     <!-- ============ FOOTER ============ -->
     <footer class="site-footer">
+      <p class="footer-giant" aria-hidden="true">meoform</p>
       <div class="container footer-inner">
         <p class="logo">
           <img
@@ -959,6 +1362,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
   </body>
 </html>
