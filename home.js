@@ -595,3 +595,95 @@ if (demoRoot && document.getElementById("demo-list")) {
   }
 }
 
+
+/* ---------- Illustrationen nur abspielen, wenn sichtbar ---------- */
+const anims = document.querySelectorAll(".anim");
+if (anims.length && !reduceMotion && "IntersectionObserver" in window) {
+  const aio = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((e) =>
+        e.target.classList.toggle("is-playing", e.isIntersecting),
+      ),
+    { threshold: 0.25 },
+  );
+  anims.forEach((el) => aio.observe(el));
+}
+
+/* ---------- Mini-Demo: Rechnung erfassen (Beispieldaten, ohne innerHTML) ---------- */
+const mini = document.getElementById("mini-demo");
+if (mini) {
+  const runBtn = document.getElementById("mini-run");
+  const status = document.getElementById("mini-status");
+  const row = document.getElementById("mini-new");
+  const fields = [...mini.querySelectorAll(".mf")].sort(
+    (a, b) => a.dataset.f - b.dataset.f,
+  );
+  const cells = [...row.querySelectorAll("[data-c]")];
+  const values = ["Farbenhandel Krüger", "4471", "428,58 €", "17.11."];
+  let timers = [];
+  let ran = false;
+
+  const reset = () => {
+    timers.forEach(clearTimeout);
+    timers = [];
+    fields.forEach((f) => f.classList.remove("is-hl", "is-done"));
+    cells.forEach((c) => {
+      c.classList.remove("is-in");
+      c.textContent = "";
+    });
+    row.classList.remove("is-filled");
+    status.textContent = "";
+  };
+
+  const finish = () => {
+    status.textContent =
+      "In offene Posten eingetragen. Erinnerung am 15.11. geplant.";
+    runBtn.textContent = "Erneut abspielen";
+    runBtn.disabled = false;
+  };
+
+  const run = () => {
+    ran = true;
+    reset();
+    runBtn.disabled = true;
+    if (reduceMotion) {
+      fields.forEach((f) => f.classList.add("is-done"));
+      cells.forEach((c, i) => {
+        c.textContent = values[i];
+        c.classList.add("is-in");
+      });
+      row.classList.add("is-filled");
+      finish();
+      return;
+    }
+    status.textContent = "Rechnung wird gelesen …";
+    const at = (ms, fn) => timers.push(setTimeout(fn, ms));
+    fields.forEach((f, i) => {
+      const t = 500 + i * 700;
+      at(t, () => f.classList.add("is-hl"));
+      at(t + 450, () => {
+        f.classList.replace("is-hl", "is-done");
+        cells[i].textContent = values[i];
+        cells[i].classList.add("is-in");
+        if (i === 0) row.classList.add("is-filled");
+      });
+    });
+    at(500 + fields.length * 700 + 300, finish);
+  };
+
+  runBtn.addEventListener("click", run);
+
+  /* Einmal automatisch abspielen, wenn die Demo ins Bild kommt */
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    const mio = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting && !ran) {
+          run();
+          mio.disconnect();
+        }
+      },
+      { threshold: 0.5 },
+    );
+    mio.observe(mini);
+  }
+}

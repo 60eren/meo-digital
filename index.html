@@ -25,7 +25,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
     />
-    <link rel="stylesheet" href="home.css?v=1" />
+    <link rel="stylesheet" href="home.css?v=2" />
 
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png" />
@@ -178,6 +178,26 @@
 
           <div class="offers">
             <article class="offer reveal">
+              <div class="offer-visual anim" aria-hidden="true">
+                <svg class="ill ill-web" viewBox="0 0 320 180" fill="none">
+                  <rect class="w-frame" x="20" y="14" width="280" height="152" rx="10" />
+                  <line class="w-bar" x1="20" y1="34" x2="300" y2="34" />
+                  <circle class="w-dot" cx="34" cy="24" r="3" /><circle class="w-dot" cx="44" cy="24" r="3" /><circle class="w-dot" cx="54" cy="24" r="3" />
+                  <rect class="w-b w-b1" x="36" y="50" width="120" height="12" rx="3" />
+                  <rect class="w-b w-b2" x="36" y="68" width="90" height="8" rx="3" />
+                  <rect class="w-b w-b3 w-cta" x="36" y="88" width="54" height="16" rx="8" />
+                  <rect class="w-b w-b4 w-img" x="176" y="50" width="108" height="56" rx="6" />
+                  <rect class="w-b w-b5" x="36" y="120" width="76" height="32" rx="5" />
+                  <rect class="w-b w-b6" x="122" y="120" width="76" height="32" rx="5" />
+                  <rect class="w-b w-b7" x="208" y="120" width="76" height="32" rx="5" />
+                  <path class="w-cursor" d="M0 0 L0 14 L4 10.5 L7 17 L9.5 16 L6.5 9.5 L11.5 9.5 Z" />
+                  <g class="w-toast">
+                    <rect x="196" y="128" width="96" height="28" rx="8" />
+                    <circle cx="210" cy="142" r="4" />
+                    <text x="220" y="146">Neue Anfrage</text>
+                  </g>
+                </svg>
+              </div>
               <header class="offer-head">
                 <p class="label">A</p>
                 <h3 class="heading-4">Websites</h3>
@@ -214,7 +234,30 @@
               <a href="#kontakt" class="link-arrow">Website anfragen</a>
             </article>
 
-            <article class="offer reveal" style="--d: 80ms" id="automatisierung">
+            <article class="offer offer-dark reveal" style="--d: 80ms" id="automatisierung">
+              <div class="offer-visual anim" aria-hidden="true">
+                <svg class="ill ill-auto" viewBox="0 0 320 180" fill="none">
+                  <path class="a-path" d="M66 90 H160 H254" />
+                  <path class="a-flow" d="M66 90 H160 H254" />
+                  <g class="a-node a-n1">
+                    <rect x="34" y="58" width="64" height="64" rx="16" />
+                    <path class="a-ico" d="M50 78 h32 v24 h-32 z M50 78 l16 12 l16 -12" />
+                  </g>
+                  <g class="a-node a-n2">
+                    <rect x="128" y="58" width="64" height="64" rx="16" />
+                    <path class="a-ico" d="M160 74 l4 12 l12 4 l-12 4 l-4 12 l-4 -12 l-12 -4 l12 -4 z" />
+                  </g>
+                  <g class="a-node a-n3">
+                    <rect x="222" y="58" width="64" height="64" rx="16" />
+                    <path class="a-ico" d="M238 76 h32 v28 h-32 z M238 85 h32 M238 94 h32 M250 76 v28" />
+                    <rect class="a-row" x="239" y="95" width="30" height="8" rx="1" />
+                  </g>
+                  <circle class="a-pulse" cx="66" cy="90" r="5" />
+                  <text class="a-lbl" x="66" y="146">E-Mail</text>
+                  <text class="a-lbl" x="160" y="146">KI liest</text>
+                  <text class="a-lbl" x="254" y="146">Tabelle</text>
+                </svg>
+              </div>
               <header class="offer-head">
                 <p class="label">B</p>
                 <h3 class="heading-4">KI-Automatisierung</h3>
@@ -246,6 +289,48 @@
                 <a href="#demo" class="link-arrow link-muted">So sieht das aus</a>
               </div>
             </article>
+          </div>
+
+          <!-- Mini-Demo: Rechnung erfassen (Modul 03) -->
+          <div class="mini-demo reveal" id="mini-demo">
+            <div class="mini-head">
+              <p class="label">Mini-Demo <span>Modul 03 · Rechnungen und Belege</span></p>
+              <h3 class="heading-5">Eine Rechnung kommt per E-Mail.<br />Der Rest passiert von selbst.</h3>
+              <p class="mini-sub">Betrag, Nummer und Fälligkeit werden ausgelesen und landen in Ihrer Liste der offenen Posten. Eine Erinnerung vor dem Zahlungsziel ist gleich mit geplant.</p>
+              <div class="mini-actions">
+                <button class="btn btn-primary btn-sm" id="mini-run" type="button">Rechnung verarbeiten</button>
+                <span class="label mini-tag">Beispieldaten</span>
+              </div>
+              <p class="mini-status" id="mini-status" role="status"></p>
+            </div>
+            <div class="mini-stage">
+              <article class="mini-invoice" aria-label="Beispielrechnung">
+                <p class="mini-mail label">E-Mail · heute, 09:47</p>
+                <p class="mini-from"><span class="mf" data-f="0">Farbenhandel Krüger GmbH</span></p>
+                <p class="mini-no">Rechnung Nr. <span class="mf" data-f="1">2026-4471</span></p>
+                <dl class="mini-lines">
+                  <div><dt>Wandfarbe weiß, 10 l × 6</dt><dd>298,80 €</dd></div>
+                  <div><dt>Abdeckvlies, 50 m² × 3</dt><dd>89,70 €</dd></div>
+                  <div><dt>Malerkrepp 38 mm × 12</dt><dd>40,08 €</dd></div>
+                  <div class="mini-total"><dt>Gesamt</dt><dd><span class="mf" data-f="2">428,58 €</span></dd></div>
+                </dl>
+                <p class="mini-due">Zahlbar bis <span class="mf" data-f="3">17.11.2026</span></p>
+              </article>
+              <div class="mini-sheet" role="table" aria-label="Offene Posten">
+                <div class="mini-row mini-row-head" role="row">
+                  <span role="columnheader">Lieferant</span><span role="columnheader">Nr.</span><span role="columnheader">Betrag</span><span role="columnheader">Fällig</span>
+                </div>
+                <div class="mini-row" role="row">
+                  <span role="cell">Malerbedarf Hoff</span><span role="cell">0193</span><span role="cell">112,40 €</span><span role="cell">08.11.</span>
+                </div>
+                <div class="mini-row" role="row">
+                  <span role="cell">Gerüstbau Yildiz</span><span role="cell">A-771</span><span role="cell">1.240,00 €</span><span role="cell">21.11.</span>
+                </div>
+                <div class="mini-row mini-row-new" role="row" id="mini-new">
+                  <span role="cell" data-c="0"></span><span role="cell" data-c="1"></span><span role="cell" data-c="2"></span><span role="cell" data-c="3"></span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -464,26 +549,37 @@
             <h2 class="heading-2" id="ueber-h">Persönlich, sicher, planbar.</h2>
           </header>
           <div class="about">
-            <p class="about-lead heading-5 reveal">
-              Hinter Meoform steht Eren Özkan. Das Wissen aus dem Studium der
-              IT-Sicherheit an der Ruhr-Universität Bochum fließt in jedes
-              Projekt ein: von verschlüsselten Verbindungen bis zu geschützten
-              Formularen.
-            </p>
-            <dl class="about-facts reveal" style="--d: 80ms">
-              <div>
-                <dt class="label">Ansprechpartner</dt>
-                <dd>Von der ersten Idee bis zum Livegang dieselbe Person. Keine Warteschleifen, Antwort innerhalb von 24 Stunden.</dd>
+            <div class="about-body">
+              <p class="about-lead heading-5 reveal">
+                Hinter Meoform stehe ich, Eren Özkan. Ich studiere IT-Sicherheit
+                an der Ruhr-Universität Bochum und baue Websites und
+                Automatisierungen, die sicher laufen und im Alltag wirklich helfen.
+              </p>
+              <div class="skills reveal" style="--d: 80ms" aria-label="Kompetenzen">
+                <div class="skill-group sg-web">
+                  <p class="label">Web</p>
+                  <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>TypeScript</li></ul>
+                </div>
+                <div class="skill-group sg-auto">
+                  <p class="label">Automatisierung</p>
+                  <ul><li>Python</li><li>KI-Workflows</li><li>Excel und Berichte</li></ul>
+                </div>
+                <div class="skill-group sg-sec">
+                  <p class="label">Sicherheit</p>
+                  <ul><li>Websicherheit</li><li>Sichere Entwicklung</li><li>HTTPS und Formularschutz</li></ul>
+                </div>
               </div>
-              <div>
-                <dt class="label">Preise</dt>
-                <dd>Ein verbindliches Festpreisangebot vor Projektbeginn. Keine versteckten Kosten.</dd>
-              </div>
-              <div>
-                <dt class="label">Kompetenzen</dt>
-                <dd>HTML, CSS, JavaScript, TypeScript, Python, Websicherheit, sichere Entwicklung</dd>
-              </div>
-            </dl>
+              <dl class="about-facts reveal" style="--d: 120ms">
+                <div>
+                  <dt class="label">Ansprechpartner</dt>
+                  <dd>Von der ersten Idee bis zum Livegang dieselbe Person. Antwort innerhalb von 24 Stunden.</dd>
+                </div>
+                <div>
+                  <dt class="label">Preise</dt>
+                  <dd>Ein verbindliches Festpreisangebot vor Projektbeginn. Keine versteckten Kosten.</dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </div>
       </section>
@@ -717,6 +813,6 @@
       </div>
     </footer>
 
-    <script src="home.js?v=1"></script>
+    <script src="home.js?v=2"></script>
   </body>
 </html>
