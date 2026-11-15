@@ -731,72 +731,46 @@ if (stepsEl) {
   } else stepsEl.classList.add("is-run");
 }
 
-/* ---------- Eigenprojekte: Ordner ---------- */
-const folders = [...document.querySelectorAll(".folder[data-filter]")];
+/* ---------- Arbeiten: Filter nach Branche ---------- */
+const workBtns = [...document.querySelectorAll(".work-filter .chip")];
 const works = [...document.querySelectorAll(".work[data-category]")];
-const workPanel = document.getElementById("work-panel");
-if (folders.length && works.length && workPanel) {
+if (workBtns.length && works.length) {
   const workStatus = document.getElementById("work-status");
-  const hint = document.getElementById("folder-hint");
-
-  // Zähler + Vorschaubilder automatisch aus den Projekten
-  folders.forEach((f) => {
-    const mine = works.filter((w) => w.dataset.category === f.dataset.filter);
-    if (!mine.length) {
-      f.hidden = true;
-      return;
-    }
-    f.querySelector(".folder-count").textContent =
-      mine.length === 1 ? "1 Projekt" : `${mine.length} Projekte`;
-    const papers = f.querySelector(".folder-papers");
-    mine.slice(0, 3).forEach((w) => {
-      const src = w.querySelector("img");
-      if (!src) return;
-      const paper = document.createElement("span");
-      paper.className = "paper";
-      const img = document.createElement("img");
-      img.src = src.currentSrc || src.src;
-      img.alt = "";
-      img.loading = "lazy";
-      paper.append(img);
-      papers.append(paper);
-    });
+  const labelOf = (b) => b.firstChild.textContent.trim();
+  workBtns.forEach((b) => {
+    const f = b.dataset.filter;
+    const n =
+      f === "alle"
+        ? works.length
+        : works.filter((w) => w.dataset.category === f).length;
+    b.querySelector(".chip-count").textContent = n;
+    if (n === 0) b.hidden = true;
   });
-
   const layout = () =>
     works
       .filter((w) => !w.hidden)
       .forEach((w, i) => w.classList.toggle("is-offset", i % 2 === 1));
-
-  const open = (folder) => {
-    const already = folder && folder.getAttribute("aria-expanded") === "true";
-    folders.forEach((f) => f.setAttribute("aria-expanded", "false"));
-    if (!folder || already) {
-      workPanel.hidden = true;
-      hint.hidden = false;
-      workStatus.textContent = "";
-      return;
-    }
-    folder.setAttribute("aria-expanded", "true");
-    const cat = folder.dataset.filter;
-    let n = 0;
-    works.forEach((w) => {
-      const show = w.dataset.category === cat;
-      w.hidden = !show;
-      w.classList.remove("is-entering");
-      if (show) {
-        w.classList.add("is-visible");
-        w.style.setProperty("--n", n++);
-        void w.offsetWidth;
-        w.classList.add("is-entering");
-      }
-    });
-    layout();
-    workPanel.hidden = false;
-    hint.hidden = true;
-    workStatus.textContent = `Ordner ${folder.querySelector(".folder-name").textContent} geöffnet, ${n} ${n === 1 ? "Projekt" : "Projekte"}.`;
-  };
-
-  folders.forEach((f) => f.addEventListener("click", () => open(f)));
-  open(null); // Start: alle Ordner zu
+  layout();
+  workBtns.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const f = btn.dataset.filter;
+      workBtns.forEach((b) =>
+        b.setAttribute("aria-pressed", String(b === btn)),
+      );
+      let shown = 0;
+      works.forEach((w) => {
+        const show = f === "alle" || w.dataset.category === f;
+        w.hidden = !show;
+        w.classList.remove("is-entering");
+        if (show) {
+          w.classList.add("is-visible");
+          w.style.setProperty("--n", shown++);
+          void w.offsetWidth;
+          w.classList.add("is-entering");
+        }
+      });
+      layout();
+      workStatus.textContent = `${shown} ${shown === 1 ? "Projekt" : "Projekte"}: ${labelOf(btn)}`;
+    }),
+  );
 }

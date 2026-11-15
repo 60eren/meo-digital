@@ -25,7 +25,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
     />
-    <link rel="stylesheet" href="home.css?v=3" />
+    <link rel="stylesheet" href="home.css?v=4" />
 
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png" />
@@ -129,15 +129,26 @@
         </div>
 
         <div class="hero-work reveal" style="--d: 300ms">
+          <a href="referenzen/lindner-holzwerk.html" class="hero-shot">
+            <img
+              src="img/work/holzwerk-1400.webp"
+              srcset="img/work/holzwerk-800.webp 800w, img/work/holzwerk-1400.webp 1400w"
+              sizes="(min-width: 960px) 46vw, 90vw"
+              alt="Startseite der Website Lindner Holzwerk"
+              width="1400"
+              height="933"
+              fetchpriority="high"
+            />
+            <span class="caption">Lindner Holzwerk <em>Eigenprojekt</em></span>
+          </a>
           <a href="referenzen/sorella.html" class="hero-shot">
             <img
-              src="img/work/sorella-1400.webp"
+              src="img/work/sorella-800.webp"
               srcset="img/work/sorella-800.webp 800w, img/work/sorella-1400.webp 1400w"
-              sizes="(min-width: 960px) 46vw, 90vw"
+              sizes="(min-width: 960px) 26vw, 70vw"
               alt="Startseite der Website Sorella Kosmetik"
-              width="1400"
-              height="794"
-              fetchpriority="high"
+              width="800"
+              height="454"
             />
             <span class="caption">Sorella Kosmetik <em>Eigenprojekt</em></span>
           </a>
@@ -151,17 +162,6 @@
               height="533"
             />
             <span class="caption">Voltwerk Elektro <em>Eigenprojekt</em></span>
-          </a>
-          <a href="referenzen/lindner-holzwerk.html" class="hero-shot">
-            <img
-              src="img/work/holzwerk-800.webp"
-              srcset="img/work/holzwerk-800.webp 800w, img/work/holzwerk-1400.webp 1400w"
-              sizes="(min-width: 960px) 26vw, 70vw"
-              alt="Startseite der Website Lindner Holzwerk"
-              width="800"
-              height="533"
-            />
-            <span class="caption">Lindner Holzwerk <em>Eigenprojekt</em></span>
           </a>
         </div>
       </section>
@@ -492,30 +492,16 @@
           <!--
             Neues Projekt hinzufügen: ein <article class="work reveal" data-category="…"> in .work-grid kopieren.
             Kategorien: handwerk | kosmetik | task-management
-            Neue Kategorie: einen weiteren <button class="folder"> mit data-filter="…" ergänzen.
-            Vorschaubilder im Ordner und die Projektzahl füllen sich automatisch.
+            Neue Kategorie: einen weiteren Button mit data-filter="…" ergänzen, die Zahl füllt sich automatisch.
           -->
-          <div class="folders reveal" role="group" aria-label="Eigenprojekte nach Branche">
-            <button type="button" class="folder f-handwerk" data-filter="handwerk" aria-expanded="false" aria-controls="work-panel">
-              <span class="folder-back" aria-hidden="true"></span>
-              <span class="folder-papers" aria-hidden="true"></span>
-              <span class="folder-front"><span class="folder-name">Handwerk</span><span class="folder-count"></span></span>
-            </button>
-            <button type="button" class="folder f-kosmetik" data-filter="kosmetik" aria-expanded="false" aria-controls="work-panel">
-              <span class="folder-back" aria-hidden="true"></span>
-              <span class="folder-papers" aria-hidden="true"></span>
-              <span class="folder-front"><span class="folder-name">Kosmetik</span><span class="folder-count"></span></span>
-            </button>
-            <button type="button" class="folder f-task" data-filter="task-management" aria-expanded="false" aria-controls="work-panel">
-              <span class="folder-back" aria-hidden="true"></span>
-              <span class="folder-papers" aria-hidden="true"></span>
-              <span class="folder-front"><span class="folder-name">Task-Management</span><span class="folder-count"></span></span>
-            </button>
+          <div class="work-filter reveal" role="group" aria-label="Projekte nach Branche filtern">
+            <button type="button" class="chip" data-filter="alle" aria-pressed="true">Alle <span class="chip-count"></span></button>
+            <button type="button" class="chip" data-filter="handwerk" aria-pressed="false">Handwerk <span class="chip-count"></span></button>
+            <button type="button" class="chip" data-filter="kosmetik" aria-pressed="false">Kosmetik <span class="chip-count"></span></button>
+            <button type="button" class="chip" data-filter="task-management" aria-pressed="false">Task-Management <span class="chip-count"></span></button>
           </div>
-          <p class="folder-hint" id="folder-hint">Öffnen Sie einen Ordner, um die Projekte zu sehen.</p>
+          <p class="visually-hidden" id="work-status" role="status"></p>
 
-          <div class="work-panel" id="work-panel">
-            <p class="visually-hidden" id="work-status" role="status"></p>
           <div class="work-grid">
             <article class="work reveal" data-category="kosmetik">
               <a href="referenzen/sorella.html">
@@ -561,7 +547,6 @@
                 <span class="link-arrow">Fallstudie ansehen</span>
               </a>
             </article>
-          </div>
           </div>
           <p class="footnote reveal">
             Eigenprojekte sind Arbeiten von Meoform für fiktive Unternehmen, keine Kundenaufträge.
@@ -853,6 +838,6 @@
       </div>
     </footer>
 
-    <script src="home.js?v=3"></script>
+    <script src="home.js?v=4"></script>
   </body>
 </html>
