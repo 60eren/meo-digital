@@ -14,6 +14,9 @@ if (toggle && panel) {
       : "Menü öffnen";
     document.body.classList.toggle("nav-open", open);
     panel.inert = !open;
+    document
+      .querySelectorAll("main, .site-footer, .skip-link")
+      .forEach((el) => (el.inert = open));
   };
   panel.inert = true;
   toggle.addEventListener("click", () =>
@@ -135,7 +138,8 @@ if (form) {
   const check = (field) => {
     const err = document.getElementById(`${field.id}-err`);
     const ok = field.checkValidity();
-    field.toggleAttribute("aria-invalid", !ok);
+    if (ok) field.removeAttribute("aria-invalid");
+    else field.setAttribute("aria-invalid", "true");
     if (err) err.textContent = ok ? "" : msgs[field.id] || "";
     return ok;
   };
@@ -639,13 +643,13 @@ if (mini) {
     status.textContent =
       "In offene Posten eingetragen. Erinnerung am 15.11. geplant.";
     runBtn.textContent = "Erneut abspielen";
-    runBtn.disabled = false;
+    runBtn.removeAttribute("aria-disabled");
   };
 
   const run = () => {
     ran = true;
     reset();
-    runBtn.disabled = true;
+    runBtn.setAttribute("aria-disabled", "true");
     if (reduceMotion) {
       fields.forEach((f) => f.classList.add("is-done"));
       cells.forEach((c, i) => {
@@ -671,7 +675,9 @@ if (mini) {
     at(500 + fields.length * 700 + 300, finish);
   };
 
-  runBtn.addEventListener("click", run);
+  runBtn.addEventListener("click", () => {
+    if (runBtn.getAttribute("aria-disabled") !== "true") run();
+  });
 
   /* Einmal automatisch abspielen, wenn die Demo ins Bild kommt */
   if (!reduceMotion && "IntersectionObserver" in window) {
@@ -688,49 +694,109 @@ if (mini) {
   }
 }
 
-/* ---------- Arbeiten: Filter nach Branche ---------- */
-const workBtns = [...document.querySelectorAll(".work-filter .chip")];
+/* ---------- Illustrationen: erneut abspielen bei Hover/Tippen ---------- */
+document.querySelectorAll(".offer").forEach((card) => {
+  const ill = card.querySelector(".anim");
+  if (!ill || reduceMotion) return;
+  let last = 0;
+  const replay = () => {
+    if (Date.now() - last < 5000) return; // nicht während eines Durchlaufs
+    last = Date.now();
+    ill.classList.remove("is-playing");
+    ill.querySelectorAll("*").forEach((el) => {
+      el.style.animation = "none";
+      void el.getBoundingClientRect();
+      el.style.animation = "";
+    });
+    ill.classList.add("is-playing");
+  };
+  card.addEventListener("pointerenter", replay);
+  ill.addEventListener("click", replay);
+});
+
+/* ---------- Ablauf: Sequenz einmal starten ---------- */
+const stepsEl = document.getElementById("steps");
+if (stepsEl) {
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    const sio = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          stepsEl.classList.add("is-run");
+          sio.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
+    sio.observe(stepsEl);
+  } else stepsEl.classList.add("is-run");
+}
+
+/* ---------- Eigenprojekte: Ordner ---------- */
+const folders = [...document.querySelectorAll(".folder[data-filter]")];
 const works = [...document.querySelectorAll(".work[data-category]")];
-if (workBtns.length && works.length) {
+const workPanel = document.getElementById("work-panel");
+if (folders.length && works.length && workPanel) {
   const workStatus = document.getElementById("work-status");
-  const labelOf = (b) => b.firstChild.textContent.trim();
-  // Zähler und leere Kategorien automatisch
-  workBtns.forEach((b) => {
-    const f = b.dataset.filter;
-    const n =
-      f === "alle"
-        ? works.length
-        : works.filter((w) => w.dataset.category === f).length;
-    b.querySelector(".chip-count").textContent = n;
-    if (n === 0) b.hidden = true;
+  const hint = document.getElementById("folder-hint");
+
+  // Zähler + Vorschaubilder automatisch aus den Projekten
+  folders.forEach((f) => {
+    const mine = works.filter((w) => w.dataset.category === f.dataset.filter);
+    if (!mine.length) {
+      f.hidden = true;
+      return;
+    }
+    f.querySelector(".folder-count").textContent =
+      mine.length === 1 ? "1 Projekt" : `${mine.length} Projekte`;
+    const papers = f.querySelector(".folder-papers");
+    mine.slice(0, 3).forEach((w) => {
+      const src = w.querySelector("img");
+      if (!src) return;
+      const paper = document.createElement("span");
+      paper.className = "paper";
+      const img = document.createElement("img");
+      img.src = src.currentSrc || src.src;
+      img.alt = "";
+      img.loading = "lazy";
+      paper.append(img);
+      papers.append(paper);
+    });
   });
-  // Versatz im Raster nur für jedes zweite sichtbare Projekt
-  const layout = () => {
+
+  const layout = () =>
     works
       .filter((w) => !w.hidden)
       .forEach((w, i) => w.classList.toggle("is-offset", i % 2 === 1));
+
+  const open = (folder) => {
+    const already = folder && folder.getAttribute("aria-expanded") === "true";
+    folders.forEach((f) => f.setAttribute("aria-expanded", "false"));
+    if (!folder || already) {
+      workPanel.hidden = true;
+      hint.hidden = false;
+      workStatus.textContent = "";
+      return;
+    }
+    folder.setAttribute("aria-expanded", "true");
+    const cat = folder.dataset.filter;
+    let n = 0;
+    works.forEach((w) => {
+      const show = w.dataset.category === cat;
+      w.hidden = !show;
+      w.classList.remove("is-entering");
+      if (show) {
+        w.classList.add("is-visible");
+        w.style.setProperty("--n", n++);
+        void w.offsetWidth;
+        w.classList.add("is-entering");
+      }
+    });
+    layout();
+    workPanel.hidden = false;
+    hint.hidden = true;
+    workStatus.textContent = `Ordner ${folder.querySelector(".folder-name").textContent} geöffnet, ${n} ${n === 1 ? "Projekt" : "Projekte"}.`;
   };
-  layout();
-  workBtns.forEach((btn) =>
-    btn.addEventListener("click", () => {
-      const f = btn.dataset.filter;
-      workBtns.forEach((b) =>
-        b.setAttribute("aria-pressed", String(b === btn)),
-      );
-      let shown = 0;
-      works.forEach((w) => {
-        const show = f === "alle" || w.dataset.category === f;
-        w.hidden = !show;
-        w.classList.remove("is-entering");
-        if (show) {
-          shown++;
-          w.classList.add("is-visible");
-          void w.offsetWidth;
-          w.classList.add("is-entering");
-        }
-      });
-      layout();
-      workStatus.textContent = `${shown} ${shown === 1 ? "Projekt" : "Projekte"}: ${labelOf(btn)}`;
-    }),
-  );
+
+  folders.forEach((f) => f.addEventListener("click", () => open(f)));
+  open(null); // Start: alle Ordner zu
 }

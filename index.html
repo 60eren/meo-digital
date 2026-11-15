@@ -25,7 +25,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
     />
-    <link rel="stylesheet" href="home.css?v=2" />
+    <link rel="stylesheet" href="home.css?v=3" />
 
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png" />
@@ -123,7 +123,7 @@
             <li><span class="label">Antwort</span>Innerhalb von 24 Stunden</li>
             <li>
               <span class="label">Sicherheit</span>IT-Sicherheit aus dem Studium
-              an der Ruhr-Universität Bochum
+              an der Ruhr&#8209;Universität Bochum
             </li>
           </ul>
         </div>
@@ -422,7 +422,7 @@
                   aria-label="Beispiel-Nachrichten"
                 ></ul>
 
-                <div class="demo-panel" id="demo-panel">
+                <div class="demo-panel" id="demo-panel" tabindex="0" role="region" aria-label="Nachrichtendetails">
                   <div class="demo-content" id="demo-content">
                     <div class="demo-block" id="demo-b-orig">
                       <p class="demo-title">Originalnachricht</p>
@@ -490,18 +490,32 @@
           </header>
 
           <!--
-            Neues Projekt hinzufügen: ein <article class="work reveal" data-category="…"> kopieren.
+            Neues Projekt hinzufügen: ein <article class="work reveal" data-category="…"> in .work-grid kopieren.
             Kategorien: handwerk | kosmetik | task-management
-            Neue Kategorie: einen weiteren Button mit data-filter="…" ergänzen, der Rest geht automatisch.
+            Neue Kategorie: einen weiteren <button class="folder"> mit data-filter="…" ergänzen.
+            Vorschaubilder im Ordner und die Projektzahl füllen sich automatisch.
           -->
-          <div class="work-filter reveal" role="group" aria-label="Projekte nach Branche filtern">
-            <button type="button" class="chip" data-filter="alle" aria-pressed="true">Alle <span class="chip-count"></span></button>
-            <button type="button" class="chip" data-filter="handwerk" aria-pressed="false">Handwerk <span class="chip-count"></span></button>
-            <button type="button" class="chip" data-filter="kosmetik" aria-pressed="false">Kosmetik <span class="chip-count"></span></button>
-            <button type="button" class="chip" data-filter="task-management" aria-pressed="false">Task-Management <span class="chip-count"></span></button>
+          <div class="folders reveal" role="group" aria-label="Eigenprojekte nach Branche">
+            <button type="button" class="folder f-handwerk" data-filter="handwerk" aria-expanded="false" aria-controls="work-panel">
+              <span class="folder-back" aria-hidden="true"></span>
+              <span class="folder-papers" aria-hidden="true"></span>
+              <span class="folder-front"><span class="folder-name">Handwerk</span><span class="folder-count"></span></span>
+            </button>
+            <button type="button" class="folder f-kosmetik" data-filter="kosmetik" aria-expanded="false" aria-controls="work-panel">
+              <span class="folder-back" aria-hidden="true"></span>
+              <span class="folder-papers" aria-hidden="true"></span>
+              <span class="folder-front"><span class="folder-name">Kosmetik</span><span class="folder-count"></span></span>
+            </button>
+            <button type="button" class="folder f-task" data-filter="task-management" aria-expanded="false" aria-controls="work-panel">
+              <span class="folder-back" aria-hidden="true"></span>
+              <span class="folder-papers" aria-hidden="true"></span>
+              <span class="folder-front"><span class="folder-name">Task-Management</span><span class="folder-count"></span></span>
+            </button>
           </div>
-          <p class="visually-hidden" id="work-status" role="status"></p>
+          <p class="folder-hint" id="folder-hint">Öffnen Sie einen Ordner, um die Projekte zu sehen.</p>
 
+          <div class="work-panel" id="work-panel">
+            <p class="visually-hidden" id="work-status" role="status"></p>
           <div class="work-grid">
             <article class="work reveal" data-category="kosmetik">
               <a href="referenzen/sorella.html">
@@ -547,6 +561,7 @@
                 <span class="link-arrow">Fallstudie ansehen</span>
               </a>
             </article>
+          </div>
           </div>
           <p class="footnote reveal">
             Eigenprojekte sind Arbeiten von Meoform für fiktive Unternehmen, keine Kundenaufträge.
@@ -688,24 +703,36 @@
             <p class="label">06 <span>Ablauf</span></p>
             <h2 class="heading-2" id="ablauf-h">In vier Schritten<br />zum Ergebnis.</h2>
           </header>
-          <ol class="steps">
-            <li class="reveal">
-              <p class="step-meta"><span class="num">01</span><span class="label">Tag 1</span></p>
+          <ol class="steps" id="steps">
+            <li style="--i: 0">
+              <p class="step-meta"><span class="step-dot" aria-hidden="true"></span><span class="num">01</span><span class="label">Tag 1</span></p>
+              <span class="step-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none"><path class="ic" d="M9 11h30a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H21l-8 7v-7H9a4 4 0 0 1-4-4V15a4 4 0 0 1 4-4z" /><circle class="tdot" cx="17" cy="22" r="2.2" /><circle class="tdot" cx="24" cy="22" r="2.2" /><circle class="tdot" cx="31" cy="22" r="2.2" /></svg>
+              </span>
               <h3 class="title-1">Erstgespräch</h3>
               <p>Kostenlos und unverbindlich. Wir besprechen Ziele, Abläufe und Wünsche, telefonisch oder per Video.</p>
             </li>
-            <li class="reveal" style="--d: 60ms">
-              <p class="step-meta"><span class="num">02</span><span class="label">3 bis 5 Tage</span></p>
+            <li style="--i: 1">
+              <p class="step-meta"><span class="step-dot" aria-hidden="true"></span><span class="num">02</span><span class="label">3 bis 5 Tage</span></p>
+              <span class="step-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none"><path class="ic" d="M11 5h18l8 8v30H11z M29 5v8h8" /><line class="dl" x1="16" y1="20" x2="32" y2="20" /><line class="dl" x1="16" y1="26" x2="29" y2="26" /><line class="dl" x1="16" y1="32" x2="24" y2="32" /><g class="stamp"><circle cx="34" cy="36" r="8" /><path d="M30.5 36l2.5 2.5 4.5-5" /></g></svg>
+              </span>
               <h3 class="title-1">Konzept und Angebot</h3>
               <p>Sie erhalten ein Designkonzept oder einen Automatisierungsplan mit verbindlichem Festpreis. Erst dann geht es los.</p>
             </li>
-            <li class="reveal" style="--d: 120ms">
-              <p class="step-meta"><span class="num">03</span><span class="label">1 bis 2 Wochen</span></p>
+            <li style="--i: 2">
+              <p class="step-meta"><span class="step-dot" aria-hidden="true"></span><span class="num">03</span><span class="label">1 bis 2 Wochen</span></p>
+              <span class="step-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none"><rect class="ic" x="4" y="8" width="40" height="32" rx="5" /><line class="ic" x1="4" y1="16" x2="44" y2="16" /><path class="code code-l" d="M18 23l-5 5 5 5" /><path class="code code-r" d="M30 23l5 5-5 5" /><line class="caret" x1="24" y1="22" x2="24" y2="34" /></svg>
+              </span>
               <h3 class="title-1">Umsetzung</h3>
               <p>Ihre Website entsteht oder Ihre Automatisierung wird mit echten Beispielen getestet. Sie geben Feedback, bis alles passt.</p>
             </li>
-            <li class="reveal" style="--d: 180ms">
-              <p class="step-meta"><span class="num">04</span><span class="label">nach 2 bis 3 Wochen</span></p>
+            <li style="--i: 3">
+              <p class="step-meta"><span class="step-dot" aria-hidden="true"></span><span class="num">04</span><span class="label">nach 2 bis 3 Wochen</span></p>
+              <span class="step-ico" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none"><rect class="sw" x="5" y="15" width="38" height="18" rx="9" /><circle class="ring" cx="34" cy="24" r="6" /><circle class="knob" cx="14" cy="24" r="6" /></svg>
+              </span>
               <h3 class="title-1">Livegang und Betreuung</h3>
               <p>Die Website geht online oder die Automatisierung startet. Auf Wunsch übernimmt Meoform Hosting, Updates und Anpassungen.</p>
             </li>
@@ -826,6 +853,6 @@
       </div>
     </footer>
 
-    <script src="home.js?v=2"></script>
+    <script src="home.js?v=3"></script>
   </body>
 </html>
