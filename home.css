@@ -2443,7 +2443,7 @@ dd {
   transition: background-color 300ms ease, color 300ms ease;
 }
 .mf.is-hl {
-  background: var(--sky);
+  background: var(--accent); /* 5,5:1 mit Weiß */
   color: #fff;
 }
 .mf.is-done {
