@@ -687,3 +687,50 @@ if (mini) {
     mio.observe(mini);
   }
 }
+
+/* ---------- Arbeiten: Filter nach Branche ---------- */
+const workBtns = [...document.querySelectorAll(".work-filter .chip")];
+const works = [...document.querySelectorAll(".work[data-category]")];
+if (workBtns.length && works.length) {
+  const workStatus = document.getElementById("work-status");
+  const labelOf = (b) => b.firstChild.textContent.trim();
+  // Zähler und leere Kategorien automatisch
+  workBtns.forEach((b) => {
+    const f = b.dataset.filter;
+    const n =
+      f === "alle"
+        ? works.length
+        : works.filter((w) => w.dataset.category === f).length;
+    b.querySelector(".chip-count").textContent = n;
+    if (n === 0) b.hidden = true;
+  });
+  // Versatz im Raster nur für jedes zweite sichtbare Projekt
+  const layout = () => {
+    works
+      .filter((w) => !w.hidden)
+      .forEach((w, i) => w.classList.toggle("is-offset", i % 2 === 1));
+  };
+  layout();
+  workBtns.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const f = btn.dataset.filter;
+      workBtns.forEach((b) =>
+        b.setAttribute("aria-pressed", String(b === btn)),
+      );
+      let shown = 0;
+      works.forEach((w) => {
+        const show = f === "alle" || w.dataset.category === f;
+        w.hidden = !show;
+        w.classList.remove("is-entering");
+        if (show) {
+          shown++;
+          w.classList.add("is-visible");
+          void w.offsetWidth;
+          w.classList.add("is-entering");
+        }
+      });
+      layout();
+      workStatus.textContent = `${shown} ${shown === 1 ? "Projekt" : "Projekte"}: ${labelOf(btn)}`;
+    }),
+  );
+}
