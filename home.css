@@ -16,8 +16,8 @@
   --muted: #66656d; /* 5,1:1 auf --bg */
   --line: #d9d7cf;
   --line-strong: #bdbab0;
-  --accent: #2f5bea;
-  --accent-ink: #1e3a8a;
+  --accent: #2b4a78;
+  --accent-ink: #17243d;
   --on-ink: #f5f4f0;
   --on-ink-muted: #a9a8a3; /* 7,4:1 auf --ink */
 
@@ -1375,8 +1375,8 @@ dd {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(600px 380px at 85% 20%, rgba(90, 169, 245, 0.18), transparent 70%),
-    radial-gradient(520px 360px at 10% 90%, rgba(47, 91, 234, 0.1), transparent 70%);
+    radial-gradient(600px 380px at 85% 20%, rgba(143, 176, 214, 0.18), transparent 70%),
+    radial-gradient(520px 360px at 10% 90%, rgba(43, 74, 120, 0.1), transparent 70%);
 }
 .demo-stage {
   position: relative;
@@ -1582,7 +1582,7 @@ dd {
 }
 .demo-mail[aria-pressed="true"] {
   border-color: var(--a1);
-  box-shadow: 0 0 0 3px rgba(47, 91, 234, 0.12);
+  box-shadow: 0 0 0 3px rgba(43, 74, 120, 0.12);
 }
 .demo-mail:focus-visible {
   outline: 2px solid var(--a1);
@@ -1707,7 +1707,7 @@ dd {
   border-radius: 4px;
   padding: 0 2px;
   margin: 0 -2px;
-  background-image: linear-gradient(rgba(90, 169, 245, 0.32), rgba(90, 169, 245, 0.32));
+  background-image: linear-gradient(rgba(143, 176, 214, 0.32), rgba(143, 176, 214, 0.32));
   background-repeat: no-repeat;
   background-size: 0% 100%;
   transition:
@@ -1726,7 +1726,7 @@ dd {
   height: 2px;
   border-radius: 2px;
   background: var(--gradient);
-  box-shadow: 0 0 18px 4px rgba(90, 169, 245, 0.45);
+  box-shadow: 0 0 18px 4px rgba(143, 176, 214, 0.45);
   opacity: 0;
   pointer-events: none;
 }
@@ -2061,9 +2061,9 @@ dd {
    Runde 2: mehr Farbe & Abwechslung (Logo-Blautöne + Sand)
    ========================================================= */
 :root {
-  --navy: #1e3a8a;
-  --sky: #5aa9f5;
-  --blue-tint: #e6edfd;
+  --navy: #17243d;
+  --sky: #8fb0d6;
+  --blue-tint: #e9edf3;
   --sand: #ebe4d6;
 }
 
@@ -2147,16 +2147,16 @@ dd {
 }
 .ill-web .w-frame {
   fill: #fff;
-  stroke: #c9d4f3;
+  stroke: #cfd7e3;
 }
 .ill-web .w-bar {
-  stroke: #dbe3f8;
+  stroke: #dee4ec;
 }
 .ill-web .w-dot {
-  fill: #c9d4f3;
+  fill: #cfd7e3;
 }
 .ill-web .w-b {
-  fill: #e3e8f4;
+  fill: #e4e8ee;
 }
 .ill-web .w-b1 {
   fill: var(--ink);
@@ -2372,7 +2372,7 @@ dd {
 }
 .mini-tag {
   padding: var(--s-25) var(--s-75);
-  border: 1px solid #c9d4f3;
+  border: 1px solid #cfd7e3;
   border-radius: var(--r-full);
   color: var(--navy);
 }
@@ -2396,7 +2396,7 @@ dd {
 .mini-invoice,
 .mini-sheet {
   background: #fff;
-  border: 1px solid #d6dff6;
+  border: 1px solid #d6dce5;
   border-radius: var(--r-xl);
 }
 .mini-invoice {
@@ -2466,7 +2466,7 @@ dd {
 }
 .mini-row-head {
   border-top: 0;
-  background: #f4f6fc;
+  background: #f3f5f8;
   font-family: var(--font-mono);
   text-transform: uppercase;
   color: var(--muted);
@@ -2476,7 +2476,7 @@ dd {
   transition: background-color 400ms ease;
 }
 .mini-row-new.is-filled {
-  background: #eef3ff;
+  background: #eef1f5;
 }
 .mini-row-new span {
   opacity: 0;
@@ -2506,7 +2506,8 @@ dd {
   color: #fff;
 }
 .tagline-text.is-split .tw {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.14); /* dunkel, kaum sichtbar auf Navy */
+  transition: color 350ms var(--ease);
 }
 .tagline-text.is-split .tw.is-on {
   color: #fff;
@@ -2560,7 +2561,7 @@ dd {
   background: var(--navy);
 }
 .sg-auto .label {
-  color: #c7d6ff;
+  color: #c8d2e2;
 }
 .sg-auto li {
   background: rgba(255, 255, 255, 0.12);
@@ -2583,7 +2584,7 @@ dd {
   background: var(--navy);
   border-color: var(--navy);
   box-shadow: none;
-  color: #c7d6ff;
+  color: #c8d2e2;
 }
 .plan-featured .title-1,
 .plan-featured .plan-price,
@@ -2592,7 +2593,7 @@ dd {
 }
 .plan-featured .plan-price span,
 .plan-featured .plan-desc {
-  color: #c7d6ff;
+  color: #c8d2e2;
 }
 .plan-featured .plan-desc {
   border-color: rgba(255, 255, 255, 0.18);

@@ -64,6 +64,9 @@ if (navLinks.length && "IntersectionObserver" in window) {
     },
     { rootMargin: "-45% 0px -50% 0px" },
   );
+  // Hero hat keinen Navigationspunkt: dort Markierung entfernen
+  const hero = document.getElementById("top");
+  if (hero) map.set(hero, null);
   map.forEach((_, sec) => sec && spy.observe(sec));
 }
 
@@ -86,9 +89,9 @@ if ("IntersectionObserver" in window && !reduceMotion) {
   reveals.forEach((el) => el.classList.add("is-visible"));
 }
 
-/* ---------- Tagline: Wörter werden nacheinander dunkel ---------- */
+/* ---------- Tagline: Wörter werden beim Scrollen hell (an die Scrollposition gekoppelt) ---------- */
 const tagline = document.querySelector("[data-tagline]");
-if (tagline && !reduceMotion && "IntersectionObserver" in window) {
+if (tagline && !reduceMotion) {
   const words = [];
   const walk = (node) => {
     [...node.childNodes].forEach((child) => {
@@ -112,18 +115,47 @@ if (tagline && !reduceMotion && "IntersectionObserver" in window) {
   };
   walk(tagline);
   tagline.classList.add("is-split");
-  const wio = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
+
+  let lit = -1;
+  let queued = false;
+  const update = () => {
+    queued = false;
+    const r = tagline.getBoundingClientRect();
+    const vh = window.innerHeight;
+    // 0 = Text taucht unten auf (85 % Höhe), 1 = Text hat 30 % Höhe erreicht
+    const start = vh * 0.85;
+    const end = vh * 0.3;
+    const p = Math.min(1, Math.max(0, (start - r.top) / (start - end)));
+    const n = Math.round(p * words.length);
+    if (n === lit) return;
+    lit = n;
+    words.forEach((w, i) => w.classList.toggle("is-on", i < n));
+  };
+  const onScroll = () => {
+    if (!queued) {
+      queued = true;
+      requestAnimationFrame(update);
+    }
+  };
+  // Nur rechnen, solange die Tagline in der Nähe ist
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(
+      ([e]) => {
         if (e.isIntersecting) {
-          e.target.classList.add("is-on");
-          wio.unobserve(e.target);
+          window.addEventListener("scroll", onScroll, { passive: true });
+          update();
+        } else {
+          window.removeEventListener("scroll", onScroll);
+          update();
         }
-      });
-    },
-    { rootMargin: "0px 0px -38% 0px" },
-  );
-  words.forEach((w) => wio.observe(w));
+      },
+      { rootMargin: "20% 0px 20% 0px" },
+    ).observe(tagline);
+  } else {
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+  window.addEventListener("resize", onScroll, { passive: true });
+  update();
 }
 
 /* ---------- Formular: Prüfung beim Absenden, Fehler am Feld ---------- */
